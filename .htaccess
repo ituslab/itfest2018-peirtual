@@ -6,7 +6,7 @@
 </IfModule>
 
 # auto load core file (SET YOUR FULL PATH)
-php_value auto_prepend_file /home/sgnzst/Workspace/WebProjects/E-Perpus/core/init.php
+# php_value auto_prepend_file /home/sgnzst/Workspace/WebProjects/E-Perpus/core/init.php
 
 # Error 404 Server Project Root Directory
 # ErrorDocument 404 /404.php
