@@ -1,2 +1,7 @@
+@import "_bulma";
 @import "_variables";
 @import "_landing";
+
+html, body {
+  background: $page-color;
+}

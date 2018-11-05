@@ -3,37 +3,54 @@ const
   concat = require('gulp-concat'),
   order = require('gulp-order'),
   plumber = require('gulp-plumber'),
-  sass = require('gulp-sass'),
+  gsass = require('gulp-sass'),
   uglify = require('gulp-uglify'),
-  cssMinify = require('gulp-csso');
+  cssMinify = require('gulp-csso'),
+  del = require('del');
 
-gulp.task('sass', () => {
-  gulp.src('src/sass/main.scss')
+const app = {
+  sass: {
+    src: 'src/sass/main.scss',
+    dest: 'assets/css/'
+  },
+  script: {
+    src: 'src/js/**/*.js',
+    dest: 'assets/js/',
+    order: [
+      "src/js/**/*.js"
+    ]
+  }
+}
+
+const clean = () => {
+  return del([
+    'assets/css/',
+    'assets/js/',
+  ]);
+};
+
+const sass = () => {
+  return gulp.src(app.sass.src)
   .pipe(plumber())
-  .pipe(sass())
+  .pipe(gsass())
   .pipe(cssMinify())
-  .pipe(gulp.dest('assets/css'))
-});
+  .pipe(gulp.dest(app.sass.dest))
+};
 
-gulp.task('js', () => {
-  gulp.src('src/js/**/*.js')
+const script = () => {
+  return gulp.src(app.script.src)
   .pipe(plumber())
-	.pipe(order([
-		"src/js/**/*.js"
-	], { base: './' }))
+	.pipe(order(app.script.order, { base: './' }))
   .pipe(concat('main.js'))
   .pipe(uglify()) // {mangle: true}
-  .pipe(gulp.dest('assets/js/'));
-});
+  .pipe(gulp.dest(app.script.dest));
+};
 
-gulp.task('watch', () => {
-  gulp.watch('src/sass/**/*.scss', ['sass']);
-  gulp.watch('src/js/**/*.js', ['js']);
-});
+const watch = () => {
+  gulp.watch(app.sass.src, sass);
+  gulp.watch(app.script.src, script);
+};
 
-gulp.task('build', [
-  'sass',
-  'js'
-]);
+const build = gulp.series(clean, gulp.parallel(sass, script));
 
-gulp.task('default', ['watch']);
+gulp.task('default', build);
