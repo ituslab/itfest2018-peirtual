@@ -42,13 +42,8 @@ const script = () => {
   .pipe(plumber())
 	.pipe(order(app.script.order, { base: './' }))
   .pipe(concat('main.js'))
-  .pipe(uglify()) // {mangle: true}
+  .pipe(uglify())
   .pipe(gulp.dest(app.script.dest));
-};
-
-const watch = () => {
-  gulp.watch(app.sass.src, sass);
-  gulp.watch(app.script.src, script);
 };
 
 const build = gulp.series(clean, gulp.parallel(sass, script));
