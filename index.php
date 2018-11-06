@@ -10,9 +10,5 @@
     view('landing');
   });
 
-  $route->get('/dasboard', function(){
-    echo "string";
-  });
-
   $route->run();
 ?>
