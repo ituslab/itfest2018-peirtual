@@ -1,7 +1,2 @@
-@import "_bulma";
+@import "materialize/materialize";
 @import "_variables";
-@import "_landing";
-
-html, body {
-  background: $page-color;
-}
