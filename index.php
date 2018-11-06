@@ -14,6 +14,5 @@
     echo "string";
   });
 
-
   $route->run();
 ?>
