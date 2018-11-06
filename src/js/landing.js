@@ -1,8 +1,6 @@
-(function() {
-    var burger = document.querySelector('.burger');
-    var menu = document.querySelector('#'+burger.dataset.target);
-    burger.addEventListener('click', function() {
-        burger.classList.toggle('is-active');
-        menu.classList.toggle('is-active');
-    });
-})();
+(function($){
+  $(function(){
+    $('.sidenav').sidenav();
+    $('.parallax').parallax();
+  }); // end of document ready
+})(jQuery); // end of jQuery name space

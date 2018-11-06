@@ -2,11 +2,11 @@
   require_once __DIR__.'/vendor/autoload.php';
   require_once __DIR__.'/init.php';
 
-  $route = new Bramus\Router\Router();
+  $app = new Bramus\Router\Router();
 
-  $route->get('/', function(){
-    view('landing');
+  $app->get('/', function(){
+    View::desktop('landing');
   });
 
-  $route->run();
+  $app->run();
 ?>
