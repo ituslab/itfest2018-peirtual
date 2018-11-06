@@ -1,6 +1,6 @@
 <?php
 
-namespace Felis\Silvestris;
+namespace Package\Database;
 
 class Pagination{
 

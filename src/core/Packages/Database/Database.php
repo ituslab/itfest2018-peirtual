@@ -1,5 +1,8 @@
 <?php
 
+namespace Package\Database;
+use \PDO;
+
 class Database {
   private $dbh, $query = "", $params = [], $data = [];
 

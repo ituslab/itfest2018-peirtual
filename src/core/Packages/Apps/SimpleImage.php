@@ -1,4 +1,5 @@
 <?php
+namespace Package\Apps;
 
 class SimpleImage {
   private $image, $imageType;

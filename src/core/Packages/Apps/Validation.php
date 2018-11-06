@@ -2,6 +2,9 @@
 /**
  *
  */
+namespace Package\Apps;
+use Package\Database\Mysql;
+
 class Validation extends Mysql{
   private $valid  = false, $errors = [], $connection, $table;
 

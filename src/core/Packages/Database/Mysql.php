@@ -2,6 +2,10 @@
 /**
  *
  */
+namespace Package\Database;
+use Package\Database\Database;
+use Package\Traits\Config;
+
 class Mysql extends Database {
   private static $connection;
 
@@ -11,7 +15,7 @@ class Mysql extends Database {
     }
     return self::$connection;
   }
-  
+
   public static function connectInfo(){
     return array(
       'host' => Config::SERVER,
