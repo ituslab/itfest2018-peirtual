@@ -8,5 +8,9 @@
     View::desktop('landing');
   });
 
+  $app->get('/m', function(){
+    View::mobile('index');
+  });
+
   $app->run();
 ?>
