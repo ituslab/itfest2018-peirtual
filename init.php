@@ -15,7 +15,7 @@ class View {
     if (file_exists($file)) {
       include_once $file;
     }else {
-      die('Request Not Found');
+      die('Request Not Found!');
     }
   }
 

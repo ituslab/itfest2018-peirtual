@@ -1,16 +1,9 @@
 /*! onsenui - v2.10.5 - 2018-10-05 */
-@import url("./ionicons/css/ionicons.min.css");
-@import url("./material-design-iconic-font/css/material-design-iconic-font.min.css");
-@import url("./font_awesome/css/font-awesome.min.css");
-@import url("./font_awesome/css/v4-shims.min.css");
-
-ons-page,
-ons-navigator,
+ons-page, ons-navigator,
 ons-tabbar,
 ons-gesture-detector {
   display: block;
-  touch-action: manipulation;
-  /* Remove click delay */
+  touch-action: manipulation; /* Remove click delay */
 }
 
 ons-navigator,
@@ -26,8 +19,7 @@ ons-alert-dialog {
   bottom: 0;
   right: 0;
   overflow: hidden;
-  touch-action: manipulation;
-  /* Remove click delay */
+  touch-action: manipulation; /* Remove click delay */
 }
 
 ons-toast {
@@ -40,26 +32,18 @@ ons-toast .toast {
 
 ons-tab {
   -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
 
-ons-page,
-ons-navigator,
-ons-tabbar,
-ons-dialog,
-ons-alert-dialog,
-ons-action-sheet,
-ons-toast {
+ons-page, ons-navigator, ons-tabbar, ons-dialog, ons-alert-dialog, ons-action-sheet, ons-toast {
   z-index: 2;
 }
 
-ons-fab,
-ons-speed-dial {
+ons-fab, ons-speed-dial {
   z-index: 10001;
 }
 
-ons-toolbar:not([inline]),
-ons-bottom-toolbar {
+ons-toolbar:not([inline]), ons-bottom-toolbar {
   position: absolute;
   left: 0;
   right: 0;
@@ -74,10 +58,8 @@ ons-bottom-toolbar {
   bottom: 0;
 }
 
-.page,
-.page__content,
-.page--material,
-.page--material__content {
+.page, .page__content,
+.page--material, .page--material__content {
   background-color: transparent !important;
   background: transparent !important;
 }
@@ -103,55 +85,54 @@ ons-bottom-toolbar {
   overflow: auto;
 }
 
-.page[status-bar-fill]>.page__content {
+.page[status-bar-fill] > .page__content {
   top: 20px;
 }
 
-.page[status-bar-fill]>.toolbar {
+.page[status-bar-fill] > .toolbar {
   padding-top: 20px;
   box-sizing: content-box;
 }
 
-.page[status-bar-fill]>.toolbar:not(.toolbar--transparent)+.page__background,
-.page[status-bar-fill]>.toolbar:not(.toolbar--cover-content)+.page__background+.page__content {
+.page[status-bar-fill] > .toolbar:not(.toolbar--transparent) + .page__background,
+.page[status-bar-fill] > .toolbar:not(.toolbar--cover-content) + .page__background + .page__content {
   top: 64px;
 }
 
-.page[status-bar-fill]>.toolbar--material:not(.toolbar-transparent)+.page__background,
-.page[status-bar-fill]>.toolbar--material:not(.toolbar--cover-content)+.page__background+.page__content {
+.page[status-bar-fill] > .toolbar--material:not(.toolbar-transparent) + .page__background,
+.page[status-bar-fill] > .toolbar--material:not(.toolbar--cover-content) + .page__background + .page__content {
   top: 76px;
 }
 
-.page[status-bar-fill]>.toolbar.toolbar--transparent+.page__background {
+.page[status-bar-fill] > .toolbar.toolbar--transparent + .page__background {
   top: 0;
 }
 
-ons-tabbar[status-bar-fill]>.tabbar--top__content {
+ons-tabbar[status-bar-fill] > .tabbar--top__content {
   top: 71px;
 }
 
-ons-tabbar[status-bar-fill]>.tabbar--top {
+ons-tabbar[status-bar-fill] > .tabbar--top {
   padding-top: 22px;
 }
 
-ons-tabbar[position="top"] .page[status-bar-fill]>.page__content {
+ons-tabbar[position="top"] .page[status-bar-fill] > .page__content {
   top: 0px;
 }
 
-.toolbar+.page__background+.page__content ons-tabbar[status-bar-fill]>.tabbar--top {
+.toolbar + .page__background + .page__content ons-tabbar[status-bar-fill] > .tabbar--top {
   top: 0px;
 }
 
-.toolbar+.page__background+.page__content ons-tabbar[status-bar-fill]>.tabbar--top__content {
+.toolbar + .page__background + .page__content ons-tabbar[status-bar-fill] > .tabbar--top__content {
   top: 49px;
 }
 
-.page__content>.list:not(.list--material):first-child {
-  margin-top: -1px;
-  /* Avoid double border with toolbar */
+.page__content > .list:not(.list--material):first-child {
+  margin-top: -1px; /* Avoid double border with toolbar */
 }
 
-.page--wrapper>.page__background {
+.page--wrapper > .page__background {
   display: none;
 }
 
@@ -164,7 +145,7 @@ ons-popover[disabled] {
 }
 
 ons-list-item[disabled] {
-  pointer-events: none;
+   pointer-events: none;
 }
 
 ons-range[disabled] {
@@ -180,10 +161,7 @@ ons-pull-hook {
   z-index: 20002;
 }
 
-ons-splitter,
-ons-splitter-mask,
-ons-splitter-content,
-ons-splitter-side {
+ons-splitter, ons-splitter-mask, ons-splitter-content, ons-splitter-side {
   display: block;
   position: absolute;
   left: 0;
@@ -230,21 +208,20 @@ ons-splitter-side[mode="split"] {
   z-index: 3;
 }
 
-ons-toolbar-button>ons-icon[icon*="ion-"] {
+ons-toolbar-button > ons-icon[icon*="ion-"] {
   font-size: 26px;
 }
 
-ons-range,
-ons-select {
+ons-range, ons-select {
   display: inline-block;
 }
 
-ons-range>input {
+ons-range > input {
   min-width: 50px;
   width: 100%;
 }
 
-ons-select>select {
+ons-select > select {
   width: 100%;
 }
 
@@ -269,7 +246,7 @@ ons-carousel[fullscreen] {
   display: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-  justify-content: space-between;
+          justify-content: space-between;
   font-size: 12px;
   line-height: 20px;
   font-family: Arial, Helvetica;
@@ -285,18 +262,17 @@ ons-carousel[fullscreen] {
   font-family: Roboto, Arial, Helvetica;
 }
 
-.ons-status-bar-mock.android~* {
+.ons-status-bar-mock.android ~ * {
   top: 20px;
   bottom: 0;
   position: inherit;
   width: 100%;
 }
 
-.ons-ios-scroll-fix .page:not(.page--wrapper)[shown]>.page__content {
+.ons-ios-scroll-fix .page:not(.page--wrapper)[shown] > .page__content {
   overflow-y: hidden;
 }
-
-.ons-ios-scroll-fix ons-splitter-side>.page:not(.page--wrapper)[shown]>.page__content {
+.ons-ios-scroll-fix ons-splitter-side > .page:not(.page--wrapper)[shown] > .page__content {
   overflow-y: auto;
 }
 
@@ -308,13 +284,12 @@ ons-row {
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
+          flex-wrap: wrap;
   width: 100%;
   box-sizing: border-box;
 }
 
-ons-row[vertical-align="top"],
-ons-row[align="top"] {
+ons-row[vertical-align="top"], ons-row[align="top"] {
   -webkit-box-align: start;
   box-align: start;
   -ms-flex-align: start;
@@ -323,8 +298,7 @@ ons-row[align="top"] {
   align-items: flex-start;
 }
 
-ons-row[vertical-align="bottom"],
-ons-row[align="bottom"] {
+ons-row[vertical-align="bottom"], ons-row[align="bottom"] {
   -webkit-box-align: end;
   box-align: end;
   -ms-flex-align: end;
@@ -333,8 +307,7 @@ ons-row[align="bottom"] {
   align-items: flex-end;
 }
 
-ons-row[vertical-align="center"],
-ons-row[align="center"] {
+ons-row[vertical-align="center"], ons-row[align="center"] {
   -webkit-box-align: center;
   box-align: center;
   -ms-flex-align: center;
@@ -344,7 +317,7 @@ ons-row[align="center"] {
   text-align: inherit;
 }
 
-ons-row+ons-row {
+ons-row + ons-row {
   padding-top: 0;
 }
 
@@ -360,24 +333,20 @@ ons-col {
   box-sizing: border-box;
 }
 
-ons-col[vertical-align="top"],
-ons-col[align="top"] {
+ons-col[vertical-align="top"], ons-col[align="top"] {
   -webkit-align-self: flex-start;
   -moz-align-self: flex-start;
   -ms-flex-item-align: start;
   align-self: flex-start;
 }
 
-ons-col[vertical-align="bottom"],
-ons-col[align="bottom"] {
+ons-col[vertical-align="bottom"], ons-col[align="bottom"] {
   -webkit-align-self: flex-end;
   -moz-align-self: flex-end;
   -ms-flex-item-align: end;
-  align-self: flex-end;
-}
+  align-self: flex-end; }
 
-ons-col[vertical-align="center"],
-ons-col[align="center"] {
+ons-col[vertical-align="center"], ons-col[align="center"] {
   -webkit-align-self: center;
   -moz-align-self: center;
   -ms-flex-item-align: center;
@@ -417,7 +386,7 @@ limitations under the License.
   line-height: initial;
 }
 
-:not(ons-toolbar-button):not(ons-action-sheet-button):not(.segment__button)>.ons-icon--ion {
+:not(ons-toolbar-button):not(ons-action-sheet-button):not(.segment__button) > .ons-icon--ion {
   line-height: 0.75em;
   vertical-align: -25%;
 }
@@ -432,7 +401,6 @@ limitations under the License.
   0% {
     -moz-transform: rotate(0deg);
   }
-
   100% {
     -moz-transform: rotate(359deg);
   }
@@ -442,7 +410,6 @@ limitations under the License.
   0% {
     -webkit-transform: rotate(0deg);
   }
-
   100% {
     -webkit-transform: rotate(359deg);
   }
@@ -453,7 +420,6 @@ limitations under the License.
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
-
   100% {
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg);
@@ -513,10 +479,7 @@ limitations under the License.
   font-weight: 900;
 }
 
-ons-input,
-ons-radio,
-ons-checkbox,
-ons-search-input {
+ons-input, ons-radio, ons-checkbox, ons-search-input {
   display: inline-block;
   position: relative;
 }
@@ -561,55 +524,45 @@ ons-input input.text-input--material:-ms-input-placeholder {
   html[onsflag-iphonex-landscape] ons-splitter-side[side="left"] .page__content {
     padding-right: 0;
   }
-
   html[onsflag-iphonex-landscape] ons-splitter-side[side="right"] .page__content {
     padding-left: 0;
   }
 }
-
 /* Support the situation that a progress bar is located just below a toolbar */
 @media (orientation: landscape) {
-  html[onsflag-iphonex-landscape] .page__content>ons-progress-bar>.progress-bar {
+  html[onsflag-iphonex-landscape] .page__content > ons-progress-bar > .progress-bar {
     margin-left: -44px;
     margin-right: -44px;
     width: calc(100% + 88px);
   }
 }
-
 /* Lists in .page__content in splitter-sides */
 @media (orientation: landscape) {
-
   /* Suppress left safe area support for pages in right splitter sides */
-  html[onsflag-iphonex-landscape] ons-splitter-side[side="right"] .page__content>.list:not(.list--inset) {
+  html[onsflag-iphonex-landscape] ons-splitter-side[side="right"] .page__content > .list:not(.list--inset) {
     margin-left: 0;
   }
-
-  html[onsflag-iphonex-landscape] ons-splitter-side[side="right"] .page__content>.list:not(.list--inset)>.list-header {
+  html[onsflag-iphonex-landscape] ons-splitter-side[side="right"] .page__content > .list:not(.list--inset) > .list-header {
     padding-left: 15px;
   }
-
-  html[onsflag-iphonex-landscape] ons-splitter-side[side="right"] .page__content>.list:not(.list--inset)>.list-item {
+  html[onsflag-iphonex-landscape] ons-splitter-side[side="right"] .page__content > .list:not(.list--inset) > .list-item {
     padding-left: 14px;
   }
 
   /* Suppress right safe area support for pages in left splitter sides */
-  html[onsflag-iphonex-landscape] ons-splitter-side[side="left"] .page__content>.list:not(.list--inset) {
+  html[onsflag-iphonex-landscape] ons-splitter-side[side="left"] .page__content > .list:not(.list--inset) {
     margin-right: 0;
   }
-
-  html[onsflag-iphonex-landscape] ons-splitter-side[side="left"] .page__content>.list:not(.list--inset)>.list-item--chevron:before {
+  html[onsflag-iphonex-landscape] ons-splitter-side[side="left"] .page__content > .list:not(.list--inset) > .list-item--chevron:before {
     right: 16px;
   }
-
-  html[onsflag-iphonex-landscape] ons-splitter-side[side="left"] .page__content>.list:not(.list--inset)>.list-item>.list-item__center:last-child {
+  html[onsflag-iphonex-landscape] ons-splitter-side[side="left"] .page__content > .list:not(.list--inset) > .list-item > .list-item__center:last-child {
     padding-right: 6px;
   }
-
-  html[onsflag-iphonex-landscape] ons-splitter-side[side="left"] .page__content>.list:not(.list--inset)>.list-item>.list-item__right {
+  html[onsflag-iphonex-landscape] ons-splitter-side[side="left"] .page__content > .list:not(.list--inset) > .list-item > .list-item__right {
     padding-right: 12px;
   }
-
-  html[onsflag-iphonex-landscape] ons-splitter-side[side="left"] .page__content>.list:not(.list--inset)>.list-item>.list-item--chevron__right {
+  html[onsflag-iphonex-landscape] ons-splitter-side[side="left"] .page__content > .list:not(.list--inset) > .list-item > .list-item--chevron__right {
     padding-right: 30px;
   }
 }
@@ -641,7 +594,7 @@ ons-progress-circular {
   height: 32px;
 }
 
-ons-progress-circular>svg.progress-circular {
+ons-progress-circular > svg.progress-circular {
   width: 100%;
   height: 100%;
 }
@@ -742,26 +695,26 @@ limitations under the License.
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
-  flex-direction: row;
+          flex-direction: row;
 }
 
 .ons-swiper-target--vertical {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-  flex-direction: column;
+          flex-direction: column;
 }
 
-.ons-swiper-target>* {
+.ons-swiper-target > * {
   height: inherit;
   -webkit-flex-shrink: 0;
-  flex-shrink: 0;
+          flex-shrink: 0;
   box-sizing: border-box;
   width: 100%;
   position: relative !important;
 }
 
-.ons-swiper-target.active:not(.swiping)>.page:not([shown]) {
+.ons-swiper-target.active:not(.swiping) > .page:not([shown]) {
   visibility: hidden;
 }
 
