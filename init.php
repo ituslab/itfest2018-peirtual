@@ -8,7 +8,7 @@ class View {
   }
 
   static function mobile($view){
-    self::load(__DIR__."/views/mobile/{$view}.php");
+    self::load(__DIR__."/views/mobile/{$view}.html");
   }
 
   static function load($file){
