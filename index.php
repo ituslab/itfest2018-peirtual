@@ -16,5 +16,9 @@
     View::desktop('register');
   });
 
+  $app->get('/m', function(){
+    View::mobile('index');
+  });
+
   $app->run();
 ?>
