@@ -25,7 +25,6 @@
     <div class="parallax"><img src="https://sutanlab.js.org/assets/img/bg/desk3.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
-
   <div class="container">
     <div class="section">
 
