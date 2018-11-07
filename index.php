@@ -8,5 +8,13 @@
     View::desktop('landing');
   });
 
+  $app->get('/login', function(){
+    View::desktop('login');
+  });
+
+  $app->get('/register', function(){
+    View::desktop('register');
+  });
+
   $app->run();
 ?>

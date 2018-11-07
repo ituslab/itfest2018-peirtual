@@ -1,3 +1,34 @@
-#landing-nav {
-  
+.landing-p {
+  line-height: 2rem;
+}
+
+.landing-parallax {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: $image-text-color;
+  .section {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .landing-parallax .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  #index-banner {
+    h1 {
+      font-size: 2.5rem;
+    }
+    h5 {
+      font-size: 1.25rem;
+    }
+  }
 }

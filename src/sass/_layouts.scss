@@ -1,0 +1,19 @@
+footer.page-footer {
+  background-color: $main-color;
+  margin: 0;
+}
+
+#nav {
+  background-color: $main-color;
+  ul a, .brand-logo{
+    color: $brand-color;
+  }
+}
+
+#nav-trigger {
+  color: $brand-color;
+}
+
+#nav-mobile {
+  background-color: $main-color;
+}
