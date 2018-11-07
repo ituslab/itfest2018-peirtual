@@ -7,8 +7,8 @@
     </ul>
 
     <ul id="nav-mobile" class="sidenav deep-purple darken-3">
-      <li><a href="<?= baseurl() ?>/login">Login</a></li>
-      <li><a href="<?= baseurl() ?>/register">Register</a></li>
+      <li><a class="white-text" href="<?= baseurl() ?>/login">Login</a></li>
+      <li><a class="white-text" href="<?= baseurl() ?>/register">Register</a></li>
     </ul>
     <a id="nav-trigger" href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
   </div>

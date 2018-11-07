@@ -1,5 +1,5 @@
 <footer class="page-footer deep-purple darken-3">
-  <div class="container">
+  <div class="container brown-text">
     <div class="row">
       <div class="col l6 s12">
         <h5 class="white-text">Company Bio</h5>
@@ -27,7 +27,7 @@
   </div>
   <div class="footer-copyright">
     <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      Copyright IT - B 2018
     </div>
   </div>
 </footer>
