@@ -1,5 +1,6 @@
-<footer class="page-footer does-footer">
-  <div class="container">
+
+<footer class="page-footer deep-purple darken-3">
+  <div class="container brown-text">
     <div class="row">
       <div class="col s12">
         <h3><strong>Sponsor</strong></h3>
@@ -16,6 +17,12 @@
         <img src="https://itpolsri.com/Images/SriwijayaHost.jpeg" class="responsive-img" alt="Sriwijaya Host">
         <img src="https://itpolsri.com/Images/SponsorIdea.jpeg" class="responsive-img"  alt="Sponsor Idea">
       </div>
+
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      Copyright IT - B 2018
     </div>
   </div>
 </footer>

@@ -7,22 +7,7 @@
 </head>
 
 <body>
-  <nav id="nav" role="navigation">
-    <div class="nav-wrapper container">
-      <a href="#" class="brand-logo">E-Perpus</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="<?= base_url() ?>login">Login</a></li>
-        <li><a href="<?= base_url() ?>register">Register</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Login</a></li>
-        <li><a href="">Register</a></li>
-      </ul>
-      <a id="nav-trigger" href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-
+  <?php include_once 'includes/navbar.php' ?>
   <div id="index-banner" class="parallax-container landing-parallax">
     <div class="section no-pad-bot">
       <div class="container">
@@ -39,7 +24,6 @@
     </div>
     <div class="parallax"><img src="https://sutanlab.js.org/assets/img/bg/desk3.jpg" alt="Unsplashed background img 1"></div>
   </div>
-
 
   <div class="container">
     <div class="section">
