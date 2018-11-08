@@ -1,6 +1,6 @@
 <?php
 
-namespace Package\Database;
+namespace Package\Core;
 use \PDO;
 
 class Database {

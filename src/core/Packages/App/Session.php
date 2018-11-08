@@ -2,7 +2,7 @@
   /**
    *
    */
-  namespace Package\Apps;
+  namespace Package\App;
   class Session {
 
     public static function set($key, $value){

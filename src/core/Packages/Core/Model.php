@@ -2,16 +2,16 @@
 /**
  *
  */
-namespace Package\Database;
-use Package\Database\Database;
-use Package\Traits\Config;
+namespace Package\Core;
+use Package\Core\Database;
+use Package\Config\Mysql;
 
-class Mysql extends Database {
+class Model extends Database {
   private static $connection;
 
   public static function connect(){
     if (!isset(self::$connection)) {
-      self::$connection = new parent(Config::DBH, Config::USER, Config::PASS);
+      self::$connection = new parent(Mysql::DBH, Mysql::USER, Mysql::PASS);
     }
     return self::$connection;
   }

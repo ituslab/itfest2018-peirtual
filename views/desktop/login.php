@@ -12,9 +12,9 @@
     <div class="row">
       <div style="opacity:0.9" class="col s12 m6 offset-m3">
         <div class="card shadow-box brown-text">
-          <div class="card-content">
-            <span class="card-title center"><h4>Login</h4></span>
-            <form>
+          <form action="<?= baseurl() ?>/login" method="POST">
+            <div class="card-content">
+              <span class="card-title center"><h4>Login</h4></span>
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix">account_circle</i>
@@ -29,11 +29,11 @@
                   <label for="password">Password</label>
                 </div>
               </div>
-            </form>
-          </div>
-          <div class="card-action">
-            <input type="submit" class="btn deep-purple darken-2" value="Login">
-          </div>
+            </div>
+            <div class="card-action">
+              <input type="submit" class="btn deep-purple darken-2" value="Login">
+            </div>
+          </form>
         </div>
       </div>
     </div>

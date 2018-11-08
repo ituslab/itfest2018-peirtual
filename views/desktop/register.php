@@ -10,35 +10,28 @@
       <div class="row">
         <div style="opacity:0.9" class="col s12 m6 offset-m3">
           <div class="card shadow-box brown-text">
-            <div class="card-content">
-              <span class="card-title center"><h4>Register</h4></span>
-              <form>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <i class="material-icons prefix">account_circle</i>
-                    <input id="username" name="Password" type="text" class="validate">
-                    <label for="username">Nama</label>
-                  </div>
-                </div>
+            <form action="<?= baseurl() ?>/register" method="POST">
+              <div class="card-content">
+                <span class="card-title center"><h4>Register</h4></span>
                 <div class="row">
                   <div class="input-field col s12">
                     <i class="material-icons prefix">email</i>
-                    <input id="email" name="Email" type="email" class="validate">
+                    <input required id="email" name="Email" type="email" class="validate">
                     <label for="email">Email</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="input-field col s12">
                     <i class="material-icons prefix">https</i>
-                    <input id="password" name="Password" type="password" class="validate">
+                    <input required id="password" name="Password" type="password" class="validate">
                     <label for="password">Password</label>
                   </div>
                 </div>
-              </form>
-            </div>
-            <div class="card-action">
-              <input type="submit" class="btn deep-purple darken-2" value="Register">
-            </div>
+              </div>
+              <div class="card-action">
+                <input type="submit" class="btn deep-purple darken-2" value="Register">
+              </div>
+            </form>
           </div>
         </div>
       </div>

@@ -2,10 +2,10 @@
 /**
  *
  */
-namespace Package\Apps;
-use Package\Database\Mysql;
+namespace Package\App;
+use Package\Core\Model;
 
-class Validation extends Mysql{
+class Validation extends Model{
   private $valid  = false, $errors = [], $connection, $table;
 
   public function __construct($validateTable = null){

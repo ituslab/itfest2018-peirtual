@@ -2,9 +2,9 @@
   /**
    *
    */
-  namespace Package\Apps;
-  use Package\Apps\SimpleImage;
-  
+  namespace Package\App;
+  use Package\App\SimpleImage;
+
   class Image extends SimpleImage{
     private $success = false, $uploadImages = [], $successPath = [], $errors = [], $pathReplace;
 
