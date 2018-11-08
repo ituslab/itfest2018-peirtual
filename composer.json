@@ -11,7 +11,7 @@
     },
     "autoload": {
       "psr-4": {
-        "Package\\" : "src/core/Packages/"
+        "Package\\" : "src/backend/Packages/"
       }
     }
 }

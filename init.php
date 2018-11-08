@@ -1,7 +1,7 @@
 <?php
-/**
- *
- */
+
+use Package\App\Session;
+
 class View {
   static function desktop($view){
     self::load(__DIR__."/views/desktop/{$view}.php");
@@ -9,6 +9,15 @@ class View {
 
   static function mobile($view){
     self::load(__DIR__."/views/mobile/{$view}.html");
+  }
+
+  public function loadData($view, $data = []){
+    $file = __DIR__."/views/desktop/{$view}.php";
+    if (file_exists($file)) {
+      extract($data);
+      include_once $file;
+    }
+    else die('Request Not Found');
   }
 
   static function load($file){
@@ -28,4 +37,3 @@ function baseurl(){
 }
 
 date_default_timezone_set("Asia/Jakarta");
-session_start();

@@ -5,9 +5,7 @@ namespace Package\Controller;
 use Package\Model\User;
 use Package\App\Input;
 use Package\App\Session;
-/**
- *
- */
+
 class UserController {
   private $controller;
 
@@ -28,25 +26,23 @@ class UserController {
   public function login(){
     $uname = Input::get('Uname');
     $pass = Input::get('Password');
-    $login = (\filter_var($uname, FILTER_VALIDATE_EMAIL)) ? 'Email' : 'Username';
-    $data = $this->controller->get([$login => ['=' => $uname]], 'Id, Username, Email, Nama, Password');
+    $login = (filter_var($uname, FILTER_VALIDATE_EMAIL)) ? 'Email' : 'Username';
+    $data = $this->check($login, $uname);
     if ($data) {
       if (password_verify($pass, $data->Password)) {
         die('Login Berhasil');
         return $data;
       }else {
-        die('Password yang anda masukkan salah !');
+        Session::set('errlogin', 'Password yang anda masukkan salah !');
       }
     }else {
-      die('Username atau Email belum terdaftar !');
+      Session::set('errlogin', 'Username atau Email belum terdaftar !');
     }
-    return false;
+    header('Location: '.baseurl().'/login');
   }
 
   public function check($field, $value){
-    $available = $this->controller->get([$field => ['=' => $value]]);
-    if ($available) return true;
-    return false;
+    return $this->controller->get([$field => ['=' => $value]]);
   }
 
   public function generateUsername($length = 10) {
