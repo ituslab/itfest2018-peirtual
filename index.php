@@ -16,11 +16,12 @@
     View::desktop('register');
   });
 
-  $app->post('/register', 'Package\Controller\UserController@register');
-
   $app->get('/m', function(){
     View::mobile('index');
   });
+
+  $app->post('/register', 'Package\Controller\UserController@register');
+  $app->post('/login', 'Package\Controller\UserController@login');
 
   $app->run();
 ?>
