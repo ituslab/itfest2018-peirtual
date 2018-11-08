@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="lib/onsen/js/onsenui.min.js"></script>
   <script src="lib/onsen/js/jquery.min.js"></script>
-  <script src="views/mobile/assets/js/app.js"></script>
+  
 <!--   
   <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
   <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
@@ -47,11 +47,13 @@
   </ons-template>
   
   <ons-template id="profile.html">
-    <ons-page>
+    <ons-page id="profs">
       <ons-toolbar>
         <div class="center">Profile</div>
       </ons-toolbar>
-      <div id="prof"></div>
+      <ons-card>
+        <div id="card-profile1"></div>
+      </ons-card>
     </ons-page>
   </ons-template>
     
@@ -62,5 +64,7 @@
         </ons-toolbar>
       </ons-page>
   </ons-template>
+
+<script src="views/mobile/assets/js/app.js"></script>
 </body>
 </html>
