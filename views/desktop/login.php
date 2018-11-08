@@ -1,3 +1,4 @@
+<?php use Package\App\Session; ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -18,17 +19,28 @@
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix">account_circle</i>
-                  <input id="username" name="Username" type="text" class="validate">
-                  <label for="username">Username or Email</label>
+                  <input required id="uname" name="Uname" type="text" class="validate">
+                  <label for="uname">Username or Email</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix">https</i>
-                  <input id="password" name="Password" type="password" class="validate">
+                  <input required id="password" name="Password" type="password" class="validate">
                   <label for="password">Password</label>
                 </div>
               </div>
+              <?php if (Session::get('errlogin')): ?>
+                <div class="row">
+                  <div class="col s12">
+                    <div class="card-panel red">
+                      <span class="white-text">
+                        <?= Session::get('errlogin') ?>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              <?php endif; Session::unset('errlogin'); ?>
             </div>
             <div class="card-action">
               <input type="submit" class="btn deep-purple darken-2" value="Login">
@@ -38,6 +50,6 @@
       </div>
     </div>
   </div>
-  <?php include_once 'includes/footer.php'; ?>
+  <?php include_once 'includes/scripts.php'; ?>
 </body>
 </html>

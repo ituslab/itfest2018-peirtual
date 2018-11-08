@@ -19,10 +19,10 @@ class User {
     return $this->connection->insert(self::table, $datas);
   }
 
-  public function get($conditions = []){
+  public function get($conditions = [], $fields = '*'){
     return (
       $this->connection
-      ->select(self::table)
+      ->select(self::table, $fields)
       ->where($conditions)
       ->fetch()
       ->get()

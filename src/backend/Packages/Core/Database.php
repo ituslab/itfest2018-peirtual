@@ -34,8 +34,9 @@ class Database {
     return false;
   }
 
-  public function query($query){
+  public function query($query, $params = []){
     $this->query = $query;
+    $this->params = $params;
     return $this;
   }
 

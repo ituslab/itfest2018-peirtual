@@ -3,6 +3,9 @@
    *
    */
   namespace Package\App;
+
+  session_start();
+
   class Session {
 
     public static function set($key, $value){
@@ -20,7 +23,7 @@
       return $_SESSION;
     }
 
-    public function unset($key){
+    public static function unset($key){
       if (isset($_SESSION[$key])) {
         unset($_SESSION[$key]);
         return true;
