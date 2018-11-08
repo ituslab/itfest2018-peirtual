@@ -40,22 +40,22 @@
     <div class="row">
       <div class="col s12 m3">
         <div class="center">
-        <img src="https://itpolsri.com/Images/SponsorElti.jpeg"  class="responsive-img" style="width:180px" alt="Sponsor Elti">
+        <img src="https://itpolsri.com/Images/SponsorElti.jpeg"  class="responsive-img" style="width:205px" alt="Sponsor Elti">
         </div>
       </div>
       <div class="col s12 m3">
         <div class="center">
-        <img src="https://itpolsri.com/Images/SponsorIdea.jpeg" class="responsive-img" style="width:180px"  alt="Sponsor Idea">
+        <img src="https://itpolsri.com/Images/SponsorIdea.jpeg" class="responsive-img" style="width:205px"  alt="Sponsor Idea">
         </div>
       </div>
       <div class="col s12 m3">
         <div class="center">
-        <img src="https://itpolsri.com/Images/SriwijayaHost.jpeg" class="responsive-img" style="width:180px" alt="Sriwijaya Host">
+        <img src="https://itpolsri.com/Images/SriwijayaHost.jpeg" class="responsive-img" style="width:205px" alt="Sriwijaya Host">
         </div>
       </div>
       <div class="col s12 m3">
         <div class="center">
-          <img src="https://itpolsri.com/Images/GlobalFM.jpeg"  class="responsive-img" style="width:180px" alt="GlobalFM">
+          <img src="https://itpolsri.com/Images/GlobalFM.jpeg"  class="responsive-img" style="width:205px" alt="GlobalFM">
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@
   </div>
   <div class="footer-copyright">
     <div class="container">
-      Copyright IT - B 2018
+    &copy; TIM IT - B 2018
     </div>
   </div>
 </footer>
