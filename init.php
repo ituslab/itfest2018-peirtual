@@ -23,7 +23,7 @@ function baseurl(){
     "%s://%s%s",
     isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
     $_SERVER['SERVER_NAME'],
-    '/E-Perpus'
+    ':'.$_SERVER['SERVER_PORT'].'/E-Perpus'
   );
 }
 
