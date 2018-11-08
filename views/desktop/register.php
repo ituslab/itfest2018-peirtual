@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <?php include_once 'includes/head.php' ?>
-    <title></title>
+    <title>Register</title>
   </head>
   <body style="background-image: url('https://sutanlab.js.org/assets/img/bg/desk1.jpg')">
     <?php include_once 'includes/navbar.php' ?>

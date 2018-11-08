@@ -20,7 +20,7 @@
                 <div class="input-field col s12">
                   <i class="material-icons prefix">account_circle</i>
                   <input required id="uname" name="Uname" type="text" class="validate">
-                  <label for="uname">Username or Email</label>
+                  <label for="uname">Email</label>
                 </div>
               </div>
               <div class="row">
