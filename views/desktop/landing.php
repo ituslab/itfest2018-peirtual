@@ -16,9 +16,6 @@
         <div class="row center">
           <h5 class="header col s12 light shadow-text">A modern responsive front-end framework based on Material Design</h5>
         </div>
-        <div class="row center">
-          <a href="#" id="download-button" class="btn-large waves-effect waves-light lighten-1 purple">Get Started</a>
-        </div>
         <br><br>
       </div>
     </div>

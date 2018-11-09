@@ -23,7 +23,7 @@
   <ons-page>
 
     <ons-tabbar swipeable position="auto">
-      <ons-tab id="dashboard" page="dashboard.html" label="Dashboard" icon="ion-ios-home-outline" active-icon="ion-ios-home" active></ons-tab>
+      <ons-tab id="dashboard" page="dashboard.html" label="Home" icon="ion-ios-home-outline" active-icon="ion-ios-home" active></ons-tab>
       <ons-tab id="profile" page="profile.html" label="Profile" icon="ion-ios-contact-outline" active-icon="ion-ios-contact"></ons-tab>
       <ons-tab id="setting" page="setting.html" label="Setting" icon="ion-ios-cog-outline" active-icon="ion-ios-cog"></ons-tab>
       
@@ -33,15 +33,15 @@
   <ons-template id="dashboard.html">
     <ons-page>
       <ons-toolbar>
-        <div class="center">Dashboard</div>
+        <div class="center">Home</div>
       </ons-toolbar>
       <div class="content">
         <ons-card >
           
           <ons-button id="click">
-            ClickME!
+            ClickME! 
           </ons-button>
-        
+          
         </ons-card>
       </div>
     </ons-page>
@@ -53,7 +53,7 @@
         <div class="center">Profile</div>
       </ons-toolbar>
       <ons-card>
-        <div id="card-profile1"></div>
+        <ons-icon icon="md-spinner" size="32px" spin></ons-icon>
       </ons-card>
     </ons-page>
   </ons-template>

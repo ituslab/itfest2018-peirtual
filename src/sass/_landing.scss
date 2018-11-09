@@ -11,6 +11,12 @@
     width: 100%;
   }
 }
+.brand-logo{
+
+  &:hover{
+    margin: 5px;
+  }
+}
 
 @media only screen and (max-width: 992px) {
   .landing-parallax .section {
@@ -32,3 +38,4 @@
     }
   }
 }
+
