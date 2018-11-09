@@ -4,7 +4,7 @@
 
 <head>
   <?php include_once 'includes/head.php' ?>
-  <title>Login</title>
+  <title>Login | E-Perpus</title>
 </head>
 
 <body style="background-image: url('https://sutanlab.js.org/assets/img/bg/desk1.jpg');">
