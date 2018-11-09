@@ -48,6 +48,12 @@ const script = () => {
   .pipe(gulp.dest(app.script.dest));
 };
 
+const watch = () => {
+  gulp.watch(app.sass.src, sass);
+  gulp.watch(app.script.src, script);
+}
+
 const build = gulp.series(clean, gulp.parallel(sass, script));
 
-gulp.task('default', build);
+gulp.task('build', build)
+gulp.task('default', watch);
