@@ -3,7 +3,7 @@
 
 <head>
   <?php include_once 'includes/head.php' ?>
-  <title>Landing Page - E-Perpus</title>
+  <title>Landing Page | E-Perpus</title>
 </head>
 
 <body>

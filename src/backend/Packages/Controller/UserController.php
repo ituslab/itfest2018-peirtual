@@ -23,6 +23,11 @@ class UserController {
     ]);
   }
 
+  public function logout(){
+    Session::destroy();
+    header('Location: '.baseurl().'/login');
+  }
+
   public function login(){
     $uname = Input::get('Uname');
     $pass = Input::get('Password');
@@ -30,8 +35,15 @@ class UserController {
     $data = $this->check($login, $uname);
     if ($data) {
       if (password_verify($pass, $data->Password)) {
-        die('Login Berhasil');
-        return $data;
+        Session::set([
+          'login' => true,
+          'userid' => $data->Id,
+          'username' => $data->Username,
+          'usernama' => $data->Nama,
+          'useravatar' => $data->Avatar
+        ]);
+        header('Location: '.baseurl().'/home');
+        return;
       }else {
         Session::set('errlogin', 'Password yang anda masukkan salah !');
       }
@@ -46,7 +58,7 @@ class UserController {
   }
 
   public function generateUsername($length = 10) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_';
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyz_';
     $charactersLength = strlen($characters);
     $randomString = '';
     for ($i = 0; $i < $length; $i++) {
