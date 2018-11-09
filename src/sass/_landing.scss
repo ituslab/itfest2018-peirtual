@@ -37,5 +37,12 @@
       font-size: 1.25rem;
     }
   }
+  div {
+    .nav-wrapper{
+      -webkit-box-shadow: -2px -42px 21px 43px rgba(0,0,0,1);
+      -moz-box-shadow: -2px -42px 21px 43px rgba(0,0,0,1);
+      box-shadow: -2px -42px 21px 43px rgba(0,0,0,1);
+    }
+  }
 }
 
