@@ -8,7 +8,7 @@
   <body>
     <?php include_once 'includes/navbar.php' ?>
     <div class="container">
-      <h1>Halo, <?= Session::get('usernama') ?></h1>
+      <h1>Halo, <?= Session::get('usernama'); ?></h1>
     </div>
     <?php include_once 'includes/footer.php' ?>
   </body>
