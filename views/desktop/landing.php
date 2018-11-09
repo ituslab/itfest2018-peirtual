@@ -81,18 +81,20 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i>Supported By</h3>
-          <div class="col s12 m4">
-            <img src="https://itpolsri.com/Images/ITFEST.jpeg" style="width:200px" class="responsive-img" alt="ITFEST">
-          </div>
-          <div class="col s12 m4">
-            <img src="https://itpolsri.com/Images/POLSRI.jpeg" style="width:200px" class="responsive-img" alt="ITFEST">
-          </div>
-          <div class="col s12 m4">
-            <img src="https://itpolsri.com/Images/HMJMI.jpeg" style="width:200px" class="responsive-img" alt="ITFEST">
+          <br /><br />
+          <div class="row">
+            <div class="col s12 m4 img-sponsor">
+              <img src="https://itpolsri.com/Images/ITFEST.jpeg" style="width:200px" class="responsive-img" alt="ITFEST">
+            </div>
+            <div class="col s12 m4 img-sponsor">
+              <img src="https://itpolsri.com/Images/POLSRI.jpeg" style="width:200px" class="responsive-img" alt="ITFEST">
+            </div>
+            <div class="col s12 m4 img-sponsor">
+              <img src="https://itpolsri.com/Images/HMJMI.jpeg" style="width:200px" class="responsive-img" alt="ITFEST">
+            </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 

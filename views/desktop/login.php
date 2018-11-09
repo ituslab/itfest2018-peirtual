@@ -43,7 +43,9 @@
               <?php endif; Session::unset('errlogin'); ?>
             </div>
             <div class="card-action">
-              <input type="submit" class="btn deep-purple darken-2" value="Login">
+              <button type="submit" class="btn deep-purple darken-2 waves-effect waves-light">
+                Login
+              </button>
             </div>
           </form>
         </div>

@@ -29,7 +29,9 @@
                 </div>
               </div>
               <div class="card-action">
-                <input type="submit" class="btn deep-purple darken-2" value="Register">
+                <button type="submit" class="btn deep-purple darken-2 waves-effect waves-light">
+                  Register
+                </button>
               </div>
             </form>
           </div>
