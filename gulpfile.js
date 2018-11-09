@@ -49,6 +49,8 @@ const script = () => {
 };
 
 const watch = () => {
+  console.log('Starting watch..');
+  build();
   gulp.watch(app.sass.src, sass);
   gulp.watch(app.script.src, script);
 }
