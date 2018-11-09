@@ -1,5 +1,5 @@
 <nav id="nav" class="deep-purple darken-3" role="navigation">
-  <div class="nav-wrapper container">
+  <div class="nav-wrapper" style="padding: 0 15px">
     <a href="<?= baseurl() ?>/" class="brand-logo">E-Perpus</a>
     <ul class="right hide-on-med-and-down">
       <li><a href="<?= baseurl() ?>/login">Login</a></li>
