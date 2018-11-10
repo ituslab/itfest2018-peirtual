@@ -4,7 +4,7 @@
    */
   namespace Package\App;
 
-  // session_start();
+  session_start();
 
   class Session {
 

@@ -20,7 +20,7 @@
                 <div class="input-field col s12">
                   <i class="material-icons prefix">account_circle</i>
                   <input required id="uname" name="Uname" type="text" class="validate">
-                  <label for="uname">Email</label>
+                  <label for="uname">Username or Email</label>
                 </div>
               </div>
               <div class="row">
@@ -30,17 +30,17 @@
                   <label for="password">Password</label>
                 </div>
               </div>
-              <?php if (Session::get('errlogin')): ?>
+              <?php if (Session::get('flashmsg')): ?>
                 <div class="row">
                   <div class="col s12">
                     <div class="card-panel red">
                       <span class="white-text">
-                        <?= Session::get('errlogin') ?>
+                        <?= Session::get('flashmsg') ?>
                       </span>
                     </div>
                   </div>
                 </div>
-              <?php endif; Session::unset('errlogin'); ?>
+              <?php endif; ?>
             </div>
             <div class="card-action">
               <button type="submit" class="btn deep-purple darken-2 waves-effect waves-light">

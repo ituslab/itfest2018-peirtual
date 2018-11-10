@@ -8,7 +8,6 @@ use Package\App\Session;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-
 class UserController {
   private $controller;
 
@@ -17,14 +16,24 @@ class UserController {
   }
 
   public function register(){
+    $nama = Input::get('Nama');
     $email = Input::get('Email');
     $pass = password_hash(Input::get('Password'), PASSWORD_BCRYPT);
-    return $this->controller->insert([
+    $register = $this->controller->insert([
       'Username' => $this->generateAuthKey(),
       'Email' => $email,
       'Password' => $pass,
+      'Nama' => $nama,
       'KodeVerifikasi' => $this->generateAuthKey(10, true)
     ]);
+    if ($register === true) {
+      $data = $this->check('Email', $email);
+      $this->setSession($data);
+      Session::set('flashmsg', 'Terima kasih sudah bergabung di PerGi, silahkan verifikasi akun anda !');
+      redirect(baseurl().'/auth');
+      return;
+    }
+    redirect(baseurl().'/register');
   }
 
   public function logout(){
@@ -39,24 +48,14 @@ class UserController {
     $data = $this->check($login, $uname);
     if ($data) {
       if (password_verify($pass, $data->Password)) {
-        Session::set([
-          'userlogin' => true,
-          'userid' => $data->Id,
-          'username' => $data->Username,
-          'usernama' => $data->Nama,
-          'useremail' => $data->Email,
-          'useravatar' => $data->Avatar,
-          'userauth' => (strtolower($data->Verifikasi) === 'true') ? true : false,
-          'userauthkey' => $data->KodeVerifikasi,
-          'usertoken' => $this->generateAuthKey(10, true)
-        ]);
+        $this->setSession($data);
         redirect(baseurl().'/home');
         return;
       }else {
-        Session::set('errlogin', 'Password yang anda masukkan salah !');
+        Session::set('flashmsg', 'Password yang anda masukkan salah !');
       }
     }else {
-      Session::set('errlogin', 'Username atau Email belum terdaftar !');
+      Session::set('flashmsg', 'Username atau Email belum terdaftar !');
     }
     redirect(baseurl().'/login');
   }
@@ -66,20 +65,39 @@ class UserController {
     $key = Input::get('authkey');
     $check = $this->check('Username', $uname);
     if (hash_equals($check->KodeVerifikasi, $key)) {
-      $update = $this->controller->update('Username', $uname, [
-        'Verifikasi' => 'True'
-      ]);
-      if ($update) {
-        Session::set('userauth', true);
-        echo "Akun telah di verifikasi";
+      $verify = $this->controller->update('Username', $uname, ['Verifikasi' => 'True']);
+      if ($verify === true) {
+        Session::set([
+          'userauth' => true,
+          'flashmsg' => 'Selamat, Akun anda sudah terverifikasi !'
+        ]);
+        redirect(baseurl().'/home');
+        return;
+      }else {
+        Session::set('flashmsg', 'Terjadi kesalahan saat proses Verifikasi. Silahkan coba lagi nanti !');
       }
     }else {
-      echo "kode salah";
+      Session::set('flashmsg', 'Token Autentikasi invalid. Gagal Verifikasi !');
     }
+    redirect(baseurl().'/auth');
   }
 
   public function check($field, $value){
     return $this->controller->get([$field => ['=' => $value]]);
+  }
+
+  public function setSession($user){
+    Session::set([
+      'userlogin' => true,
+      'userid' => $user->Id,
+      'username' => $user->Username,
+      'usernama' => $user->Nama,
+      'useremail' => $user->Email,
+      'useravatar' => $user->Avatar,
+      'userauth' => (strtolower($user->Verifikasi) === 'true') ? true : false,
+      'userauthkey' => $user->KodeVerifikasi,
+      'usertoken' => $this->generateAuthKey(10, true)
+    ]);
   }
 
   public function generateAuthKey($length = 10, $hash = false) {
@@ -102,13 +120,11 @@ class UserController {
     try{
       // $mail->SMTPDebug = 2 ;
       $mail->IsSMTP();
-
       $mail->SMTPSecure = 'ssl';
       $mail->Host = "mail.itpolsri.org";
       // $mail->SMTPDebug = 2;
       $mail->Port = 465;
       $mail->SMTPAuth = true;
-
       $mail->Username = "admin@itpolsri.org";
       $mail->Password = "tekkompower2016";
       $mail->SetFrom("noreply@eperpus.com", "Sys E-Perpus");
@@ -117,10 +133,13 @@ class UserController {
       $mail->Subject = "Konfirmasi Akun"; //subyek email
       $mail->Body = "Silahkan klik link ini untuk memverifikasi akun anda <a href='{$link}'>{$link}</a>";
       $mail->send();
-      echo "berhasil";
+      Session::set([
+        'flashmsg' => 'Kode Verifikasi Sudah dikirim ke &lt;'.Session::get('useremail').'&gt;. Silahkan check email anda.'
+      ]);
     }catch(Exception $e) {
-      echo "gagal : ".$e->getMessage();
+      Session::set('flashmsg', 'Terjadi Kesalahan. Gagal mengirim email. Error Status: '.$e->getMessage());
     }
+    redirect(baseurl().'/auth');
   }
 
 }
