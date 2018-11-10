@@ -36,4 +36,14 @@ function baseurl(){
   );
 }
 
+function redirect($url){
+  if (!headers_sent()){ header('Location: '.$url); exit(); }
+  else{
+    die(
+      '<script type="text/javascript">window.location.href="'.$url.'";</script>
+      <noscript><meta http-equiv="refresh" content="0;url='.$url.'" /></noscript>'
+    );
+  }
+}
+
 date_default_timezone_set("Asia/Jakarta");

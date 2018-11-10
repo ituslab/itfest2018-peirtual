@@ -29,6 +29,13 @@ class User {
     );
   }
 
+  public function update($field, $value, $set = []){
+    return (
+      $this->connection
+      ->update(self::table, $field, $value, $set)
+    );
+  }
+
 }
 
 
