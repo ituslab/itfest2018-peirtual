@@ -47,6 +47,7 @@ class Database {
 
   public function where($conditions = [], $optionalClauses = ""){
     $whereClauses = "";
+    $this->clearParams();
     foreach ($conditions as $column => $clause) {
       $bindKey = $this->setParam($column);
       $this->params[$bindKey] = array_values($clause)[0];
@@ -60,6 +61,7 @@ class Database {
   }
 
   public function insert($tabel, $fields = []){
+    $this->clearParams();
     $columns = implode(", ", array_keys($fields));
     foreach ($fields as $column => $value) {
       $bindKey = $this->setParam($column);
@@ -71,6 +73,7 @@ class Database {
   }
 
   public function delete($table, $column, $value){
+    $this->clearParams();
     $this->params[$this->setParam($column)] = $value;
     $this->query = "DELETE FROM {$table} WHERE {$column} = '{$value}';";
     return $this->execute();
@@ -78,6 +81,7 @@ class Database {
 
   public function update($table, $column, $value, $set = []){
     $setResult = "";
+    $this->clearParams();
     foreach($set as $setColumn => $setValue){
       $bindKey = $this->setParam($setColumn);
       $this->params[$bindKey] = $setValue;
@@ -127,6 +131,10 @@ class Database {
 
   private function setParam($column){
     return ':'.str_replace(str_split('\'"`[] '), '', $column);
+  }
+
+  private function clearParams(){
+    $this->params = [];
   }
 
   private function removeLastString($string, $stringToDelete){

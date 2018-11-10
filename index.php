@@ -12,38 +12,51 @@
   });
 
   $app->get('/home', function(){
-    if (Session::get('login')){
+    if (Session::get('userauth')) {
       View::desktop('home');
-      return;
+    } else {
+      Session::set('errlogin', 'Anda harus memverifikasi akun terlebih dahulu !');
+      redirect(baseurl().'/auth');
     }
-    Session::set('errlogin', 'Anda harus login terlebih dahulu !');
-    header('Location:'.baseurl().'/login');
+    if (!Session::get('userlogin')) {
+      Session::set('errlogin', 'Anda harus login terlebih dahulu !');
+      redirect(baseurl().'/login');
+    }
   });
 
   $app->get('/auth', function(){
-    // code...
+    if (!Session::get('userauth')) {
+      View::desktop('auth');
+      return;
+    }
+    Session::set('errlogin', 'Anda harus login terlebih dahulu !');
+    redirect(baseurl().'/login');
   });
 
   $app->get('/login', function(){
-    if (!Session::get('login')){
+    if (!Session::get('userlogin')){
       View::desktop('login');
       return;
     }
-    header('Location:'.baseurl().'/home');
+    if (Session::get('userauth')) redirect(baseurl().'/home');
+    else redirect(baseurl().'/auth');
   });
 
   $app->get('/register', function(){
-    if (!Session::get('login')){
+    if (!Session::get('userlogin')){
       View::desktop('register');
       return;
     }
-    header('Location:'.baseurl().'/home');
+    if (Session::get('userauth')) redirect(baseurl().'/home');
+    else redirect(baseurl().'/auth');
   });
 
   $app->get('/m', function(){
     View::mobile('index');
   });
 
+  $app->get('/verification', 'Package\Controller\UserController@verify');
+  $app->get('/send_verification', 'Package\Controller\UserController@sendAccountVerification');
   $app->get('/logout', 'Package\Controller\UserController@logout');
   $app->post('/register', 'Package\Controller\UserController@register');
   $app->post('/login', 'Package\Controller\UserController@login');
