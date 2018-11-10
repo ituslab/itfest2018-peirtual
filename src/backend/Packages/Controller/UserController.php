@@ -18,7 +18,7 @@ class UserController {
   public function register(){
     $nama = Input::get('Nama');
     $email = Input::get('Email');
-    $pass = password_hash(Input::get('Password'), PASSWORD_BCRYPT);
+    $pass = password_hash(Input::get('Password'), PASSWORD_DEFAULT);
     $register = $this->controller->insert([
       'Username' => $this->generateAuthKey(),
       'Email' => $email,
@@ -82,25 +82,25 @@ class UserController {
     redirect(baseurl().'/auth');
   }
 
-  public function check($field, $value){
+  private function check($field, $value){
     return $this->controller->get([$field => ['=' => $value]]);
   }
 
-  public function setSession($user){
+  private function setSession($user){
     Session::set([
       'userlogin' => true,
       'userid' => $user->Id,
       'username' => $user->Username,
       'usernama' => $user->Nama,
       'useremail' => $user->Email,
-      'useravatar' => $user->Avatar,
+      'useravatar' => (isset($user->Avatar)) ? $user->Avatar : "https://www.gravatar.com/avatar/".md5($user->Email)."?d=monsterid",
       'userauth' => (strtolower($user->Verifikasi) === 'true') ? true : false,
       'userauthkey' => $user->KodeVerifikasi,
       'usertoken' => $this->generateAuthKey(10, true)
     ]);
   }
 
-  public function generateAuthKey($length = 10, $hash = false) {
+  private function generateAuthKey($length = 10, $hash = false) {
     $characters = ($hash) ? '0123456789abcdefghijklmnopqrstuvwxyz!?@#$%^&*_' : '0123456789abcdefghijklmnopqrstuvwxyz_';
     $charactersLength = strlen($characters);
     $randomString = '';

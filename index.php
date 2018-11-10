@@ -53,6 +53,14 @@
     else redirect(baseurl().'/auth');
   });
 
+  $app->get('/profile/(\w+)', function($uname) {
+    echo 'Ini Profile ' . htmlentities($uname);
+  });
+
+  $app->get('/book/(\w+)', function($bookid) {
+    echo 'Ini Buku ' . htmlentities($bookid);
+  });
+
   $app->get('/m', function(){
     View::mobile('index');
   });

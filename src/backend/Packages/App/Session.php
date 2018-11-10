@@ -27,9 +27,16 @@
       return $_SESSION;
     }
 
-    public static function unset($key){
-      if (isset($_SESSION[$key])) {
-        unset($_SESSION[$key]);
+    public static function unset($unset){
+      if (is_array($unset)) {
+        foreach ($unset as $key) {
+          if (isset($_SESSION[$key])) {
+            unset($_SESSION[$key]);
+          }
+        }
+        return true;
+      } else if (isset($_SESSION[$unset])) {
+        unset($_SESSION[$unset]);
         return true;
       }
       return false;
