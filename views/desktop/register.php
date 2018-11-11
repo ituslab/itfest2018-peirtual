@@ -15,6 +15,13 @@
                 <span class="card-title center"><h4>Register</h4></span>
                 <div class="row">
                   <div class="input-field col s12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input required id="nama" name="Nama" type="text" class="validate">
+                    <label for="nama">Nama</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
                     <i class="material-icons prefix">email</i>
                     <input required id="email" name="Email" type="email" class="validate">
                     <label for="email">Email</label>
