@@ -35,14 +35,8 @@
       <ons-toolbar>
         <div class="center">Home</div>
       </ons-toolbar>
-      <div class="content">
-        <ons-card >
-          
-          <ons-button id="click">
-            ClickME! 
-          </ons-button>
-          
-        </ons-card>
+      <div class="content" id="content">
+        
       </div>
     </ons-page>
   </ons-template>
