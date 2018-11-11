@@ -5,17 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Dashboard | Mobile </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--Main UI-->
+  <script src="lib/onsen/js/onsenui.min.js"></script>
   <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">
   <link rel="stylesheet" href="lib/onsen/css/onsenui.min.css">
-  <script src="lib/onsen/js/onsenui.min.js"></script>
-  <script src="lib/onsen/js/jquery.min.js"></script>
   
   
   <!-- <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
   <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
- <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">  -->
-
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">  -->
+  <link rel="manifest" href="views/mobile/manifest.json">
+  <!--Tambahan-->
+  <script src="lib/onsen/js/jquery.min.js"></script>
   <link rel="stylesheet" href="views/mobile/assets/css/materialize.css">
   <link rel="stylesheet" href="views/mobile/assets/css/index.css">
  
@@ -33,7 +35,7 @@
 
   <ons-template id="dashboard.html">
     <ons-page>
-      <ons-toolbar>
+      <ons-toolbar id="reload">
         <div class="center">HOME</div>
       </ons-toolbar>
       <div class="content" id="content">
@@ -99,4 +101,15 @@
 
 <script src="views/mobile/assets/js/app.js"></script>
 </body>
+<script>
+  if ('serviceWorker' in navigator) {
+    console.log("Will the service worker register?");
+    navigator.serviceWorker.register('views/mobile/service-worker.js')
+      .then(function(reg){
+        console.log("Yes, it did.");
+      }).catch(function(err) {
+        console.log("No it didn't. This happened: ", err)
+      });
+  }
+</script>
 </html>

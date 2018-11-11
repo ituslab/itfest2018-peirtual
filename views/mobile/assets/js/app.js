@@ -27,8 +27,11 @@ $(document).ready(function(){
         
       })
     }).fail((data, stat, xhr)=>{
-      ons.notification.alert(`Data code : ${data.status}`,{timeout:1500})
+      ons.notification.alert(`Turn On The Internet  <i class="ion-android-wifi"></i> `)
+      .then(()=> window.location.reload())
     })
 
-    
+    $('#reload').click(function(){
+      window.location.reload();
+    })
 });
