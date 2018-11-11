@@ -8,24 +8,18 @@
           <li><a href="<?= baseurl() ?>/login">Login</a></li>
           <li><a href="<?= baseurl() ?>/register">Register</a></li>
         <?php else: ?>
-          <li><a href="<?= baseurl() ?>/home">Home</a></li>
-          <li><a class="dropdown-trigger nav-user-avatar" href='#' data-target='nav-user-dropdown'><img class="circle" src="<?= Session::get('useravatar') ?>" /></a></li>
-          <ul id='nav-user-dropdown' class='dropdown-content'>
-            <?php if (Session::get('userauth')): ?>
-              <li><a href="<?= baseurl().'/users/'.Session::get('username'); ?>" class="brown-text">Profile</a></li>
-              <li class="divider" tabindex="-1"></li>
-            <?php endif; ?>
-            <li><a href="<?= baseurl() ?>/logout" class="brown-text">Logout</a></li>
-          </ul>
+          <li><label class="label-icons" for="search"><i class="material-icons">search</i></label></li>
+          <li><input class="white-text" type="search" id="search" placeholder="Cari.."></li>
+          <li><a style="display: inline" class="nav-user-avatar sidenav-trigger" href='#' data-target='side-nav'><img class="circle" src="<?= Session::get('useravatar') ?>" /></a></li>
         <?php endif; ?>
       </ul>
-      <a id="nav-trigger" href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <a id="nav-trigger" href="#" data-target="side-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
 </div>
 
 
-<ul id="nav-mobile" class="sidenav deep-purple darken-3">
+<ul id="side-nav" class="sidenav deep-purple darken-3">
   <?php if (!Session::get('userlogin')): ?>
     <li><a class="white-text" href="<?= baseurl() ?>/login">Login</a></li>
     <li><a class="white-text" href="<?= baseurl() ?>/register">Register</a></li>
