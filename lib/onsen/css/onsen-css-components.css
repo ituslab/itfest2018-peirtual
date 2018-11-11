@@ -2365,7 +2365,8 @@ h4, h5, h6 {
   border-top: none;
   border-bottom: 1px solid #ccc;
 }
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+/* tabbar--top ini */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 10dpi), (min-resolution: 2dppx) {
   .tabbar--top {
     border-bottom: none;
     background-size: 100% 1px;
