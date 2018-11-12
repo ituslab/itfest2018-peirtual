@@ -32,35 +32,51 @@
           <div class="col s12 m8">
             <div class="row">
               <ul id="home-tabs" class="tabs tab-demo z-depth-1">
-                <li class="tab"><a class="active" href="#profile">Profile <?= $usernama ?></a></li>
-                <li class="tab"><a class="active" href="#collections">Koleksi <?= $usernama ?></a></li>
+                <li class="tab"><a class="active" href="#profile">Profile <?= substr($usernama, 0, strpos($usernama, " ")); ?></a></li>
+                <li class="tab"><a class="active" href="#collections">Koleksi <?= substr($usernama, 0, strpos($usernama, " ")); ?></a></li>
               </ul>
             </div>
             <div class="row content">
               <div id="profile" class="col s12 z-depth-3">
                 <div class="section" style="padding: 0 15px">
-                  <div class="row section">
-                    <div class="input-field col s12">
-                      <input disabled value="<?= $usernama ?>" type="text" class="user-edit validate" />
-                      <label for="disabled">Nama</label>
-                    </div>
-                    <div class="input-field col s12">
-                      <input disabled value="<?= $username ?>" type="text" class="user-edit validate" />
-                      <label for="disabled">Username</label>
-                    </div>
-                    <p><?= $userdesc ?></p>
-                    <div class="divider"></div>
-                    <?php if (hash_equals($usertoken, $token)): ?>
-                      <div class="section row">
-                        <div class="col s12 m4">
-                          <button class="btn waves-effect waves-light" type="submit" name="action">
-                            <i class="material-icons left">border_color</i>
-                            Edit Profile
-                          </button>
+                  <form method="POST">
+                    <div class="row section">
+                      <?php if (hash_equals($usertoken, $token)): ?>
+                        <div class="input-field col s12">
+                          <input disabled id="Id" value="<?= $id ?>" type="text" class="validate" />
+                          <label for="Id">ID User</label>
                         </div>
+                      <?php endif; ?>
+                      <div class="input-field col s12">
+                        <input disabled id="Nama" value="<?= $usernama ?>" type="text" class="user-edit validate" />
+                        <label for="Nama">Nama</label>
                       </div>
-                    <?php endif; ?>
-                  </div>
+                      <div class="input-field col s12">
+                        <input disabled id="Username" value="<?= $username ?>" type="text" class="user-edit validate" />
+                        <label for="Username">Username</label>
+                      </div>
+                      <div class="input-field col s12">
+                        <textarea disabled id="Deskripsi" data-length="120" class="user-edit materialize-textarea">
+                          <?= trim($userdesc) ?>
+                        </textarea>
+                        <label for="Deskripsi">Deskripsi</label>
+                      </div>
+                      <div class="divider"></div>
+                      <?php if (hash_equals($usertoken, $token)): ?>
+                        <div class="section row">
+                          <div class="col s12">
+                            <button id="edit-mode" onclick="changeEditMode($(this), event)" class="btn waves-effect waves-light" type="button">
+                              <i class="material-icons left">border_color</i>
+                              Edit Profile
+                            </button>
+                            <button onclick="cancelEditMode(event)" style="display: none" id="cancel-edit-mode" class="btn waves-effect waves-light grey" type="button">
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+                      <?php endif; ?>
+                    </div>
+                  </form>
                 </div>
               </div>
               <div id="collections" class="col s12">

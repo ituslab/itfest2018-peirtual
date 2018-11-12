@@ -75,11 +75,15 @@
     echo 'Ini Buku ' . htmlentities($bookid);
   });
 
-  $app->get('/profile/(\w+)', 'Package\Controller\UserController@showProfile');
+  $app->post('/upload', function (){
+    var_dump($_FILES['file-cover']);
+  });
+
   $app->get('/logout', 'Package\Controller\UserController@logout');
+  $app->get('/users/(\w+)', 'Package\Controller\UserController@showProfile');
+  $app->post('/users/edit', 'Package\Controller\UserController@edit');
   $app->post('/register', 'Package\Controller\UserController@register');
   $app->post('/login', 'Package\Controller\UserController@login');
-  $app->get('/users/(\w+)', 'Package\Controller\UserController@showProfile');
 
   $app->run();
 ?>
