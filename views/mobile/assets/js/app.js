@@ -27,7 +27,7 @@ $(document).ready(function(){
         
       })
     }).fail((data, stat, xhr)=>{
-      ons.notification.alert(`Turn On The Internet  <i class="ion-android-wifi"></i> `)
+      ons.notification.alert(`Turn <i class="ion-android-wifi"></i>N The Internet   `)
       .then(()=> window.location.reload())
     })
 

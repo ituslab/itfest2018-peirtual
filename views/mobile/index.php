@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">
   <link rel="stylesheet" href="lib/onsen/css/onsenui.min.css">
   
-  
   <!-- <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
   <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
