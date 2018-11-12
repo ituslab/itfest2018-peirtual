@@ -1,0 +1,25 @@
+{
+  "short_name": "Peirtual",
+  "name": "Perpustakaan Virtual",
+  "icons": [
+    {
+      "src":"views/mobile/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src":"https://www.itpolsri.org/assets/icons/itpolsri-icons/itpolsri.png",
+      "sizes":"50x50",
+      "type" :"image/png"
+    },
+    {
+      "src" : "./icon2.png",
+      "sizes":"210x210",
+      "type":"image/png"
+    }
+  ],
+  "start_url": "http://192.168.43.51:8090/E-Perpus/m",
+  "background_color": "#1600d8",
+  "Theme_color": "#0011ff",
+  "display": "standalone"
+}
