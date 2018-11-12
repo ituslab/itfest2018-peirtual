@@ -3,7 +3,7 @@
 
 <head>
   <?php include_once 'includes/head.php' ?>
-  <title>Landing Page | PerGi</title>
+  <title>Landing Page | Peirtual</title>
 </head>
 
 <body>
@@ -12,9 +12,9 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center text-lighten-2 shadow-text">Perpustakaan Digital</h1>
+        <h1 class="header center text-lighten-2 shadow-text">Peirtual</h1>
         <div class="row center">
-          <h5 class="header col s12 dark shadow-text">Aplikasi Perpustakaan Modern</h5>
+          <h5 class="header col s12 dark shadow-text">Aplikasi Perpustakaan Virtual Modern</h5>
         </div>
         <br><br>
       </div>
@@ -31,7 +31,10 @@
           <div class="icon-block">
             <h2 class="center brown-text"><i class="material-icons">collections_bookmark</i></h2>
             <h5 class="center">Bermacam Koleksi Buku</h5>
-            <p class="light landing-p">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+            <p class="light landing-p">
+              Baca buku, berbagi koleksi bacaan dan bersosialisasi secara bersamaan. 
+              Di manapun, kapanpun dengan nyaman bersama setiap orang.
+            </p>
           </div>
         </div>
 
@@ -41,8 +44,8 @@
             <h5 class="center">Download</h5>
 
             <p class="light landing-p">
-              By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive
-              system across all platforms allow for a more unified user experience.
+              Semua Buku Bisa Kamu Download. Membaca semakin mudah dengan satu klik
+              kamu bisa menambah wawasanmu.
             </p>
           </div>
         </div>
@@ -51,8 +54,10 @@
           <div class="icon-block">
             <h2 class="center brown-text"><i class="material-icons">create</i></h2>
             <h5 class="center">Tulis dan Berbagi</h5>
-
-            <p class="light landing-p">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+            <p class="light landing-p">
+              Buat dan Sebarkan Tulisanmu. Buat Dunia melihat Karya Tulismu,
+              Berbagi adalah hal yang Menyenangkan.
+            </p>
           </div>
         </div>
       </div>
