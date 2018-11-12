@@ -99,6 +99,24 @@ class UserController {
     }
   }
 
+  public function edit(){
+    $id = Input::get('id');
+    $username = Input::get('username');
+    $nama = Input::get('nama');
+    $deskripsi = Input::get('deskripsi');
+    $update = $this->controller->update('Id', $id, [
+      'Username' => $username,
+      'Nama' => $nama,
+      'Deskripsi' => $deskripsi
+    ]);
+    if ($update) {
+      Session::set([
+        'username' => $username,
+        'usernama' => $nama
+      ]);
+    }
+  }
+
   private function check($field, $value){
     return $this->controller->get([$field => ['=' => $value]]);
   }
@@ -125,7 +143,7 @@ class UserController {
       $charactersLength = strlen($characters);
       $randomString = '';
       for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, $charactersLength - 1)];  
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
       }
       if (!$this->check('Username', $randomString)) return $randomString;
       else $this->generateUsername();
