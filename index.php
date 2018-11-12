@@ -8,12 +8,12 @@
   $app = new Router();
 
   $app->get('/', function(){
-    View::desktop('landing');
+    view('landing');
   });
 
   $app->get('/home', function(){
     if (Session::get('userauth')) {
-      View::desktop('home');
+      view('home');
     } else {
       Session::set('flashmsg', 'Anda harus memverifikasi akun terlebih dahulu !');
       redirect(baseurl().'/auth');
@@ -26,7 +26,7 @@
 
   $app->get('/auth', function(){
     if (Session::get('userlogin') && !Session::get('userauth')) {
-      View::desktop('auth');
+      view('auth');
       return;
     }
     if (!Session::get('userlogin')) {
@@ -37,7 +37,7 @@
 
   $app->get('/login', function(){
     if (!Session::get('userlogin')){
-      View::desktop('login');
+      view('login');
       return;
     }
     if (Session::get('userauth')) redirect(baseurl().'/home');
@@ -46,30 +46,40 @@
 
   $app->get('/register', function(){
     if (!Session::get('userlogin')){
-      View::desktop('register');
+      view('register');
       return;
     }
     if (Session::get('userauth')) redirect(baseurl().'/home');
     else redirect(baseurl().'/auth');
   });
 
-  $app->get('/profile/(\w+)', function($uname) {
-    echo 'Ini Profile ' . htmlentities($uname);
+  $app->get('/m', function(){
+    view('index', 'mobile');
   });
 
-  $app->get('/book/(\w+)', function($bookid) {
+  $app->get('/send_verification', (Session::get('userlogin') && !Session::get('userauth')) ? 'Package\Controller\UserController@sendAccountVerification' : function (){
+    redirect(baseurl().'/login');
+  });
+
+  $app->get('/verification', (Session::get('userlogin') && !Session::get('userauth')) ? 'Package\Controller\UserController@verify' : function (){
+    if (!Session::get('userlogin')) {
+      Session::set([
+        'verificationurl' => requesturl(),
+        'flashmsg' => 'Anda harus login terlebih dahulu !'
+      ]);
+    }
+    redirect(baseurl().'/login');
+  });
+
+  $app->get('/books/(\w+)', function($bookid) {
     echo 'Ini Buku ' . htmlentities($bookid);
   });
 
-  $app->get('/m', function(){
-    View::mobile('index');
-  });
-
-  $app->get('/send_verification', (Session::get('userlogin') && !Session::get('userauth')) ? 'Package\Controller\UserController@sendAccountVerification' : function (){ redirect(baseurl().'/login'); });
-  $app->get('/verification', (Session::get('userlogin') && !Session::get('userauth')) ? 'Package\Controller\UserController@verify' : function (){ redirect(baseurl().'/login'); });
+  $app->get('/profile/(\w+)', 'Package\Controller\UserController@showProfile');
   $app->get('/logout', 'Package\Controller\UserController@logout');
   $app->post('/register', 'Package\Controller\UserController@register');
   $app->post('/login', 'Package\Controller\UserController@login');
+  $app->get('/users/(\w+)', 'Package\Controller\UserController@showProfile');
 
   $app->run();
 ?>

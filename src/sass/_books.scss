@@ -1,4 +1,10 @@
 .book-cover{
-  width: 200px !important; 
+  width: 200px !important;
   margin: auto;
+}
+
+@media only screen and (max-width: 992px) {
+  .book-cover{
+    width: 100% !important;
+  }
 }

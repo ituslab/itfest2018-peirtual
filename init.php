@@ -1,30 +1,14 @@
 <?php
 
-use Package\App\Session;
-
-class View {
-  static function desktop($view){
-    self::load(__DIR__."/views/desktop/{$view}.php");
+function view($view, $device = 'desktop', $data = []){
+  if ($device === 'desktop') $file = __DIR__."/views/desktop/{$view}.php";
+  elseif ($device === 'mobile') $file = __DIR__."/views/mobile/{$view}.php";
+  else $file = false;
+  if (file_exists($file)) {
+    if (!empty($data)) extract($data);
+    include_once $file;
   }
-
-  static function mobile($view){
-    self::load(__DIR__."/views/mobile/{$view}.php");
-  }
-
-  public function loadData($view, $data = []){
-    $file = __DIR__."/views/desktop/{$view}.php";
-    if (file_exists($file)) {
-      extract($data);
-      include_once $file;
-    }
-    else die('Request Not Found');
-  }
-
-  static function load($file){
-    if (file_exists($file)) include_once $file;
-    else die('Request Not Found');
-  }
-
+  else die('Request Not Found');
 }
 
 function baseurl(){
@@ -33,6 +17,15 @@ function baseurl(){
     isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
     $_SERVER['SERVER_NAME'],
     ':'.$_SERVER['SERVER_PORT'].'/E-Perpus'
+  );
+}
+
+function requesturl(){
+  return sprintf(
+    "%s://%s%s",
+    isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+    $_SERVER['SERVER_NAME'],
+    ':'.$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI']
   );
 }
 
