@@ -56,14 +56,13 @@
                         <label for="Username">Username</label>
                       </div>
                       <div class="input-field col s12">
-                        <textarea disabled id="Deskripsi" data-length="120" class="user-edit materialize-textarea">
-                          <?= trim($userdesc) ?>
-                        </textarea>
+                        <textarea disabled id="Deskripsi" data-length="120" class="user-edit materialize-textarea"><?= $userdesc ?></textarea>
                         <label for="Deskripsi">Deskripsi</label>
                       </div>
                       <div class="divider"></div>
                       <?php if (hash_equals($usertoken, $token)): ?>
                         <div class="section row">
+                          <input id="token" type="hidden" name="csrftoken" value="<?= csrftoken(true) ?>">
                           <div class="col s12">
                             <button id="edit-mode" onclick="changeEditMode($(this), event)" class="btn waves-effect waves-light" type="button">
                               <i class="material-icons left">border_color</i>

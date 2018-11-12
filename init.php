@@ -1,5 +1,9 @@
 <?php
 
+use Package\Middleware\Token;
+use Package\App\Session;
+use Package\App\Input;
+
 function view($view, $device = 'desktop', $data = []){
   if ($device === 'desktop') $file = __DIR__."/views/desktop/{$view}.php";
   elseif ($device === 'mobile') $file = __DIR__."/views/mobile/{$view}.php";
@@ -9,6 +13,19 @@ function view($view, $device = 'desktop', $data = []){
     include_once $file;
   }
   else die('Request Not Found');
+}
+
+function csrftoken($reset = false){
+  if ($reset) {
+    Session::set('csrftoken', Token::generate());
+  }else if (!Session::get('csrftoken')) {
+    Session::set('csrftoken', Token::generate());
+  };
+  return Session::get('csrftoken');
+}
+
+function csrfverify(){
+  return Token::verify(csrftoken(), (Input::get('csrftoken')) ? Input::get('csrftoken') : '');
 }
 
 function baseurl(){
