@@ -5,10 +5,11 @@
     </ons-toolbar>
     <ons-card>
     <div class="carousel" style="height: 350px;" id="carousel">
-      <a class="carousel-item" href="#one!"><img class="img-load" src="views/mobile/icon2.png" alt="lda"></a>
-      <a class="carousel-item" href="#one!"><img class="img-load" src="https://itpolsri.com/Images/SponsorMomea.jpeg"></a>
-      <a class="carousel-item" href="#one!"><img class="img-load" src="views/mobile/icon2.png"></a>
-      <a class="carousel-item" href="#one!"><img class="img-load" src="views/mobile/icon2.png"></a>
+      <div  class="carousel-item" href="#one!"><img class="img-load" src="views/mobile/assets/img/team.jpeg" alt="itpolsri"></div>
+      <a class="carousel-item" href="#one!"><img class="img-load" src="views/mobile/assets/img/arief.jpeg" alt="arief"></a>
+      <a class="carousel-item" href="#one!"><img class="img-load" src="views/mobile/assets/img/sutan.jpeg" alt="sutan"></a>
+      <a class="carousel-item" href="#one!"><img class="img-load" src="views/mobile/assets/img/aji.jpeg" alt="irvan"></a>
+      <a class="carousel-item" href="#one!"><img class="img-load" src="views/mobile/assets/img/irvan.jpeg" alt="irvan"></a>
     </div>
       <div class="title center">
         We Are ITPolsri 
@@ -25,7 +26,7 @@
       <ons-list modifier="inset">
         <ons-list-item>
           <div class="left">
-            <img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+            <img class="list-item__thumbnail" src="views/mobile/assets/img/aji.jpeg">
           </div>
           <div class="center">
             <span class="list-item__title">Aji Prasetyo</span>
@@ -34,7 +35,7 @@
         </ons-list-item>
         <ons-list-item>
           <div class="left">
-            <img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+            <img class="list-item__thumbnail" src="views/mobile/assets/img/arief.jpeg">
           </div>
           <div class="center">
             <span class="list-item__title">Arief Al-kahfi Verdana</span>
@@ -52,7 +53,7 @@
         </ons-list-item>
         <ons-list-item>
           <div class="left">
-            <img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+            <img class="list-item__thumbnail" src="views/mobile/assets/img/irvan.jpeg">
           </div>
           <div class="center">
             <span class="list-item__title">Muhammad Irvan Refnaldy</span>
@@ -61,7 +62,7 @@
         </ons-list-item>
         <ons-list-item>
           <div class="left">
-            <img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+            <img class="list-item__thumbnail" src="views/mobile/assets/img/sutan.jpeg">
           </div>
           <div class="center">
             <span class="list-item__title">Sutan Gading Fadillah Nst.</span>

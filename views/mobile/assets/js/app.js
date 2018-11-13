@@ -12,9 +12,10 @@ $(document).ready(function(){
       method: 'GET',
       dataType : 'JSON',
       beforeSend : function(){
-        $('#category').html(loader)
+        $('#recently').html(loader)
       },
     }).done((res)=>{
+      $('#recently').html(``);
       res.results.map(data => {
         $('#recently').append(`
       <li class="tab-recently" >
@@ -67,11 +68,13 @@ $(document).ready(function(){
       window.location.reload();
     })
     
-    //todo carousel
+    //todo carousel 
     setTimeout(function(){
       console.log('load image')
-      $('.carousel').carousel();
+      $('.carousel').carousel({duration : 400});
+     
     }, 3000)
+    
 });
   
   // todo Category-click Slide Toggle
@@ -82,13 +85,13 @@ $(document).ready(function(){
 
   // ? Like Button
   function like(){
-    ons.notification.toast('Terima Kasih Telah Klik Tombol Suka', {timeout:1700, animation : "fall"})
+    ons.notification.toast('Thanks For Your Like!', {timeout:1700, animation : "fall"})
   }
   // ? Look Button
   function share(){
-    ons.notification.confirm('Lihat Profil Instagram kami').then((yes)=>{
+    ons.notification.confirm('Feel Free to See Our Profile on Social Media').then((yes)=>{
       if (yes) {
-        window.location.href = 'https://www.instagram.com/itpolsri/'
+        window.location.href = 'https://www.instagram.com/p/BpItpDMBDXY/?utm_source=ig_share_sheet&igshid=wgud5vfgyx1z'
       }
     })
   }
