@@ -1,12 +1,14 @@
 const loader = `<div class="center loader"><ons-icon icon="md-spinner" size="50px" spin></ons-icon><h3> Loading...</h3></div>`
 const category = ["Teknik Komputer","Teknik Kimia", "Teknik Mesin", "Teknik Dokter"];
 const url = window.location.protocol + "//" + window.location.host + '/E-Perpus';
-$(document).ready(function(){
 
+$(document).ready(function(){
+  
+  
     // todo recently
 
     $.ajax({
-      url :'https://randomuser.me/api/?results=11',
+      url :'https://randomuser.me/api/?results=4',
       method: 'GET',
       dataType : 'JSON',
       beforeSend : function(){
@@ -37,7 +39,7 @@ $(document).ready(function(){
 
     //TOdo Category
     $.ajax({
-      url :'https://randomuser.me/api/?results=11',
+      url :'https://randomuser.me/api/?results=4',
       method: 'GET',
       dataType : 'JSON',
       beforeSend : function(){
@@ -61,14 +63,16 @@ $(document).ready(function(){
 
     
     // todo Reload
-    $('#reload').click(function(){
+    $('.toolbar').click(function(){
       window.location.reload();
     })
-
-    // todo carousel
-    $('.carousel').carousel();
     
-  });
+    //todo carousel
+    setTimeout(function(){
+      console.log('load image')
+      $('.carousel').carousel();
+    }, 3000)
+});
   
   // todo Category-click Slide Toggle
   function listBuku(ev){
@@ -76,10 +80,11 @@ $(document).ready(function(){
      
   }
 
+  // ? Like Button
   function like(){
     ons.notification.toast('Terima Kasih Telah Klik Tombol Suka', {timeout:1700, animation : "fall"})
   }
-
+  // ? Look Button
   function share(){
     ons.notification.confirm('Lihat Profil Instagram kami').then((yes)=>{
       if (yes) {
@@ -88,3 +93,6 @@ $(document).ready(function(){
     })
   }
   
+  function contact(){
+    ons.notification.alert('Silahkan DM Ke Instagram Kami');
+  }

@@ -13,23 +13,14 @@
 
   <?php include_once "include/home.php" ?>
 
-  <ons-template id="profile.html">
-    <ons-page id="profs">
-      <ons-toolbar>
-        <div class="center">Profile</div>
-      </ons-toolbar>
-      <ons-card>
-        <ons-icon icon="md-spinner" size="32px" spin></ons-icon>
-      </ons-card>
-    </ons-page>
-  </ons-template>
+  <?php include_once "include/profile.php" ?>
 
   <?php include_once "include/about.php" ?>
 
   
+  <script src="views/mobile/assets/js/app.js"></script>
+  <script src="views/mobile/assets/js/materialize.min.js"></script>
 
-<script src="views/mobile/assets/js/app.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 <script>
   if ('serviceWorker' in navigator) {
@@ -41,7 +32,6 @@
         console.log("No it didn't. This happened: ", err)
       });
   }
-
 </script>
 
 </html>
