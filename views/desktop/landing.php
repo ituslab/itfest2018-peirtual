@@ -70,7 +70,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h5 class="header col s12 light">Jadilah Pribadi yang Kreatif dan Inovatif</h5>
         </div>
       </div>
     </div>
@@ -105,7 +105,8 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h5 class="header col s12 light shadow-text"><q> Semakin aku banyak membaca, semakin aku banyak berpikir, 
+            semakin aku banyak belajar, semakin aku sadar bahwa aku tak mengetahui apa pun.</q> Voltaire.</h5>
         </div>
       </div>
     </div>
