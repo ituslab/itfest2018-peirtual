@@ -21,7 +21,8 @@ function editUser() {
     id = $('#Id').val()
     nama = $('#Nama').val(),
     username = $('#Username').val(),
-    deskripsi = $('#Deskripsi').val();
+    deskripsi = $('#Deskripsi').val(),
+    token = $('#token').val();
   $.ajax({
     url: host+'/users/edit',
     type: 'POST',
@@ -29,14 +30,17 @@ function editUser() {
       id: id,
       nama: nama,
       username: username,
-      deskripsi: deskripsi
+      deskripsi: deskripsi,
+      csrftoken: token
     }
   })
-  .done(function(response) {
+  .done(function() {
     window.location.reload();
   })
   .fail(function(err, status, xhr) {
-
+    console.log(err);
+    console.log(status);
+    console.log(xhr);
   });
 
 }

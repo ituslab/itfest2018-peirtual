@@ -2,6 +2,7 @@
 
 namespace Package\Controller;
 
+use Package\Middleware\Token;
 use Package\Model\User;
 use Package\App\Input;
 use Package\App\Session;
@@ -24,7 +25,7 @@ class UserController {
       'Email' => $email,
       'Password' => $pass,
       'Nama' => $nama,
-      'Token' => $this->generateAuthKey(true)
+      'Token' => Token::generate('gost-crypto')
     ]);
     if ($register === true) {
       $data = $this->check('Email', $email);
@@ -104,16 +105,24 @@ class UserController {
     $username = Input::get('username');
     $nama = Input::get('nama');
     $deskripsi = Input::get('deskripsi');
-    $update = $this->controller->update('Id', $id, [
-      'Username' => $username,
-      'Nama' => $nama,
-      'Deskripsi' => $deskripsi
-    ]);
-    if ($update) {
-      Session::set([
-        'username' => $username,
-        'usernama' => $nama
+    if (csrfverify()) {
+      $update = $this->controller->update('Id', $id, [
+        'Username' => $username,
+        'Nama' => $nama,
+        'Deskripsi' => $deskripsi
       ]);
+      if ($update) {
+        Session::set([
+          'username' => $username,
+          'usernama' => $nama
+        ]);
+      }
+    }else {
+      http_response_code(403);
+      die(json_encode([
+        'status' => 403,
+        'msg' => 'Authorisasi gagal. Token invalid !'
+      ]));
     }
   }
 
@@ -134,20 +143,15 @@ class UserController {
     ]);
   }
 
-  private function generateAuthKey($hash = false) {
-    if ($hash) {
-      return hash('gost-crypto', crypt(uniqid(mt_rand().time()), ''));
-    } else {
-      $length = 15;
-      $characters = '0123456789abcdefghijklmnopqrstuvwxyz_';
-      $charactersLength = strlen($characters);
-      $randomString = '';
-      for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, $charactersLength - 1)];
-      }
-      if (!$this->check('Username', $randomString)) return $randomString;
-      else $this->generateUsername();
+  private function generateAuthKey($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyz_';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+      $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
+    if (!$this->check('Username', $randomString)) return $randomString;
+    else $this->generateUsername();
   }
 
   private function getAvatar($user){
