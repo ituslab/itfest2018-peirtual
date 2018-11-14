@@ -7,6 +7,11 @@
   use Package\App\Input;
 
   $app = new Router();
+
+  $app->set404(function(){
+    view('404');
+  });
+
   //* Landing Page
   $app->get('/', function(){
     view('landing');

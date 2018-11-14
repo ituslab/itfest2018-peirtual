@@ -34,6 +34,21 @@
   }
 }
 
+.background--mind {
+  background-image: linear-gradient(to right bottom, #007CC1, #4550FF, darkblue);
+}
+
+.background--mind_2 {
+  background-image: linear-gradient(to right, #007CC1, #4550FF, darkblue, #100146, #230257);
+}
+
+.background--mind_3 {
+  background-image: linear-gradient(to right, #007CC1, #2863e2, #4550FF, darkblue);
+}
+
+.background--mind__ice {
+  background-image: linear-gradient(to right bottom, #f1f1f2, #a5bcc2, #a1d6e2, #49b4cc, #1995ad);
+}
 .card-content{
   padding: 2px 4px !important;
 }
@@ -46,6 +61,7 @@
   background-color: #fff;
   margin: 0 auto;
   white-space: nowrap;
+  
 
   .tab-recently{
     display: inline-block;

@@ -99,6 +99,8 @@ class UserController {
         'userdesc' => $data->Deskripsi,
         'usertoken' => $data->Token
       ]);
+    }else {
+      view('404');
     }
   }
 
