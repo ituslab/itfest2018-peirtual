@@ -2,6 +2,7 @@ const loader = `<div class="center loader"><ons-icon icon="md-spinner" size="50p
 const category = ["Teknik Komputer","Teknik Kimia", "Teknik Mesin", "Teknik Dokter"];
 const url = window.location.protocol + "//" + window.location.host + '/E-Perpus';
 
+console.log("ini host",host);
 $(document).ready(function(){
   
   
