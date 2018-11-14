@@ -9,6 +9,7 @@
   $app = new Router();
 
   $app->set404(function(){
+    http_response_code(404);
     view('404');
   });
 
@@ -92,7 +93,7 @@
   $app->get('/api/list_all_users', 'Package\Controller\UserController@listAllUsers');
   $app->get('/api/list_all_categories', 'Package\Controller\BookController@listAllCategories');
   $app->get('/api/list_all_books', 'Package\Controller\BookController@listAllBooks');
-  
+
 
   $app->run();
 ?>

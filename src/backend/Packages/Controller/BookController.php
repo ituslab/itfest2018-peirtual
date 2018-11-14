@@ -16,7 +16,11 @@ class BookController {
 
   public function showBook($id){
     $book = $this->controller->checkId($id);
-    view('book', 'desktop', $book);
+    if ($book) view('book', 'desktop', (Array) $book);
+    else {
+      http_response_code(404);
+      view('404');
+    }
   }
 
   public function upload(){
