@@ -3,6 +3,11 @@
 use Package\Middleware\Token;
 use Package\App\Session;
 use Package\App\Input;
+use Ramsey\Uuid\Uuid;
+
+define('ROOT', "{$_SERVER['DOCUMENT_ROOT']}/E-Perpus/");
+
+date_default_timezone_set("Asia/Jakarta");
 
 function view($view, $device = 'desktop', $data = []){
   if ($device === 'desktop') $file = __DIR__."/views/desktop/{$view}.php";
@@ -22,6 +27,11 @@ function csrftoken($reset = false){
     Session::set('csrftoken', Token::generate());
   };
   return Session::get('csrftoken');
+}
+
+function uuid(){
+  $id = Uuid::uuid4()->toString();
+  return substr($id, 0, strpos($id, "-"));
 }
 
 function csrfverify(){
@@ -47,13 +57,13 @@ function requesturl(){
 }
 
 function redirect($url){
-  if (!headers_sent()){ header('Location: '.$url); exit(); }
-  else{
+  if (!headers_sent()){
+    header('Location: '.$url);
+    exit();
+  }else {
     die(
       '<script type="text/javascript">window.location.href="'.$url.'";</script>
       <noscript><meta http-equiv="refresh" content="0;url='.$url.'" /></noscript>'
     );
   }
 }
-
-date_default_timezone_set("Asia/Jakarta");

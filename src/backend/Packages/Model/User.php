@@ -4,9 +4,6 @@ namespace Package\Model;
 
 use Package\Core\Model;
 
-/**
- *
- */
 class User {
   private $connection;
   private const table = 'Users';
@@ -17,6 +14,16 @@ class User {
 
   public function insert($datas = []){
     return $this->connection->insert(self::table, $datas);
+  }
+
+  public function listAll($fields = "*"){
+    return (
+      $this->connection
+      ->select(self::table, $fields)
+      ->fetchAll()
+      ->toJson()
+      ->get()
+    );
   }
 
   public function get($conditions = [], $fields = '*'){

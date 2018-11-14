@@ -2,8 +2,9 @@
   require_once __DIR__.'/vendor/autoload.php';
   require_once __DIR__.'/init.php';
 
-  use Package\App\Session;
   use Bramus\Router\Router;
+  use Package\App\Session;
+  use Package\App\Input;
 
   $app = new Router();
 
@@ -71,19 +72,20 @@
     redirect(baseurl().'/login');
   });
 
-  $app->get('/books/(\w+)', function($bookid) {
-    echo 'Ini Buku ' . htmlentities($bookid);
-  });
-
-  $app->post('/upload', function (){
-    var_dump($_FILES['file-cover']);
-  });
-
+  $app->post('/login', 'Package\Controller\UserController@login');
+  $app->post('/register', 'Package\Controller\UserController@register');
   $app->get('/logout', 'Package\Controller\UserController@logout');
   $app->get('/users/(\w+)', 'Package\Controller\UserController@showProfile');
   $app->post('/users/edit', 'Package\Controller\UserController@edit');
-  $app->post('/register', 'Package\Controller\UserController@register');
-  $app->post('/login', 'Package\Controller\UserController@login');
+
+  // TEST BOOK
+  $app->post('/books/upload', 'Package\Controller\BookController@upload');
+  $app->get('/books/(\w+)', 'Package\Controller\BookController@showBook');
+
+  // TEST API
+  $app->get('/api/list_all_users', 'Package\Controller\UserController@listAllUsers');
+  $app->get('/api/list_all_categories', 'Package\Controller\BookController@listAllCategories');
+  $app->get('/api/list_all_books', 'Package\Controller\BookController@listAllBooks');
 
   $app->run();
 ?>
