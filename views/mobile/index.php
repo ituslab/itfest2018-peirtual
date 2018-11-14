@@ -17,7 +17,7 @@
 
   <?php include_once "include/about.php" ?>
 
-  <script type="text/javascript">var host = "<?= baseurl() ?>"</script>
+  <script type="text/javascript">var host = "<?= baseurl()?>"</script>
   <script src="views/mobile/assets/js/materialize.min.js"></script>
   <script src="views/mobile/assets/js/app.js"></script>
 

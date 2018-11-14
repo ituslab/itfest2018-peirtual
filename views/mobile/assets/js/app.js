@@ -9,7 +9,7 @@ $(document).ready(function(){
     // todo recently
 
     $.ajax({
-      url :'https://randomuser.me/api/?results=4',
+      url :host+'/api/list_all_books',
       method: 'GET',
       dataType : 'JSON',
       beforeSend : function(){
