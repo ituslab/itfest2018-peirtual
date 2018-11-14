@@ -7,11 +7,12 @@
   use Package\App\Input;
 
   $app = new Router();
-
+  //* Landing Page
   $app->get('/', function(){
     view('landing');
   });
 
+  //* User Dashboard
   $app->get('/home', function(){
     if (Session::get('userauth')) {
       view('home');
