@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php include_once "include/head.php"?>
-<body> 
+<body>
   <ons-page>
 
     <ons-tabbar position="auto">
@@ -8,7 +8,7 @@
       <ons-tab id="profile" page="profile.html" label="Profile" icon="ion-ios-contact-outline" active-icon="ion-ios-contact"></ons-tab>
       <ons-tab id="setting" page="about" label="About" icon="ion-ios-people-outline" active-icon="ion-ios-people"  ></ons-tab>
     </ons-tabbar>
-    
+
   </ons-page>
 
   <?php include_once "include/home.php" ?>
@@ -17,9 +17,9 @@
 
   <?php include_once "include/about.php" ?>
 
-  
-  <script src="views/mobile/assets/js/app.js"></script>
+  <script type="text/javascript">var host = "<?= baseurl() ?>"</script>
   <script src="views/mobile/assets/js/materialize.min.js"></script>
+  <script src="views/mobile/assets/js/app.js"></script>
 
 </body>
 <script>
