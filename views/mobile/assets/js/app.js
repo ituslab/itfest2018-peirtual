@@ -1,7 +1,7 @@
 const loader = `<div class="center loader"><ons-icon icon="md-spinner" size="50px" spin></ons-icon><h3> Loading...</h3></div>`
 const category = ["Teknik Komputer","Teknik Kimia", "Teknik Mesin", "Teknik Dokter"];
 const url = window.location.protocol + "//" + window.location.host + '/E-Perpus';
-
+//! http://localhost/E-Perpus/home#form-upload = link uplado buku
 console.log("ini host",host);
 $(document).ready(function(){
 
