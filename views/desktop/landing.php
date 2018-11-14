@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <?php include_once 'includes/head.php' ?>
   <title>Landing Page | Peirtual</title>
@@ -32,7 +31,7 @@
             <h2 class="center brown-text"><i class="material-icons">collections_bookmark</i></h2>
             <h5 class="center">Bermacam Koleksi Buku</h5>
             <p class="light landing-p">
-              Baca buku, berbagi koleksi bacaan dan bersosialisasi secara bersamaan. 
+              Baca buku, berbagi koleksi bacaan dan bersosialisasi secara bersamaan.
               Di manapun, kapanpun dengan nyaman bersama setiap orang.
             </p>
           </div>
@@ -105,7 +104,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light shadow-text"><q> Semakin aku banyak membaca, semakin aku banyak berpikir, 
+          <h5 class="header col s12 light shadow-text"><q> Semakin aku banyak membaca, semakin aku banyak berpikir,
             semakin aku banyak belajar, semakin aku sadar bahwa aku tak mengetahui apa pun.</q> Voltaire.</h5>
         </div>
       </div>

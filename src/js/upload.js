@@ -1,17 +1,3 @@
-$('#form-upload-buku').one('click', function() {
-  $.ajax({
-    url: host+'/api/list_all_category',
-    type: 'GET',
-    dataType: 'JSON',
-  })
-  .done(function(response) {
-    response.forEach(function(cat){
-      $('#Kategori').append('<option value="'+cat.Id+'">'+cat.Deskripsi+'</option>');
-      $('select').formSelect();
-    });
-  });
-});
-
 function uploadBuku(event) {
   event.preventDefault();
   var data = new FormData();
@@ -47,9 +33,9 @@ function uploadBuku(event) {
 }
 
 function formUploadReset() {
-  $('#upload-cover').attr('src', host+'/assets/img/uploadplaceholder.png');
-  $('#upload-loading').hide();
   $('.book-upload').val('');
+  $('#cover-preview').attr('src', host+'/assets/img/uploadplaceholder.png');
+  $('#upload-loading').hide();
   $('#Halaman').val('0');
   $('#Kategori').formSelect();
 }

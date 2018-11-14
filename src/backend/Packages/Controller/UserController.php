@@ -129,8 +129,7 @@ class UserController {
   }
 
   public function listAllUsers(){
-
-    die();
+    die($this->controller->listAll('Nama, Username, Email, Avatar, Deskripsi'));
   }
 
   private function check($field, $value){

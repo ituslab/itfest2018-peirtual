@@ -14,6 +14,11 @@ class BookController {
     $this->controller = new Book();
   }
 
+  public function showBook($id){
+    $book = $this->controller->checkId($id);
+    view('book', 'desktop', $book);
+  }
+
   public function upload(){
     $uuid = uuid();
     $id = $this->controller->checkId($uuid) ? uuid() : $uuid;

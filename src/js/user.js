@@ -35,7 +35,7 @@ function editUser() {
     }
   })
   .done(function() {
-    window.location.reload();
+    window.location.href = host+'/users/'+username;
   })
   .fail(function(err, status, xhr) {
     console.log(err);

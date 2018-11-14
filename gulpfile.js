@@ -1,16 +1,18 @@
 const
   gulp = require('gulp'),
+  babel = require('gulp-babel'),
+  jsMinify = require('gulp-babel-minify'),
   concat = require('gulp-concat'),
   order = require('gulp-order'),
   plumber = require('gulp-plumber'),
   gsass = require('gulp-sass'),
-  uglify = require('gulp-uglify'),
   cssMinify = require('gulp-csso'),
   del = require('del');
 
 const app = {
   sass: {
     src: 'src/sass/main.scss',
+    path: 'src/sass/**/*.scss',
     dest: 'assets/css/'
   },
   script: {
@@ -41,16 +43,21 @@ const sass = () => {
 
 const script = () => {
   return gulp.src(app.script.src)
+  .pipe(babel())
   .pipe(plumber())
 	.pipe(order(app.script.order, { base: './' }))
   .pipe(concat('main.js'))
-  .pipe(uglify())
+  .pipe(jsMinify({
+    mangle: {
+      keepClassName: true
+    }
+  }))
   .pipe(gulp.dest(app.script.dest));
 };
 
 const watch = () => {
   build();
-  gulp.watch(app.sass.src, sass);
+  gulp.watch(app.sass.path, sass);
   gulp.watch(app.script.src, script);
 }
 
