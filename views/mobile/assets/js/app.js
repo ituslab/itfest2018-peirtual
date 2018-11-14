@@ -4,8 +4,8 @@ const url = window.location.protocol + "//" + window.location.host + '/E-Perpus'
 
 console.log("ini host",host);
 $(document).ready(function(){
-  
-  
+
+
     // todo recently
 
     $.ajax({
@@ -17,12 +17,12 @@ $(document).ready(function(){
       },
     }).done((res)=>{
       $('#recently').html(``);
-      res.results.map(data => {
+      res.map(data => {
         $('#recently').append(`
       <li class="tab-recently" >
         <div class=" card book-recently">
           <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="${data.picture.medium}">
+              <img class="activator" src="${host+'/'+data.Cover}">
             </div>
           <div class="card-content">
             <span class="card-title activator  text-darken-5 small">Card Title<i class="material-icons right">more_vert</i></span>
@@ -56,32 +56,32 @@ $(document).ready(function(){
             <div>${cat}</div>
           </ons-card>
         </li>
-        `); 
+        `);
       });
     }).fail((data, stat, xhr)=>{
       ons.notification.alert(`Turn <i class="ion-android-wifi"></i>N The Internet   `)
       .then(()=> window.location.reload())
     })
 
-    
+
     // todo Reload
     $('.toolbar').click(function(){
       window.location.reload();
     })
-    
-    //todo carousel 
+
+    //todo carousel
     setTimeout(function(){
       console.log('load image')
       $('.carousel').carousel({duration : 400});
-     
+
     }, 3000)
-    
+
 });
-  
+
   // todo Category-click Slide Toggle
   function listBuku(ev){
     console.log(`#${($(ev).attr('id'))}`)
-     
+
   }
 
   // ? Like Button
@@ -96,7 +96,7 @@ $(document).ready(function(){
       }
     })
   }
-  
+
   function contact(){
     ons.notification.alert('Silahkan DM Ke Instagram Kami');
   }
