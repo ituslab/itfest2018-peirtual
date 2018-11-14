@@ -17,20 +17,22 @@ class UserController {
   }
 
   public function register(){
-    $nama = Input::get('Nama');
-    $email = Input::get('Email');
+    $nama = trim(Input::get('Nama'));
+    $email = trim(Input::get('Email'));
+    $username = $this->generateAuthKey();
     $pass = password_hash(Input::get('Password'), PASSWORD_DEFAULT);
     $register = $this->controller->insert([
-      'Username' => $this->generateAuthKey(),
+      'Username' => $username,
       'Email' => $email,
       'Password' => $pass,
       'Nama' => $nama,
+      'Avatar' => $this->getAvatar($email),
       'Token' => Token::generate('gost-crypto')
     ]);
-    if ($register === true) {
-      $data = $this->check('Email', $email);
+    if ($register) {
+      $data = $this->check('Username', $username);
       $this->setSession($data);
-      Session::set('flashmsg', 'Terima kasih sudah bergabung di PerGi, silahkan aktivasi akun anda !');
+      Session::set('flashmsg', 'Terima kasih sudah bergabung di Peirtual, silahkan aktivasi akun anda !');
       redirect(baseurl().'/auth');
       return;
     }
@@ -43,7 +45,7 @@ class UserController {
   }
 
   public function login(){
-    $uname = Input::get('Uname');
+    $uname = trim(Input::get('Uname'));
     $pass = Input::get('Password');
     $login = (filter_var($uname, FILTER_VALIDATE_EMAIL)) ? 'Email' : 'Username';
     $data = $this->check($login, $uname);
@@ -93,7 +95,7 @@ class UserController {
         'username' => $data->Username,
         'usernama' => $data->Nama,
         'useremail' => $data->Email,
-        'useravatar' => $this->getAvatar($data),
+        'useravatar' => $data->Avatar,
         'userdesc' => $data->Deskripsi,
         'usertoken' => $data->Token
       ]);
@@ -102,9 +104,9 @@ class UserController {
 
   public function edit(){
     $id = Input::get('id');
-    $username = Input::get('username');
-    $nama = Input::get('nama');
-    $deskripsi = Input::get('deskripsi');
+    $username = trim(Input::get('username'));
+    $nama = trim(Input::get('nama'));
+    $deskripsi = trim(Input::get('deskripsi'));
     if (csrfverify()) {
       $update = $this->controller->update('Id', $id, [
         'Username' => $username,
@@ -120,10 +122,15 @@ class UserController {
     }else {
       http_response_code(403);
       die(json_encode([
-        'status' => 403,
+        'status' => http_response_code(),
         'msg' => 'Authorisasi gagal. Token invalid !'
       ]));
     }
+  }
+
+  public function listAllUsers(){
+
+    die();
   }
 
   private function check($field, $value){
@@ -137,7 +144,7 @@ class UserController {
       'username' => $user->Username,
       'usernama' => $user->Nama,
       'useremail' => $user->Email,
-      'useravatar' => $this->getAvatar($user),
+      'useravatar' => $user->Avatar,
       'userauth' => (strtolower($user->Aktivasi) === 'true') ? true : false,
       'usertoken' => $user->Token,
     ]);
@@ -151,16 +158,16 @@ class UserController {
       $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
     if (!$this->check('Username', $randomString)) return $randomString;
-    else $this->generateUsername();
+    else $this->generateAuthKey();
   }
 
-  private function getAvatar($user){
-    return (isset($user->Avatar)) ? $user->Avatar : "https://www.gravatar.com/avatar/".sha1($user->Email)."?d=monsterid";
+  private function getAvatar($email){
+    return "https://www.gravatar.com/avatar/".sha1($email)."?d=monsterid";
   }
 
   public function sendAccountVerification(){
     $mail = new PHPMailer(true);
-    $link = baseurl().'/verification?uname='.Session::get('username').'&authkey='.Session::get('userauthkey');
+    $link = baseurl().'/verification?uname='.Session::get('username').'&authkey='.Session::get('usertoken');
     try{
       // $mail->SMTPDebug = 2 ;
       $mail->IsSMTP();

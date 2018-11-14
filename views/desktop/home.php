@@ -12,7 +12,7 @@
         <ul id="home-tabs" class="tabs tab-demo z-depth-1">
           <li class="tab"><a class="active" href="#books">Beranda</a></li>
           <li class="tab"><a class="active" href="#users">Users</a></li>
-          <li class="tab"><a class="active" href="#form-upload">Upload Buku</a></li>
+          <li class="tab"><a id="form-upload-buku" class="active" href="#form-upload">Upload Buku</a></li>
         </ul>
       </div>
     </div>
@@ -96,18 +96,8 @@
                   <div class="row">
                     <div class="card">
                       <div onclick="" class="card-image waves-effect waves-block waves-light">
-                        <img id="cover-preview" onclick="$('#cover-upload').click()" class="activator" style="width:100%;margin:auto" src="<?= baseurl() ?>/assets/img/uploadplaceholder.png">
-                      </div>
-                      <div style="display: none;" class="card-content">
-                        <div class="file-field input-field">
-                          <div class="btn">
-                            <span>File</span>
-                            <input onclick="imageProcessing($(this), '#cover-preview', '')" id="cover-upload" type="file" accept="image/*">
-                          </div>
-                          <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
-                          </div>
-                        </div>
+                        <img id="cover-preview" onclick="$('#upload-cover').click()" class="activator" style="width:100%;margin:auto" src="<?= baseurl() ?>/assets/img/uploadplaceholder.png">
+                        <input style="display: none;" onclick="validateImage($(this), '#cover-preview', '')" id="upload-cover" type="file" accept="image/*" class="book-upload">
                       </div>
                     </div>
                   </div>
@@ -118,15 +108,15 @@
                   <div class="divider"></div>
                   <div class="row section" style="padding: 15px;">
                     <div class="input-field col s12">
-                      <input id="Judul" value="" type="text" class="user-edit validate" />
+                      <input id="Judul" type="text" class="book-upload user-edit validate" />
                       <label for="Judul">Judul</label>
                     </div>
                     <div class="input-field col s12">
-                      <input id="Penulis" value="" type="text" class="user-edit validate" />
+                      <input id="Penulis"  type="text" class="book-upload user-edit validate" />
                       <label for="Penulis">Penulis</label>
                     </div>
                     <div class="input-field col s12">
-                      <input id="Penerbit" value="" type="text" class="user-edit validate" />
+                      <input id="Penerbit"  type="text" class="book-upload user-edit validate" />
                       <label for="Penerbit">Penerbit</label>
                     </div>
                     <div class="input-field col s12">
@@ -134,19 +124,32 @@
                       <label for="Halaman">Jumlah Halaman</label>
                     </div>
                     <div class="input-field col s12">
-                      <select id="Kategori" class="icons">
+                      <select id="Kategori">
                         <option value="" disabled selected>Pilih Kategori Buku</option>
-                        <option data-icon="https://materializecss.com/images/sample-1.jpg">Pelajaran</option>
                       </select>
                       <label for="Kategori">Kategori Buku</label>
                     </div>
                     <div class="input-field col s12">
-                      <textarea id="Deskripsi" class="materialize-textarea" data-length="120"></textarea>
+                      <textarea id="Deskripsi" class="book-upload materialize-textarea" data-length="120"></textarea>
                       <label for="Deskripsi">Deskripsi Buku</label>
+                    </div>
+                    <div class="file-field input-field col s12">
+                      <div class="btn">
+                        <span>Upload Buku (PDF)</span>
+                        <input class="book-upload" onclick="validateBook($(this))" id="upload-buku" type="file" accept="application/pdf">
+                      </div>
+                      <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                      </div>
+                    </div>
+                    <div id="upload-loading" style="display: none;" class="col s12">
+                      <div class="progress">
+                        <div class="indeterminate"></div>
+                      </div>
                     </div>
                     <div class="divider"></div>
                     <div class="col s12">
-                      <input type="hidden" id="csrftoken" value="">
+                      <input type="hidden" id="csrftoken" value="<?= csrftoken(true) ?>">
                       <button type="submit" class="btn right">
                         Upload
                       </button>
