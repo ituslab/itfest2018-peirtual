@@ -60,7 +60,7 @@
       <div class="col s12 img-sponsor m2"></div>
     </div>
   </div>
-  <div class="footer-copyright deep-purple darken-3">
+  <div class="footer-copyright deep-purple darken-3 background--mind_3">
     <div class="container">
       &copy; TIM IT - B 2018
     </div>

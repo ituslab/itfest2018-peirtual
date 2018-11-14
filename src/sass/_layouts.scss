@@ -6,3 +6,24 @@ footer.page-footer {
   padding: 15px !important;
   height: auto;
 }
+
+.background--mind {
+  background-image: linear-gradient(to right bottom, #007CC1, #4550FF, darkblue);
+}
+
+.background--mind_2 {
+  background-image: linear-gradient(to right, #007CC1, #4550FF, darkblue, #100146, #230257);
+}
+
+.background--mind_3 {
+  background-image: linear-gradient(to bottom, #007CC1, #2863e2, #0652f7, #1e32a5, #0a0ab1);
+}
+
+.background--mind__ice {
+  background-image: radial-gradient(to right bottom, #f1f1f2, #bcbabe, #a1d6e2, #1995ad);
+}
+
+.background--radial__1{
+  background-image: radial-gradient(farthest-corner at 10px 10px,
+      #4550FF 10%, #007CC1 90%, #100196 9%);
+}

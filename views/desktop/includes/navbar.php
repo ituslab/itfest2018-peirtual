@@ -1,7 +1,7 @@
 <?php use Package\App\Session; ?>
 <div class="navbar-fixed">
   <nav id="nav" class="deep-purple darken-3 z-depth-2" role="navigation">
-    <div class="nav-wrapper" style="padding: 0 15px">
+    <div class="nav-wrapper  background--mind_2" style="padding: 0 15px">
       <a href="<?= baseurl() ?>/" class="brand-logo">Peirtual</a>
       <ul class="right hide-on-med-and-down">
         <?php if (!Session::get('userlogin')): ?>
@@ -19,7 +19,7 @@
 </div>
 
 
-<ul id="side-nav" class="sidenav deep-purple darken-3">
+<ul id="side-nav" class="sidenav darken-3 background--mind_3">
   <?php if (!Session::get('userlogin')): ?>
     <li><a class="white-text" href="<?= baseurl() ?>/login">Login</a></li>
     <li><a class="white-text" href="<?= baseurl() ?>/register">Register</a></li>
