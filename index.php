@@ -93,7 +93,7 @@
   $app->get('/api/list_all_users', 'Package\Controller\UserController@listAllUsers');
   $app->get('/api/list_all_categories', 'Package\Controller\BookController@listAllCategories');
   $app->get('/api/list_all_books', 'Package\Controller\BookController@listAllBooks');
-
+  $app->post('/api/list_user_collections', 'Package\Controller\BookController@listUserCollections');
 
   $app->run();
 ?>

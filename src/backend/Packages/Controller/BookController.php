@@ -82,6 +82,14 @@ class BookController {
     }
   }
 
+  public function listUserCollections(){
+    $username = Input::get('username');
+    $collections = $this->controller->getAllJson([
+      'Diupload' => ['=' => $username]
+    ], 'Id, Judul, Deskripsi, Cover, Buku');
+    die($collections);
+  }
+
   public function listAllCategories(){
     die($this->controller->listAll('Categories'));
   }

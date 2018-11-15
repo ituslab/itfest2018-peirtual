@@ -13,7 +13,7 @@
         <br><br>
         <h1 class="header center text-lighten-2 shadow-text">Peirtual</h1>
         <div class="row center">
-          <h5 class="header col s12 dark shadow-text">Aplikasi Perpustakaan Virtual Modern</h5>
+          <h5 data-aos="fade-down" data-aos-delay="1500" data-aos-easing="ease-in-out" class="header col s12 dark shadow-text">Aplikasi Perpustakaan Virtual Modern</h5>
         </div>
         <br><br>
       </div>
@@ -84,7 +84,7 @@
           <h3><i class="mdi-content-send brown-text"></i>Supported By</h3>
           <br /><br />
           <div class="row">
-            <div class="col s12 m4 img-sponsor">
+            <div data-aos="flip-left" class="col s12 m4 img-sponsor">
               <img src="https://itpolsri.com/Images/ITFEST.jpeg" style="width:200px" class="responsive-img" alt="ITFEST">
             </div>
             <div class="col s12 m4 img-sponsor">
