@@ -58,7 +58,7 @@
           </div>
           <div class="center">
             <span class="list-item__title">Muhammad Irvan Refnaldy</span>
-            <span class="list-item__subtitle">JavaScript Developer</span>
+            <span class="list-item__subtitle">Javascript Developer</span>
           </div>
         </ons-list-item>
         <ons-list-item>
@@ -66,7 +66,7 @@
             <img class="list-item__thumbnail" src="views/mobile/assets/img/sutan.jpeg">
           </div>
           <div class="center">
-            <span class="list-item__title">Sutan Gading Fadillah Nst.</span>
+            <span class="list-item__title">Sutan Gading Fadhillah Nst.</span>
             <span class="list-item__subtitle">Fullstack Developer</span>
           </div>
         </ons-list-item>
