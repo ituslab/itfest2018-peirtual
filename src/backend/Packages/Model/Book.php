@@ -31,6 +31,20 @@ class Book {
     );
   }
 
+  public function showBookJoinCategory($id){
+    $query = "SELECT b.*, k.Deskripsi AS KategoriDesc FROM Categories k
+      INNER JOIN Books b
+      ON k.Id = b.Kategori
+      WHERE b.Id = :bookid";
+
+    return (
+      $this->connection
+      ->query($query, [':bookid' => $id])
+      ->fetch()
+      ->get()
+    );
+  }
+
   public function get($conditions = [], $fields = '*'){
     return (
       $this->connection

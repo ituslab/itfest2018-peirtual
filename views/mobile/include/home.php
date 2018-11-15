@@ -8,23 +8,14 @@
         <div class="row">
           <div class="col s12">
             <ul class="tabs-recently background--mind__ice" id="recently">
-              
+
             </ul>
           </div>
         </div>
-        <h2 class="title--home">Category..</h2>  
+        <h2 class="title--home">Category..</h2>
         <div class="row" >
           <div class="col s12"   >
             <ul class="tabs-category background--mind__ice" id="category" >
-            </ul>
-          </div>
-        </div>
-        <div class="row" id="category-click" style="display:none;">
-          <div class="col s12 m7">
-            <ul class="tabs-category" id="cat-click">
-              <li class="tab-category ">
-                <ons-card></ons-card>
-              </li>
             </ul>
           </div>
         </div>

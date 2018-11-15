@@ -21,20 +21,27 @@ class UserController {
     $email = trim(Input::get('Email'));
     $username = $this->generateAuthKey();
     $pass = password_hash(Input::get('Password'), PASSWORD_DEFAULT);
-    $register = $this->controller->insert([
-      'Username' => $username,
-      'Email' => $email,
-      'Password' => $pass,
-      'Nama' => $nama,
-      'Avatar' => $this->getAvatar($email),
-      'Token' => Token::generate('gost-crypto')
-    ]);
-    if ($register) {
-      $data = $this->check('Username', $username);
-      $this->setSession($data);
-      Session::set('flashmsg', 'Terima kasih sudah bergabung di Peirtual, silahkan aktivasi akun anda !');
-      redirect(baseurl().'/auth');
-      return;
+    $checkEmail = $this->check('Email', $email);
+    if (!$checkEmail) {
+      $register = $this->controller->insert([
+        'Username' => $username,
+        'Email' => $email,
+        'Password' => $pass,
+        'Nama' => $nama,
+        'Avatar' => $this->getAvatar($email),
+        'Token' => Token::generate('gost-crypto')
+      ]);
+      if ($register) {
+        $data = $this->check('Username', $username);
+        $this->setSession($data);
+        Session::set('flashmsg', 'Terima kasih sudah bergabung di Peirtual, silahkan aktivasi akun anda !');
+        redirect(baseurl().'/auth');
+        return;
+      }else {
+        Session::set('flashmsg', 'Terjadi kesalahan saat mengisi data. silahkan coba lagi nanti.');
+      }
+    }else {
+      Session::set('flashmsg', 'Email sudah terdaftar ! silahkan gunakan Email lain.');
     }
     redirect(baseurl().'/register');
   }

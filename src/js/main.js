@@ -1,6 +1,7 @@
 $('select').formSelect();
 $('.sidenav').sidenav();
 $('.parallax').parallax();
+
 var instance = M.Tabs.init(document.getElementById('home-tabs'), {
   onShow: tabChange
 });
@@ -28,6 +29,7 @@ function tabChange(){
 }tabChange();
 
 function loadUserCollections() {
+  if (execResponseCollection) return;
   var pageURL = window.location.href;
   var username = pageURL.substr(pageURL.lastIndexOf('/') + 1); // ambil segmen terakhir di url
   $.ajax({
@@ -40,6 +42,7 @@ function loadUserCollections() {
     }
   })
   .done(function(response) {
+    execResponseCollection = true;
     $('#row-collections').empty();
     response.forEach(function(data){
       $('#row-collections').append(`
@@ -129,7 +132,8 @@ function loadAllUsers() {
               <img class="activator" src="${data.Avatar}">
             </div>
             <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">${data.Nama}<i class="material-icons right">more_vert</i></span>
+              <span class="activator grey-text text-darken-4"><b>${data.Nama}</b><i class="material-icons right">more_vert</i></span>
+              <br />
               <p><a href="${host+'/users/'+data.Username}">Lihat Profile</a></p>
             </div>
             <div class="card-reveal">

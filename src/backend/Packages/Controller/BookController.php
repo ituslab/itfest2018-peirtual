@@ -15,7 +15,7 @@ class BookController {
   }
 
   public function showBook($id){
-    $book = $this->controller->checkId($id);
+    $book = $this->controller->showBookJoinCategory($id);
     if ($book) view('book', 'desktop', (Array) $book);
     else {
       http_response_code(404);

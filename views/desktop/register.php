@@ -1,3 +1,4 @@
+<?php use Package\App\Session; ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -34,6 +35,17 @@
                     <label for="password">Password</label>
                   </div>
                 </div>
+                <?php if (Session::get('flashmsg')): ?>
+                  <div class="row">
+                    <div class="col s12">
+                      <div class="card-panel red">
+                        <span class="white-text">
+                          <?= Session::get('flashmsg') ?>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                <?php endif; ?>
               </div>
               <div class="card-action">
                 <button type="submit" class="btn deep-purple darken-2 waves-effect waves-light">

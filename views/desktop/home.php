@@ -10,7 +10,7 @@
     <div class="section">
       <div class="row">
         <ul id="home-tabs" class="tabs tab-demo z-depth-1">
-          <li class="tab"><a class="active" id="tab-beranda" href="#books">Beranda</a></li>
+          <li class="tab"><a class="active teal-text" id="tab-beranda" href="#books">Beranda</a></li>
           <li class="tab"><a class="active" id="tab-user" href="#users">Users</a></li>
           <li class="tab"><a id="tab-upload" class="active" href="#form-upload">Upload Buku</a></li>
         </ul>

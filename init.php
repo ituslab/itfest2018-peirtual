@@ -15,7 +15,9 @@ function view($view, $device = 'desktop', $data = []){
   else $file = false;
   if (file_exists($file)) {
     if (!empty($data)) extract($data);
+    ob_start();
     include_once $file;
+    ob_flush();
   }
   else die('Request Not Found');
 }

@@ -55,7 +55,7 @@
                       <label for="Halaman">Jumlah Halaman</label>
                     </div>
                     <div class="input-field col s12">
-                      <input readonly id="Kategori" value="<?= $Kategori ?>" type="text" class="user-edit grey-text" />
+                      <input readonly id="Kategori" value="<?= $KategoriDesc ?>" type="text" class="user-edit grey-text" />
                       <label for="Kategori">Kategori</label>
                     </div>
                     <div class="input-field col s12">

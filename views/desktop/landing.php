@@ -111,6 +111,7 @@
     </div>
     <div class="parallax"><img src="https://sutanlab.js.org/assets/img/bg/desk1.jpg" alt="Unsplashed background img 3"></div>
   </div>
+  <?php include_once 'includes/sponsor.php'; ?>
   <?php include_once 'includes/footer.php' ?>
 </body>
 
