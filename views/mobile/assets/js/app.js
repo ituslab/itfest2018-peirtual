@@ -18,6 +18,7 @@ $(document).ready(function(){
     }).done((res)=>{
       $('#recently').html(``);
       res.map(data => {
+        
         $('#recently').append(`
       <li class="tab-recently" >
         <div class=" card book-recently">
@@ -26,22 +27,22 @@ $(document).ready(function(){
             </div>
           <div class="card-content">
             <span class="card-title activator  text-darken-5 small">Card Title<i class="material-icons right">more_vert</i></span>
-            <p style="margin-left:10px;"><a href="${url}">Read More..</a></p>
+            <p style="margin-left:10px;"><a href="${host}/books/${data.Id}">Read More..</a></p>
           </div>
           <div class="card-reveal ">
             <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-            <p style="word-wrap: break-word;width:100px;" >Here is some more information about this product that is only revealed once clicked on.</p>
+            <p style="word-wrap: break-word;width:100px;" >${data.Deskripsi}</p>
           </div>
         </div>
       </li>
       `);
-      })
+      });
     });
 
 
     //TOdo Category
     $.ajax({
-      url :'https://randomuser.me/api/?results=4',
+      url : host+'/api/list_all_categories',
       method: 'GET',
       dataType : 'JSON',
       beforeSend : function(){
@@ -51,9 +52,9 @@ $(document).ready(function(){
       $('#category').html(``);
       category.map(cat => {
         $('#category').append(`
-        <li id="${cat}" class="tab-category" onclick="listBuku(this)">
+        <li id="${cat.Id}" class="tab-category" >
           <ons-card class="book-category">
-            <div>${cat}</div>
+            <div>${cat.Kategori}</div>
           </ons-card>
         </li>
         `);
@@ -78,11 +79,6 @@ $(document).ready(function(){
 
 });
 
-  // todo Category-click Slide Toggle
-  function listBuku(ev){
-    console.log(`#${($(ev).attr('id'))}`)
-
-  }
 
   // ? Like Button
   function like(){

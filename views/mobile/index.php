@@ -5,15 +5,12 @@
 
     <ons-tabbar position="auto">
       <ons-tab id="dashboard" page="dashboard.html" label="Home" icon="ion-ios-home-outline" active-icon="ion-ios-home" active></ons-tab>
-      <ons-tab id="profile" page="profile.html" label="Profile" icon="ion-ios-contact-outline" active-icon="ion-ios-contact"></ons-tab>
-      <ons-tab id="setting" page="about" label="About" icon="ion-ios-people-outline" active-icon="ion-ios-people"  ></ons-tab>
+      <ons-tab id="setting" page="about" label="About" icon="ion-code" active-icon="ion-code-working" ></ons-tab>
     </ons-tabbar>
 
   </ons-page>
 
   <?php include_once "include/home.php" ?>
-
-  <?php include_once "include/profile.php" ?>
 
   <?php include_once "include/about.php" ?>
 
