@@ -1,7 +1,7 @@
 $('select').formSelect();
 $('.sidenav').sidenav();
 $('.parallax').parallax();
-
+$('textarea').characterCounter();
 var instance = M.Tabs.init(document.getElementById('home-tabs'), {
   onShow: tabChange
 });
@@ -24,12 +24,21 @@ function tabChange(){
   }else if (koleksi.hasClass('active')){
     loadUserCollections();
   }else if (profile.hasClass('active')){
-    console.log('profil');
   }
 }tabChange();
 
+function historyState(html, title, url) {
+  window.history.pushState({html: html, title: title}, title, url);
+  window.onpopstate = function(event){
+    if(event.state){
+      $('html').html(event.state.html);
+      document.title = event.state.title;
+    }
+  };
+}
+
 function loadUserCollections() {
-  if (execResponseCollection) return;
+  if (execResponseCollections) return;
   var pageURL = window.location.href;
   var username = pageURL.substr(pageURL.lastIndexOf('/') + 1); // ambil segmen terakhir di url
   $.ajax({
@@ -42,7 +51,7 @@ function loadUserCollections() {
     }
   })
   .done(function(response) {
-    execResponseCollection = true;
+    execResponseCollections = true;
     $('#row-collections').empty();
     response.forEach(function(data){
       $('#row-collections').append(`
@@ -66,12 +75,14 @@ function loadUserCollections() {
 }
 
 function loadAllCategories() {
+  if (execResponseCategories) return;
   $.ajax({
     url: host+'/api/list_all_categories',
     type: 'GET',
     dataType: 'JSON',
   })
   .done(function(response) {
+    execResponseCategories = true;
     $('#Kategori').html('<option selected disabled value="">Pilih Kategori</option>');
     response.forEach(function(cat){
       $('#Kategori').append('<option value="'+cat.Id+'">'+cat.Deskripsi+'</option>');
@@ -81,12 +92,14 @@ function loadAllCategories() {
 }
 
 function loadAllBooks() {
+  if (execResponseBooks) return;
   $.ajax({
     url: host+'/api/list_all_books',
     type: 'GET',
     dataType: 'JSON'
   })
   .done(function(response) {
+    execResponseBooks = true;
     $('#row-books').empty();
     response.forEach(function(data){
       $('#row-books').append(`
@@ -117,12 +130,14 @@ function loadAllBooks() {
 }
 
 function loadAllUsers() {
+  if (execResponseUsers) return;
   $.ajax({
     url: host+'/api/list_all_users',
     type: 'GET',
     dataType: 'JSON'
   })
   .done(function(response) {
+    execResponseUsers = true;
     $('#row-users').empty();
     response.forEach(function(data){
       $('#row-users').append(`

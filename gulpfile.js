@@ -19,9 +19,12 @@ const app = {
     src: 'src/js/**/*.js',
     dest: 'assets/js/',
     order: [
-      "src/js/jquery/jquery.min.js",
-      "src/js/materialize/materialize.min.js",
+      "src/js/jquery/jquery.js",
+      "src/js/jquery/validate.js",
+      "src/js/jquery/validateadditional.js",
+      "src/js/materialize/materialize.js",
       "src/js/aos/aos.js",
+      "src/js/variable.js",
       "src/js/**/*.js"
     ]
   }

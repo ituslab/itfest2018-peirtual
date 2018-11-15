@@ -79,7 +79,7 @@
                       <div class="red-text" id="error-Kategori"></div>
                     </div>
                     <div class="input-field col s12">
-                      <textarea id="Deskripsi" name="Deskripsi" class="book-upload materialize-textarea" data-length="120"></textarea>
+                      <textarea id="Deskripsi" name="Deskripsi" class="book-upload materialize-textarea" data-length="200"></textarea>
                       <label for="Deskripsi">Deskripsi Buku</label>
                       <div class="red-text" id="error-Deskripsi"></div>
                     </div>

@@ -114,20 +114,32 @@ class UserController {
 
   public function edit(){
     $id = Input::get('id');
-    $username = trim(Input::get('username'));
+    $username = trim(strtolower(Input::get('username')));
     $nama = trim(Input::get('nama'));
     $deskripsi = trim(Input::get('deskripsi'));
     if (csrfverify()) {
-      $update = $this->controller->update('Id', $id, [
-        'Username' => $username,
-        'Nama' => $nama,
-        'Deskripsi' => $deskripsi
-      ]);
-      if ($update) {
-        Session::set([
-          'username' => $username,
-          'usernama' => $nama
+      $check = $this->check('Username', $username);
+      if (!$check || (Session::get('username') == $username)) {
+        $update = $this->controller->update('Id', $id, [
+          'Username' => $username,
+          'Nama' => $nama,
+          'Deskripsi' => $deskripsi
         ]);
+        if ($update) {
+          Session::set([
+            'username' => $username,
+            'usernama' => $nama
+          ]);
+          die(json_encode([
+            'status' => true,
+            'msg' => 'Edit Profile Sukses !'
+          ]));
+        }
+      }else if ($check) {
+        die(json_encode([
+          'status' => false,
+          'msg' => 'Username sudah terdaftar, silahkan cari Username lain !'
+        ]));
       }
     }else {
       http_response_code(403);
@@ -182,11 +194,10 @@ class UserController {
       $mail->IsSMTP();
       $mail->SMTPSecure = 'ssl';
       $mail->Host = "mail.itpolsri.org";
-      // $mail->SMTPDebug = 2;
       $mail->Port = 465;
       $mail->SMTPAuth = true;
-      $mail->Username = "admin@itpolsri.org";
-      $mail->Password = "tekkompower2016";
+      $mail->Username = "system@it-a.mipolsri.com";
+      $mail->Password = "sysit-a2018";
       $mail->SetFrom("noreply@peirtual.com", "Sys Peirtual");
       $mail->AddAddress(Session::get('useremail'), Session::get('usernama'));  //tujuan email
       $mail->isHTML(true);
@@ -203,6 +214,4 @@ class UserController {
   }
 
 }
-
-
 ?>
