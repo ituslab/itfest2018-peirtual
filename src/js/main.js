@@ -43,7 +43,7 @@ function loadUserCollections() {
     $('#row-collections').empty();
     response.forEach(function(data){
       $('#row-collections').append(`
-        <div class="card horizontal z-depth-2">
+        <div class="card horizontal z-depth-2 hoverable">
           <div class="card-image">
             <img style="width: 100px; height: 140px; margin:auto;" src="${host+'/'+data.Cover}">
           </div>
@@ -88,7 +88,7 @@ function loadAllBooks() {
     response.forEach(function(data){
       $('#row-books').append(`
         <div class="col sm12 m3">
-          <div class="card">
+          <div class="card hoverable">
             <div class="card-image waves-effect waves-block waves-light">
               <img style="width: 250px; height: 300px; margin: auto;" class="activator responsive-img" src="${host+data.Cover}">
             </div>
@@ -124,7 +124,7 @@ function loadAllUsers() {
     response.forEach(function(data){
       $('#row-users').append(`
         <div class="col sm12 m2">
-          <div class="card">
+          <div class="card hoverable">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="activator" src="${data.Avatar}">
             </div>
