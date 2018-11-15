@@ -41,6 +41,17 @@ class Book {
     );
   }
 
+  public function getAllJson($conditions = [], $fields = '*'){
+    return (
+      $this->connection
+      ->select(self::table, $fields)
+      ->where($conditions)
+      ->fetchAll()
+      ->toJson()
+      ->get()
+    );
+  }
+
   public function update($field, $value, $set = []){
     return (
       $this->connection

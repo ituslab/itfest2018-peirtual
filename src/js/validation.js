@@ -21,6 +21,73 @@ function validateImage(inputSelector, target) {
   });
 }
 
+$('#form-upload-buku').validate({
+  rules: {
+    Judul: {
+      required: true
+    },
+    Penulis: {
+      required: true
+    },
+    Penerbit: {
+      required: true
+    },
+    Halaman: {
+      required: true
+    },
+    Kategori: {
+      required: true,
+
+    },
+    Deskripsi: {
+      required: true
+    },
+    'upload-buku': {
+      required: true
+    }
+  },
+  messages: {
+    Judul: {
+      required: 'Judul tidak boleh kosong !'
+    },
+    Penulis: {
+      required: 'Penulis tidak boleh kosong !'
+    },
+    Penerbit: {
+      required: 'Penerbt tidak boleh kosong !'
+    },
+    Halaman: {
+      required: 'Halaman tidak boleh kosong !'
+    },
+    Kategori: {
+      required: 'Kategori tidak boleh kosong !'
+    },
+    Deskripsi: {
+      required: 'Deskripsi tidak boleh kosong !'
+    },
+    'upload-buku': {
+      required: 'Kamu belum memilih buku untuk di upload !'
+    }
+  },
+  errorPlacement: function(errElement, validElement) {
+    var
+      errorText = $(errElement).html(),
+      input = $(validElement).attr('name'),
+      idErrElement = '#error-'+input;
+    $(idErrElement).html(errorText);
+  },
+  success: function (label, validEl) {},
+  submitHandler: uploadBuku
+});
+
+$('#Kategori').on('change', function(){
+  if ($(this).val().toString().trim() == '') {
+    $('#btn-upload').prop('disabled', true);
+  }else {
+    $('#btn-upload').prop('disabled', false);
+  }
+});
+
 function validateBook(inputSelector) {
   inputSelector.checkFileType({
     allowedExtensions: ['pdf'],

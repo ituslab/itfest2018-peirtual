@@ -21,6 +21,7 @@ const app = {
     order: [
       "src/js/jquery/jquery.min.js",
       "src/js/materialize/materialize.min.js",
+      "src/js/aos/aos.js",
       "src/js/**/*.js"
     ]
   }
@@ -28,7 +29,6 @@ const app = {
 
 const clean = () => {
   return del([
-    'assets/css/',
     'assets/js/',
   ]);
 };

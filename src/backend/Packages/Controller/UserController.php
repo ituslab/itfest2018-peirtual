@@ -180,11 +180,11 @@ class UserController {
       $mail->SMTPAuth = true;
       $mail->Username = "admin@itpolsri.org";
       $mail->Password = "tekkompower2016";
-      $mail->SetFrom("noreply@eperpus.com", "Sys E-Perpus");
+      $mail->SetFrom("noreply@peirtual.com", "Sys Peirtual");
       $mail->AddAddress(Session::get('useremail'), Session::get('usernama'));  //tujuan email
       $mail->isHTML(true);
-      $mail->Subject = "Konfirmasi Akun"; //subyek email
-      $mail->Body = "Silahkan klik link ini untuk mengaktivasi akun anda <a href='{$link}'>{$link}</a>";
+      $mail->Subject = "Aktivasi Akun"; //subyek email
+      $mail->Body = "Silahkan klik link ini untuk mengaktivasi akun Piertual anda <a href='{$link}'>{$link}</a>";
       $mail->send();
       Session::set([
         'flashmsg' => 'Kode Aktivasi Sudah dikirim ke &lt;'.Session::get('useremail').'&gt;. Silahkan check email anda.'

@@ -5,19 +5,62 @@ var instance = M.Tabs.init(document.getElementById('home-tabs'), {
   onShow: tabChange
 });
 
+AOS.init();
+
 function tabChange(){
   var
     book = $('#tab-beranda'),
     user = $('#tab-user'),
-    upload = $('#tab-upload');
+    upload = $('#tab-upload'),
+    profile = $('#tab-profile'),
+    koleksi = $('#tab-collections');
   if (book.hasClass('active')) {
     loadAllBooks();
   }else if (user.hasClass('active')){
     loadAllUsers();
   }else if (upload.hasClass('active')) {
     loadAllCategories()
+  }else if (koleksi.hasClass('active')){
+    loadUserCollections();
+  }else if (profile.hasClass('active')){
+    console.log('profil');
   }
 }tabChange();
+
+function loadUserCollections() {
+  var pageURL = window.location.href;
+  var username = pageURL.substr(pageURL.lastIndexOf('/') + 1); // ambil segmen terakhir di url
+  $.ajax({
+    url: host+'/api/list_user_collections',
+    type: 'POST',
+    dataType: 'JSON',
+    data: {username: username},
+    beforeSend: function(){
+      $('#row-collections').html('<div class="progress"><div class="indeterminate"></div></div>');
+    }
+  })
+  .done(function(response) {
+    $('#row-collections').empty();
+    response.forEach(function(data){
+      $('#row-collections').append(`
+        <div class="card horizontal z-depth-2">
+          <div class="card-image">
+            <img style="width: 100px; height: 140px; margin:auto;" src="${host+'/'+data.Cover}">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p>${data.Deskripsi}</p>
+            </div>
+            <div class="card-action">
+              <a href="${host+'/books/'+data.Id}">Info</a>
+              <a target="_blank" href="${host+data.Buku}">Download</a>
+            </div>
+          </div>
+        </div>
+      `);
+    })
+  });
+}
 
 function loadAllCategories() {
   $.ajax({
@@ -44,17 +87,21 @@ function loadAllBooks() {
     $('#row-books').empty();
     response.forEach(function(data){
       $('#row-books').append(`
-        <div class="col s12 m3">
+        <div class="col sm12 m3">
           <div class="card">
-            <div class="card-image">
-              <img class="book-cover" src="${host+data.Cover}">
-              <span class="card-title">${data.Judul}</span>
+            <div class="card-image waves-effect waves-block waves-light">
+              <img style="width: 250px; height: 300px; margin: auto;" class="activator responsive-img" src="${host+data.Cover}">
             </div>
             <div class="card-content">
-              <p>${data.Deskripsi}</p>
+              <span class="activator grey-text text-darken-4">${data.Judul}<i class="material-icons right">more_vert</i></span>
             </div>
             <div class="card-action">
-              <a href="${host+'/books/'+data.Id}">Detail Buku</a>
+              <a href="${host+'/books/'+data.Id}">Info</a>
+              <a target="_blank" href="${host+data.Buku}">Download</a>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Bio<i class="material-icons right">close</i></span>
+              <p>${data.Deskripsi}</p>
             </div>
           </div>
         </div>

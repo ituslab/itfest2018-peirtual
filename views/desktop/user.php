@@ -32,8 +32,8 @@
           <div class="col s12 m8">
             <div class="row">
               <ul id="home-tabs" class="tabs tab-demo z-depth-1">
-                <li class="tab"><a class="active" href="#profile">Profile <?= substr($usernama, 0, strpos($usernama, " ")); ?></a></li>
-                <li class="tab"><a class="active" href="#collections">Koleksi <?= substr($usernama, 0, strpos($usernama, " ")); ?></a></li>
+                <li class="tab"><a id="tab-profile" class="active" href="#profile">Profile <?= substr($usernama, 0, strpos($usernama, " ")); ?></a></li>
+                <li class="tab"><a id="tab-collections" class="active" href="#collections">Koleksi <?= substr($usernama, 0, strpos($usernama, " ")); ?></a></li>
               </ul>
             </div>
             <div class="row content">
@@ -79,20 +79,8 @@
                 </div>
               </div>
               <div id="collections" class="col s12">
-                <div class="section" style="padding: 0 15px">
-                  <div class="card horizontal z-depth-2">
-                    <div class="card-image">
-                      <img src="<?= baseurl() ?>/uploads/books/1/cover.jpg">
-                    </div>
-                    <div class="card-stacked">
-                      <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.</p>
-                      </div>
-                      <div class="card-action">
-                        <a href="#">This is a link</a>
-                      </div>
-                    </div>
-                  </div>
+                <div id="row-collections" class="section" style="padding: 0 15px">
+                  <!-- USER COLLECTIONS -->
                 </div>
               </div>
             </div>
