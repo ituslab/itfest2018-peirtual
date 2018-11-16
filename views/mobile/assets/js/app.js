@@ -86,7 +86,7 @@ $(document).ready(function(){
           </div>
           <div class="card-content">
             <span class="card-title activator  text-darken-5 small">${data.Nama}</span>
-            <p style="margin-left:10px;"><a href="${host}/books/${data.Id}">Read More..</a></p>
+            <p style="margin-left:10px;"><a href="${host}/users/${data.Username}">See Profile..</a></p>
           </div>
         </div>
       </li>
