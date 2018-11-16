@@ -11,7 +11,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center text-lighten-2 shadow-text">Peirtual</h1>
+        <h1 data-aos="zoom-out" data-aos-delay="600" class="header center text-lighten-2 shadow-text">Peirtual</h1>
         <div class="row center">
           <h5 data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" class="header col s12 dark shadow-text">Aplikasi Perpustakaan Virtual Modern</h5>
         </div>
@@ -28,7 +28,7 @@
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">collections_bookmark</i></h2>
+            <h2 class="center brown-text" data-aos="slide-left" data-aos-delay="300"><i class="material-icons">collections_bookmark</i></h2>
             <h5 class="center">Bermacam Koleksi Buku</h5>
             <p class="light landing-p">
               Baca buku, berbagi koleksi bacaan dan bersosialisasi secara bersamaan.
@@ -39,7 +39,7 @@
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">cloud_download</i></h2>
+            <h2 class="center brown-text" data-aos="zoom-out" data-aos-delay="300"><i class="material-icons">cloud_download</i></h2>
             <h5 class="center">Download</h5>
 
             <p class="light landing-p">
@@ -51,7 +51,7 @@
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">create</i></h2>
+            <h2 class="center brown-text" data-aos="slide-right" data-aos-delay="300"><i class="material-icons">create</i></h2>
             <h5 class="center">Tulis dan Berbagi</h5>
             <p class="light landing-p">
               Buat dan Sebarkan Tulisanmu. Buat Dunia melihat Karya Tulismu,
@@ -69,7 +69,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">Jadilah Pribadi yang Kreatif dan Inovatif</h5>
+          <h5 data-aos="zoom-in-up" data-aos-delay="500" class="header col s12 light">Jadilah Pribadi yang Kreatif dan Inovatif</h5>
         </div>
       </div>
     </div>
@@ -81,17 +81,17 @@
 
       <div class="row">
         <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i>Supported By</h3>
+          <h3><i class="mdi-content-send brown-text"></i>SUPPORT</h3>
           <br /><br />
           <div class="row">
-            <div data-aos="flip-left" class="col s12 m4 img-sponsor">
+            <div data-aos="flip-left" data-aos-delay="400"  class="col s12 m4 img-sponsor">
               <img src="https://itpolsri.com/Images/ITFEST.jpeg" style="width:200px" class="responsive-img" alt="ITFEST">
             </div>
-            <div class="col s12 m4 img-sponsor">
-              <img src="https://itpolsri.com/Images/POLSRI.jpeg" style="width:200px" class="responsive-img" alt="ITFEST">
+            <div data-aos="flip-left" data-aos-delay="500" class="col s12 m4 img-sponsor">
+              <img src="https://itpolsri.com/Images/POLSRI.jpeg" style="width:200px" class="responsive-img" alt="POLSRI">
             </div>
-            <div class="col s12 m4 img-sponsor">
-              <img src="https://itpolsri.com/Images/HMJMI.jpeg" style="width:200px" class="responsive-img" alt="ITFEST">
+            <div data-aos="flip-left" data-aos-delay="800" class="col s12 m4 img-sponsor">
+              <img src="https://itpolsri.com/Images/HMJMI.jpeg" style="width:200px" class="responsive-img" alt="HMJMI">
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light shadow-text"><q> Semakin aku banyak membaca, semakin aku banyak berpikir,
+          <h5 class="header col s12 light shadow-text" data-aos="zoom-in" data-aos-delay="600"><q> Semakin aku banyak membaca, semakin aku banyak berpikir,
             semakin aku banyak belajar, semakin aku sadar bahwa aku tak mengetahui apa pun.</q> Voltaire.</h5>
         </div>
       </div>
