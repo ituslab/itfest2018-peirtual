@@ -59,7 +59,7 @@ function loadUserCollections() {
           <div class="card-image">
             <img style="width: 100px; height: 140px; margin:auto;" src="${host+'/'+data.Cover}">
           </div>
-          <div class="card-stacked">
+          <div class="card-stacked" style="overflow-x: auto">
             <div class="card-content">
               <p><b>${data.Judul}</b></p>
               <br />
@@ -96,35 +96,47 @@ function loadAllCategories() {
 function loadAllBooks() {
   if (execResponseBooks) return;
   $.ajax({
-    url: host+'/api/list_all_books',
-    type: 'GET',
-    dataType: 'JSON'
+    url: host+'/books/load',
+    type: 'POST',
+    dataType: 'JSON',
+    data: {
+      startdata: bookData.start,
+      totaldata: bookData.data
+    },
+    beforeSend: function() {
+      $('#loading-container').html('<div class="progress"><div class="indeterminate"></div></div>');
+      $('#btn-load-more-books').prop('disabled', true);
+    }
   })
   .done(function(response) {
     execResponseBooks = true;
-    $('#row-books').empty();
-    response.forEach(function(data, i){
-      $('#row-books').append(`
-        <div class="col sm12 m3">
-          <div class="card hoverable">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img style="width: 250px; height: 300px; margin: auto;" class="activator responsive-img" src="${host+data.Cover}">
+    bookData.start += bookData.data;
+    $('#loading-container').empty();
+    $('#btn-load-more-books').prop('disabled', false);
+    if (!response) {
+      $('#btn-load-book-container').empty();
+    }else {
+      response.forEach(function(data, i){
+        $('#row-books').append(`
+          <div class="card horizontal z-depth-2 hoverable">
+            <div class="card-image">
+              <img style="width: 100px; height: 140px; margin:auto;" src="${host+'/'+data.Cover}">
             </div>
-            <div class="card-content">
-              <span class="activator grey-text text-darken-4">${data.Judul}<i class="material-icons right">more_vert</i></span>
-            </div>
-            <div class="card-action">
-              <a href="${host+'/books/'+data.Id}">Info</a>
-              <a target="_blank" href="${host+data.Buku}">Download</a>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Bio<i class="material-icons right">close</i></span>
-              <p>${data.Deskripsi}</p>
+            <div class="card-stacked" style="overflow-x: auto">
+              <div class="card-content">
+                <p><b>${data.Judul}</b></p>
+                <br />
+                <p>${data.Deskripsi}</p>
+              </div>
+              <div class="card-action">
+                <a href="${host+'/books/'+data.Id}">Info</a>
+                <a target="_blank" href="${host+data.Buku}">Download</a>
+              </div>
             </div>
           </div>
-        </div>
-      `);
-    });
+        `);
+      });
+    }
   })
   .fail(function(err, status, xhr) {
 
@@ -134,20 +146,31 @@ function loadAllBooks() {
 function loadAllUsers() {
   if (execResponseUsers) return;
   $.ajax({
-    url: host+'/api/list_all_users',
-    type: 'GET',
-    dataType: 'JSON'
+    url: host+'/users/load',
+    type: 'POST',
+    dataType: 'JSON',
+    data: {
+      startdata: userData.start,
+      totaldata: userData.data
+    },
+    beforeSend: function() {
+      $('#loading-container-u').html('<div class="progress"><div class="indeterminate"></div></div>');
+      $('#btn-load-more-users').prop('disabled', true);
+    }
   })
   .done(function(response) {
     execResponseUsers = true;
-    $('#row-users').empty();
+    userData.start += userData.data;
+    console.log(response);
+    $('#loading-container-u').empty();
+    $('#btn-load-more-users').prop('disabled', false);
     response.forEach(function(data){
       $('#row-users').append(`
         <li class="collection-item avatar">
           <img src="${data.Avatar}" alt="" class="circle">
-          <span class="title"><b>${data.Nama}</b></span>
+          <span class="title"><a href="${host+'/users/'+data.Username}"><b>${data.Nama}</b></a></span>
           <p>${data.Deskripsi}</p>
-          <a href="${host+'/users/'+data.Username}" class="secondary-content"><i class="material-icons">grade</i></a>
+          <a href="#" class="secondary-content"><i class="material-icons">grade</i></a>
         </li>
       `);
     });

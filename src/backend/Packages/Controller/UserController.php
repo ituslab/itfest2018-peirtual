@@ -17,8 +17,8 @@ class UserController {
   }
 
   public function register(){
-    $nama = trim(Input::get('Nama'));
-    $email = trim(Input::get('Email'));
+    $nama = htmlentities(trim(Input::get('Nama')));
+    $email = htmlentities(trim(Input::get('Email')));
     $username = $this->generateAuthKey();
     $pass = password_hash(Input::get('Password'), PASSWORD_DEFAULT);
     $checkEmail = $this->check('Email', $email);
@@ -112,11 +112,29 @@ class UserController {
     }
   }
 
+  public function changePassword(){
+    $username = Session::get('username');
+    $oldPassword = Input::get('OldPassword');
+    $password = password_hash(Input::get('Password'), PASSWORD_DEFAULT);;
+    $check = $this->check('Username', $username);
+    if (password_verify($oldPassword, $check->Password)) {
+      $changePass = $this->controller->update('Username', $username, [
+        'Password' => $password
+      ]);
+      if ($changePass) {
+        Session::set('flashmsg', 'Password anda berhasil di ganti !');
+      }
+    }else {
+      Session::set('errmsg', 'Password anda salah !');
+    }
+    redirect(baseurl()."/users/{$username}#password");
+  }
+
   public function edit(){
     $id = Input::get('id');
-    $username = trim(strtolower(Input::get('username')));
-    $nama = trim(Input::get('nama'));
-    $deskripsi = trim(Input::get('deskripsi'));
+    $username = \htmlentities(trim(strtolower(Input::get('username'))));
+    $nama = htmlentities(trim(Input::get('nama')));
+    $deskripsi = htmlentities(trim(Input::get('deskripsi')));
     if (csrfverify()) {
       $check = $this->check('Username', $username);
       if (!$check || (Session::get('username') == $username)) {
@@ -171,6 +189,12 @@ class UserController {
     ]);
   }
 
+  public function loadMoreUsers(){
+    $start = (int) Input::get('startdata');
+    $total = (int) Input::get('totaldata');
+    die($this->controller->listLimit($start, $total));
+  }
+
   private function generateAuthKey($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyz_';
     $charactersLength = strlen($characters);
@@ -205,10 +229,10 @@ class UserController {
       $mail->Body = "Silahkan klik link ini untuk mengaktivasi akun Piertual anda <a href='{$link}'>{$link}</a>";
       $mail->send();
       Session::set([
-        'flashmsg' => 'Kode Aktivasi Sudah dikirim ke &lt;'.Session::get('useremail').'&gt;. Silahkan check email anda.'
+        'mailmsg' => 'Kode Aktivasi Sudah dikirim ke &lt;'.Session::get('useremail').'&gt;. Silahkan check email anda.'
       ]);
     }catch(Exception $e) {
-      Session::set('flashmsg', 'Terjadi Kesalahan. Gagal mengirim email. Error Status: '.$e->getMessage());
+      Session::set('mailmsg', 'Terjadi Kesalahan. Gagal mengirim email. Error Status: '.$e->getMessage());
     }
     redirect(baseurl().'/auth');
   }

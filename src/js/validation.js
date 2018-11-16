@@ -63,6 +63,9 @@ $('#form-edit-user').validate({
 
 $('#form-upload-buku').validate({
   rules: {
+    'upload-cover': {
+      required: true
+    },
     Judul: {
       required: true,
       maxlength: 30
@@ -91,6 +94,9 @@ $('#form-upload-buku').validate({
     }
   },
   messages: {
+    'upload-cover': {
+      required: 'Kamu belum memilih cover untuk diupload'
+    },
     Judul: {
       required: 'Judul tidak boleh kosong !',
       maxlength: 'Judul maksimal 30 karakter !'
@@ -125,8 +131,47 @@ $('#form-upload-buku').validate({
       idErrElement = '#error-'+input;
     $(idErrElement).html(errorText);
   },
-  success: function (label, validEl) {},
+  success: function (label, validEl) {
+    uploadBuku(event);
+  },
   submitHandler: uploadBuku
+});
+
+$('#register-user').validate({
+  rules: {
+    Nama: {
+      required: true
+    },
+    Email: {
+      required: true,
+      email: true
+    },
+    Password: {
+      required: true,
+      minlength: 6
+    }
+  },
+  messages: {
+    Nama: {
+      required: 'Nama harus di isi !',
+    },
+    Email: {
+      required: 'Email harus diisi',
+      email: 'Format E-Mail tidak cocok'
+    },
+    Password: {
+      required: 'Password harus di isi !',
+      minlength: 'Password minimal 6 karakter'
+    }
+  },
+  errorPlacement: function(errElement, validElement) {
+    var
+      errorText = $(errElement).html(),
+      input = $(validElement).attr('name'),
+      idErrElement = '#error-'+input;
+    $(idErrElement).html(errorText);
+  },
+  success: function (label, validEl) {}
 });
 
 $('#edit-user-password').validate({

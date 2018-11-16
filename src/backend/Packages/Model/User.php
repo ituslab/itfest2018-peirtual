@@ -12,6 +12,11 @@ class User {
     $this->connection = Model::connect();
   }
 
+  public function listLimit($start, $total){
+    $query = "SELECT * FROM Users LIMIT {$start}, {$total}";
+    return $this->connection->query($query)->fetchAll()->toJson()->get();
+  }
+
   public function insert($datas = []){
     return $this->connection->insert(self::table, $datas);
   }

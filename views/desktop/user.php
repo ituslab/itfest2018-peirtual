@@ -87,12 +87,16 @@
               <?php if (hash_equals($usertoken, $token)): ?>
                 <div id="password" class="col s12 z-depth-3">
                   <div class="section" style="padding: 0 15px">
-                    <form method="post" id="edit-user-password">
+                    <form method="post" id="edit-user-password" action="<?= baseurl().'/users/changepass' ?>">
                       <div class="row section">
                         <div class="input-field col s12">
                           <input id="OldPassword" name="OldPassword" type="password" class="user-pass validate" />
                           <label for="OldPassword">Password Sekarang</label>
-                          <div class="error red-text" id="error-OldPassword"></div>
+                          <div class="error red-text" id="error-OldPassword">
+                            <?php if (Session::get('errmsg')): ?>
+                              <?= Session::get('errmsg'); Session::unset('errmsg') ?>
+                            <?php endif; ?>
+                          </div>
                         </div>
                         <div class="input-field col s12">
                           <input id="NewPassword" name="NewPassword" type="password" class="user-pass validate" />
@@ -105,6 +109,17 @@
                           <div class="error red-text" id="error-Password"></div>
                         </div>
                         <div class="divider"></div>
+                        <?php if (Session::get('flashmsg')): ?>
+                          <div class="row">
+                            <div class="col s12">
+                              <div class="card-panel teal">
+                                <span class="white-text">
+                                  <?= Session::get('flashmsg') ?>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        <?php endif; ?>
                         <div class="section row">
                           <input id="token" type="hidden" name="csrftoken" value="<?= csrftoken() ?>">
                           <div class="col s12">

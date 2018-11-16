@@ -15,6 +15,11 @@ class Book {
     return $this->connection->insert(self::table, $datas);
   }
 
+  public function listLimit($start, $total){
+    $query = "SELECT * FROM Books LIMIT {$start},  {$total}";
+    return $this->connection->query($query)->fetchAll()->toJson()->get();
+  }
+
   public function listAll($table = self::table, $fields = '*'){
     return (
       $this->connection
