@@ -85,22 +85,22 @@
                 </div>
               </div>
               <?php if (hash_equals($usertoken, $token)): ?>
-                <div id="password" class="col s12">
+                <div id="password" class="col s12 z-depth-3">
                   <div class="section" style="padding: 0 15px">
-                    <form method="post">
+                    <form method="post" id="edit-user-password">
                       <div class="row section">
                         <div class="input-field col s12">
-                          <input required id="OldPassword" name="OldPassword" value="" type="password" class="user-pass validate" />
+                          <input id="OldPassword" name="OldPassword" type="password" class="user-pass validate" />
                           <label for="OldPassword">Password Sekarang</label>
                           <div class="error red-text" id="error-OldPassword"></div>
                         </div>
                         <div class="input-field col s12">
-                          <input required id="NewPassword" name="NewPassword" value="" type="password" class="user-pass validate" />
+                          <input id="NewPassword" name="NewPassword" type="password" class="user-pass validate" />
                           <label for="NewPassword">Password Baru</label>
                           <div class="error red-text" id="error-NewPassword"></div>
                         </div>
                         <div class="input-field col s12">
-                          <input required id="Password" name="Password" value="" type="password" class="user-pass validate" />
+                          <input id="Password" name="Password" type="password" class="user-pass validate" />
                           <label for="Password">Konfirmasi Password</label>
                           <div class="error red-text" id="error-Password"></div>
                         </div>

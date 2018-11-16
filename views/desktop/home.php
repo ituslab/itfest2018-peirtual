@@ -26,8 +26,10 @@
       </div>
       <div id="users" class="col s12">
         <div class="section" style="padding: 0 15px">
-          <div class="row" id="row-users">
-            <!-- LIST USER HERE -->
+          <div class="row">
+            <ul id="row-users" class="collection">
+              <!-- LIST USER -->
+            </ul>
           </div>
         </div>
       </div>

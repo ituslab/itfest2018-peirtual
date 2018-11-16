@@ -129,6 +129,41 @@ $('#form-upload-buku').validate({
   submitHandler: uploadBuku
 });
 
+$('#edit-user-password').validate({
+  rules: {
+    OldPassword: {
+      required: true
+    },
+    NewPassword: {
+      required: true,
+      minlength: 6
+    },
+    Password: {
+      equalTo: '#NewPassword'
+    },
+  },
+  messages: {
+    OldPassword: {
+      required: 'Password Sekarang harus di isi'
+    },
+    NewPassword: {
+      required: 'Password harus di isi',
+      minlength: 'Password minimal 6 karakter'
+    },
+    Password: {
+      equalTo: 'Password tidak cocok'
+    },
+  },
+  errorPlacement: function(errElement, validElement) {
+    var
+      errorText = $(errElement).html(),
+      input = $(validElement).attr('name'),
+      idErrElement = '#error-'+input;
+    $(idErrElement).html(errorText);
+  },
+  success: function (label, validEl) {}
+});
+
 $('#Kategori').on('change', function(){
   if ($(this).val().toString().trim() == '') {
     $('#btn-upload').prop('disabled', true);

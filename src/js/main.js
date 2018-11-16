@@ -61,6 +61,8 @@ function loadUserCollections() {
           </div>
           <div class="card-stacked">
             <div class="card-content">
+              <p><b>${data.Judul}</b></p>
+              <br />
               <p>${data.Deskripsi}</p>
             </div>
             <div class="card-action">
@@ -101,7 +103,7 @@ function loadAllBooks() {
   .done(function(response) {
     execResponseBooks = true;
     $('#row-books').empty();
-    response.forEach(function(data){
+    response.forEach(function(data, i){
       $('#row-books').append(`
         <div class="col sm12 m3">
           <div class="card hoverable">
@@ -141,22 +143,12 @@ function loadAllUsers() {
     $('#row-users').empty();
     response.forEach(function(data){
       $('#row-users').append(`
-        <div class="col sm12 m2">
-          <div class="card hoverable">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="${data.Avatar}">
-            </div>
-            <div class="card-content">
-              <span class="activator grey-text text-darken-4"><b>${data.Nama}</b><i class="material-icons right">more_vert</i></span>
-              <br />
-              <p><a href="${host+'/users/'+data.Username}">Lihat Profile</a></p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Bio<i class="material-icons right">close</i></span>
-              <p>${data.Deskripsi}</p>
-            </div>
-          </div>
-        </div>
+        <li class="collection-item avatar">
+          <img src="${data.Avatar}" alt="" class="circle">
+          <span class="title"><b>${data.Nama}</b></span>
+          <p>${data.Deskripsi}</p>
+          <a href="${host+'/users/'+data.Username}" class="secondary-content"><i class="material-icons">grade</i></a>
+        </li>
       `);
     });
   })
