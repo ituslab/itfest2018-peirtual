@@ -8,13 +8,13 @@
     <?php include_once 'includes/head.php' ?>
     <title>Account Verification | E-Perpus</title>
   </head>
-  <body>
+  <body style="background-image: url('https://sutanlab.js.org/assets/img/bg/desk5.jpg')">
     <?php include_once 'includes/navbar.php' ?>
     <div class="container">
       <div class="row">
         <div class="col s12">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
+          <div style="opacity: 0.9" class="card darken-1">
+            <div class="card-content brown-text">
               <span class="card-title"><h4>Konfirmasi akunmu.</h4></span>
               <?php if (Session::get('mailmsg')): ?>
                 <p><?= Session::get('mailmsg') ?></p>
@@ -24,9 +24,9 @@
             </div>
             <div class="card-action">
               <?php if (Session::get('mailmsg')): ?>
-                <a href="<?= baseurl() ?>/send_verification">Kirim Ulang Kode Verifikasi</a>
+                <a class="teal-text" href="<?= baseurl() ?>/send_verification">Kirim Ulang Kode Verifikasi</a>
               <?php else: ?>
-                <a href="<?= baseurl() ?>/send_verification">Kirim Kode Verifikasi</a>
+                <a class="teal-text" href="<?= baseurl() ?>/send_verification">Kirim Kode Verifikasi</a>
               <?php endif; ?>
             </div>
           </div>

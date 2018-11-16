@@ -217,11 +217,11 @@ class UserController {
       // $mail->SMTPDebug = 2 ;
       $mail->IsSMTP();
       $mail->SMTPSecure = 'ssl';
-      $mail->Host = "mail.itpolsri.org";
+      $mail->Host = "smtp.gmail.com";
       $mail->Port = 465;
       $mail->SMTPAuth = true;
-      $mail->Username = "system@it-a.mipolsri.com";
-      $mail->Password = "sysit-a2018";
+      $mail->Username = "itbitfest@gmail.com";
+      $mail->Password = 'itfest2018';
       $mail->SetFrom("noreply@peirtual.com", "Sys Peirtual");
       $mail->AddAddress(Session::get('useremail'), Session::get('usernama'));  //tujuan email
       $mail->isHTML(true);

@@ -6,7 +6,7 @@
 <html lang="en" dir="ltr">
   <head>
     <?php include_once 'includes/head.php' ?>
-    <title><?= $usernama ?> | User E-PerGi</title>
+    <title><?= $usernama ?> | User Peirtual</title>
   </head>
   <body>
     <?php include_once 'includes/navbar.php' ?>

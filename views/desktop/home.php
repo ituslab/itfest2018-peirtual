@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <?php include_once 'includes/head.php' ?>
-    <title>Home | E-Perpus</title>
+    <title>Home | Peirtual</title>
   </head>
   <body>
     <?php include_once 'includes/navbar.php' ?>
