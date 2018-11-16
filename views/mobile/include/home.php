@@ -16,6 +16,10 @@
         <div class="row" >
           <div class="col s12"   >
             <ul class="tabs-category background--mind__ice" id="category" >
+<<<<<<< HEAD
+            
+=======
+>>>>>>> 577b8ebf8384c949e4d89c71c8acdb65123df82d
             </ul>
           </div>
         </div>
