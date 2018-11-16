@@ -37,11 +37,10 @@ $(document).ready(function(){
       </li>
       `);
       });
-    });
-    // .fail((data, stat, xhr)=>{
-      //   ons.notification.alert(`Turn <i class="ion-android-wifi"></i>N The Internet   `)
-      //   .then(()=> window.location.reload())
-      // })
+    }).fail((data, stat, xhr)=>{
+        ons.notification.alert(`Turn <i class="ion-android-wifi"></i>N The Internet   `)
+        .then(()=> window.location.reload())
+      })
 
 
       //! UPDATE SOON!!
@@ -81,12 +80,12 @@ $(document).ready(function(){
         
         $('#category').append(`
       <li class="tab-category" >
-        <div class=" card book-recently">
+        <div class=" card book-category">
           <div class="card-image responsive-img">
             <img class="activator" src="${data.Avatar}">
           </div>
           <div class="card-content">
-            <span class="card-title activator  text-darken-5 small">${data.Username}</span>
+            <span class="card-title activator  text-darken-5 small">${data.Nama}</span>
             <p style="margin-left:10px;"><a href="${host}/books/${data.Id}">Read More..</a></p>
           </div>
         </div>
@@ -125,5 +124,5 @@ $(document).ready(function(){
   }
 
   function contact(){
-    ons.notification.alert('Silahkan DM Ke Instagram Kami');
+    ons.notification.alert('Feel Free to Contact Our Instagram');
   }
