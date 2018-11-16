@@ -1,4 +1,4 @@
-function uploadBuku(event) {
+function uploadBuku() {
   var data = new FormData();
   var cover = document.getElementById('upload-cover').files[0];
   var buku = document.getElementById('upload-buku').files[0];

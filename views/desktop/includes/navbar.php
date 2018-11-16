@@ -34,11 +34,11 @@
         <span class="white-text email"><?= Session::get('useremail') ?></span>
       </div>
     </li>
-    <li><a class="white-text" href="<?= baseurl() ?>/home">Home</a></li>
+    <li><a class="white-text" href="<?= baseurl() ?>/home"><i class="material-icons">home</i><b>Home</b></a></li>
     <?php if (Session::get('userauth')): ?>
-      <li><a class="white-text" href="<?= baseurl().'/users/'.Session::get('username'); ?>">Profile</a></li>
+      <li><a class="white-text" href="<?= baseurl().'/users/'.Session::get('username'); ?>"><i class="material-icons">account_circle</i><b>Profile</b></a></li>
       <li class="divider" tabindex="-1"></li>
     <?php endif; ?>
-    <li><a class="white-text" href="<?= baseurl() ?>/logout">Logout</a></li>
+    <li><a class="white-text" href="<?= baseurl() ?>/logout"><i class="material-icons">power_settings_new</i><b>Logout</b></a></li>
   <?php endif; ?>
 </ul>
