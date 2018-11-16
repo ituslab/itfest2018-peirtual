@@ -121,8 +121,8 @@
 				<h1 data-aos="fade-up">4<span></span>4</h1>
 			</div>
 			<h2>Oops! Halaman tidak Ditemukan</h2>
-			<p>Sorry but the page you are looking for does not exist, have been removed. name changed or is temporarily unavailable</p>
-			<a href="javascript:history.back()">Kembali ke halaman selanjutnya</a>
+			<p>Maaf tetapi halaman yang Anda cari tidak ada atau telah dihapus. URL diubah atau sementara tidak tersedia!.</p>
+			<a href="javascript:history.back()">Kembali ke Halaman Peirtual Sebelumnya</a>
 		</div>
 	</div>
 <?php include_once 'includes/scripts.php' ?>
