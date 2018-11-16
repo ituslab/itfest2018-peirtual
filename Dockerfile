@@ -1,12 +1,11 @@
 FROM zzcomzz/php-apache-composer
 
 
-WORKDIR /var/www/html/Lomba-IT/E-Perpus/
+WORKDIR /var/www/html/Peirtual/
 
 COPY . .
 
 RUN composer install
-
 
 EXPOSE 80
 
