@@ -82,16 +82,17 @@ $(document).ready(function(){
         $('#category').append(`
       <li class="tab-category" >
         <div class=" card book-recently">
-          <div class="card-image waves-effect waves-block waves-light">
+          <div class="card-image responsive-img">
             <img class="activator" src="${data.Avatar}">
           </div>
           <div class="card-content">
-            <span class="card-title activator  text-darken-5 small">${data.Username}<i class="material-icons right">more_vert</i></span>
+            <span class="card-title activator  text-darken-5 small">${data.Username}</span>
             <p style="margin-left:10px;"><a href="${host}/books/${data.Id}">Read More..</a></p>
           </div>
         </div>
       </li>
       `);
+
       });
     });
 
