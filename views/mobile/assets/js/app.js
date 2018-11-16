@@ -24,7 +24,7 @@ $(document).ready(function(){
         <div class=" card book-recently">
           <div class="card-image waves-effect waves-block waves-light">
               <img class="activator" src="${host+'/'+data.Cover}">
-            </div>
+          </div>
           <div class="card-content">
             <span class="card-title activator  text-darken-5 small">Card Title<i class="material-icons right">more_vert</i></span>
             <p style="margin-left:10px;"><a href="${host}/books/${data.Id}">Read More..</a></p>
@@ -38,32 +38,61 @@ $(document).ready(function(){
       `);
       });
     });
+    // .fail((data, stat, xhr)=>{
+      //   ons.notification.alert(`Turn <i class="ion-android-wifi"></i>N The Internet   `)
+      //   .then(()=> window.location.reload())
+      // })
 
 
+      //! UPDATE SOON!!
     //TOdo Category
+    // $.ajax({
+    //   url : host+'/api/list_all_categories',
+    //   method: 'GET',
+    //   dataType : 'JSON',
+    //   beforeSend : function(){
+    //     $('#category').html(loader)
+    //   },
+    // }).done(function(response){
+    //   $('#category').html(``);
+    //   category.map(cat => {
+    //     $('#category').append(`
+    //     <li id="${cat.Id}" class="tab-category" >
+    //       <ons-card class="book-category">
+    //         <div>${cat.Kategori}</div>
+    //       </ons-card>
+    //     </li>
+    //     `);
+    //   });
+    // });
+
+    // todo List All Users
     $.ajax({
-      url : host+'/api/list_all_categories',
+      url :host+'/api/list_all_users',
       method: 'GET',
       dataType : 'JSON',
       beforeSend : function(){
         $('#category').html(loader)
       },
-    }).done(function(response){
+    }).done((res)=>{
       $('#category').html(``);
-      category.map(cat => {
+      res.map(data => {
+        
         $('#category').append(`
-        <li id="${cat.Id}" class="tab-category" >
-          <ons-card class="book-category">
-            <div>${cat.Kategori}</div>
-          </ons-card>
-        </li>
-        `);
+      <li class="tab-category" >
+        <div class=" card book-recently">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="${data.Avatar}">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator  text-darken-5 small">${data.Username}<i class="material-icons right">more_vert</i></span>
+            <p style="margin-left:10px;"><a href="${host}/books/${data.Id}">Read More..</a></p>
+          </div>
+        </div>
+      </li>
+      `);
       });
-    }).fail((data, stat, xhr)=>{
-      ons.notification.alert(`Turn <i class="ion-android-wifi"></i>N The Internet   `)
-      .then(()=> window.location.reload())
-    })
-
+    });
 
     // todo Reload
     $('.toolbar').click(function(){
