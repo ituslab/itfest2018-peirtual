@@ -58,7 +58,7 @@
   position: relative;
   overflow-x: auto;
   overflow-y: hidden;
-  height: 285px;
+  height: 310px;
   background-color: #fff;
   margin: 0 auto;
   white-space: nowrap;
@@ -73,7 +73,7 @@
 }
 .tabs-recently .tab-recently .book-recently {
   width: 150px;
-  height: 270px;
+  height: 300px;
   margin: 1em;
   float: left;
   font-size: 8px;

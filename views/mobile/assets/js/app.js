@@ -85,7 +85,7 @@ $(document).ready(function(){
             <img class="activator" src="${data.Avatar}">
           </div>
           <div class="card-content">
-            <span class="card-title activator  text-darken-5 small">${data.Nama}</span>
+            <span class=" activator  text-darken-5 small">${data.Nama}</span>
             <p style="margin-left:10px;"><a href="${host}/users/${data.Username}">See Profile..</a></p>
           </div>
         </div>
