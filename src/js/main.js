@@ -1,6 +1,7 @@
 $('select').formSelect();
 $('.sidenav').sidenav();
 $('.parallax').parallax();
+$('textarea').characterCounter();
 var instance = M.Tabs.init(document.getElementById('home-tabs'), {
   onShow: tabChange
 });
@@ -23,11 +24,21 @@ function tabChange(){
   }else if (koleksi.hasClass('active')){
     loadUserCollections();
   }else if (profile.hasClass('active')){
-    console.log('profil');
   }
 }tabChange();
 
+function historyState(html, title, url) {
+  window.history.pushState({html: html, title: title}, title, url);
+  window.onpopstate = function(event){
+    if(event.state){
+      $('html').html(event.state.html);
+      document.title = event.state.title;
+    }
+  };
+}
+
 function loadUserCollections() {
+  if (execResponseCollections) return;
   var pageURL = window.location.href;
   var username = pageURL.substr(pageURL.lastIndexOf('/') + 1); // ambil segmen terakhir di url
   $.ajax({
@@ -40,15 +51,18 @@ function loadUserCollections() {
     }
   })
   .done(function(response) {
+    execResponseCollections = true;
     $('#row-collections').empty();
     response.forEach(function(data){
       $('#row-collections').append(`
-        <div class="card horizontal z-depth-2">
+        <div class="card horizontal z-depth-2 hoverable">
           <div class="card-image">
             <img style="width: 100px; height: 140px; margin:auto;" src="${host+'/'+data.Cover}">
           </div>
-          <div class="card-stacked">
+          <div class="card-stacked" style="overflow-x: auto">
             <div class="card-content">
+              <p><b>${data.Judul}</b></p>
+              <br />
               <p>${data.Deskripsi}</p>
             </div>
             <div class="card-action">
@@ -63,12 +77,14 @@ function loadUserCollections() {
 }
 
 function loadAllCategories() {
+  if (execResponseCategories) return;
   $.ajax({
     url: host+'/api/list_all_categories',
     type: 'GET',
     dataType: 'JSON',
   })
   .done(function(response) {
+    execResponseCategories = true;
     $('#Kategori').html('<option selected disabled value="">Pilih Kategori</option>');
     response.forEach(function(cat){
       $('#Kategori').append('<option value="'+cat.Id+'">'+cat.Deskripsi+'</option>');
@@ -78,35 +94,49 @@ function loadAllCategories() {
 }
 
 function loadAllBooks() {
+  if (execResponseBooks) return;
   $.ajax({
-    url: host+'/api/list_all_books',
-    type: 'GET',
-    dataType: 'JSON'
+    url: host+'/books/load',
+    type: 'POST',
+    dataType: 'JSON',
+    data: {
+      startdata: bookData.start,
+      totaldata: bookData.data
+    },
+    beforeSend: function() {
+      $('#loading-container').html('<div class="progress"><div class="indeterminate"></div></div>');
+      $('#btn-load-more-books').prop('disabled', true);
+    }
   })
   .done(function(response) {
-    $('#row-books').empty();
-    response.forEach(function(data){
-      $('#row-books').append(`
-        <div class="col sm12 m3">
-          <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img style="width: 250px; height: 300px; margin: auto;" class="activator responsive-img" src="${host+data.Cover}">
+    execResponseBooks = true;
+    bookData.start += bookData.data;
+    $('#loading-container').empty();
+    $('#btn-load-more-books').prop('disabled', false);
+    if (!response) {
+      $('#btn-load-book-container').empty();
+    }else {
+      response.forEach(function(data, i){
+        $('#row-books').append(`
+          <div class="card horizontal z-depth-2 hoverable">
+            <div class="card-image">
+              <img style="width: 100px; height: 140px; margin:auto;" src="${host+'/'+data.Cover}">
             </div>
-            <div class="card-content">
-              <span class="activator grey-text text-darken-4">${data.Judul}<i class="material-icons right">more_vert</i></span>
-            </div>
-            <div class="card-action">
-              <a href="${host+'/books/'+data.Id}">Info</a>
-              <a target="_blank" href="${host+data.Buku}">Download</a>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Bio<i class="material-icons right">close</i></span>
-              <p>${data.Deskripsi}</p>
+            <div class="card-stacked" style="overflow-x: auto">
+              <div class="card-content">
+                <p><b>${data.Judul}</b></p>
+                <br />
+                <p>${data.Deskripsi}</p>
+              </div>
+              <div class="card-action">
+                <a href="${host+'/books/'+data.Id}">Info</a>
+                <a target="_blank" href="${host+data.Buku}">Download</a>
+              </div>
             </div>
           </div>
-        </div>
-      `);
-    });
+        `);
+      });
+    }
   })
   .fail(function(err, status, xhr) {
 
@@ -114,30 +144,34 @@ function loadAllBooks() {
 }
 
 function loadAllUsers() {
+  if (execResponseUsers) return;
   $.ajax({
-    url: host+'/api/list_all_users',
-    type: 'GET',
-    dataType: 'JSON'
+    url: host+'/users/load',
+    type: 'POST',
+    dataType: 'JSON',
+    data: {
+      startdata: userData.start,
+      totaldata: userData.data
+    },
+    beforeSend: function() {
+      $('#loading-container-u').html('<div class="progress"><div class="indeterminate"></div></div>');
+      $('#btn-load-more-users').prop('disabled', true);
+    }
   })
   .done(function(response) {
-    $('#row-users').empty();
+    execResponseUsers = true;
+    userData.start += userData.data;
+    console.log(response);
+    $('#loading-container-u').empty();
+    $('#btn-load-more-users').prop('disabled', false);
     response.forEach(function(data){
       $('#row-users').append(`
-        <div class="col sm12 m2">
-          <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="${data.Avatar}">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">${data.Nama}<i class="material-icons right">more_vert</i></span>
-              <p><a href="${host+'/users/'+data.Username}">Lihat Profile</a></p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Bio<i class="material-icons right">close</i></span>
-              <p>${data.Deskripsi}</p>
-            </div>
-          </div>
-        </div>
+        <li class="collection-item avatar">
+          <img src="${data.Avatar}" alt="" class="circle">
+          <span class="title"><a href="${host+'/users/'+data.Username}"><b>${data.Nama}</b></a></span>
+          <p>${data.Deskripsi}</p>
+          <a href="#" class="secondary-content"><i class="material-icons">grade</i></a>
+        </li>
       `);
     });
   })

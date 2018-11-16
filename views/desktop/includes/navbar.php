@@ -8,8 +8,8 @@
           <li><a href="<?= baseurl() ?>/login">Login</a></li>
           <li><a href="<?= baseurl() ?>/register">Register</a></li>
         <?php else: ?>
-          <li><label class="label-icons" for="search"><i class="material-icons">search</i></label></li>
-          <li><input class="white-text" type="search" id="search" placeholder="Cari.."></li>
+          <li><a href="<?= baseurl() ?>/home">Home</a></li>
+          <li><a href="<?= baseurl().'/users/'.Session::get('username') ?>"><?= substr(Session::get('usernama'), 0, strpos(Session::get('usernama'), " ")) ?></a></li>
           <li><a style="display: inline" class="nav-user-avatar sidenav-trigger" href='#' data-target='side-nav'><img class="circle" src="<?= Session::get('useravatar') ?>" /></a></li>
         <?php endif; ?>
       </ul>

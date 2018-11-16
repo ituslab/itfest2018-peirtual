@@ -13,7 +13,7 @@
         <br><br>
         <h1 class="header center text-lighten-2 shadow-text">Peirtual</h1>
         <div class="row center">
-          <h5 data-aos="fade-down" data-aos-delay="1500" data-aos-easing="ease-in-out" class="header col s12 dark shadow-text">Aplikasi Perpustakaan Virtual Modern</h5>
+          <h5 data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" class="header col s12 dark shadow-text">Aplikasi Perpustakaan Virtual Modern</h5>
         </div>
         <br><br>
       </div>
@@ -111,6 +111,7 @@
     </div>
     <div class="parallax"><img src="https://sutanlab.js.org/assets/img/bg/desk1.jpg" alt="Unsplashed background img 3"></div>
   </div>
+  <?php include_once 'includes/sponsor.php'; ?>
   <?php include_once 'includes/footer.php' ?>
 </body>
 

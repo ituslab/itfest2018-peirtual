@@ -8,15 +8,18 @@
         <div class="row">
           <div class="col s12">
             <ul class="tabs-recently background--mind__ice" id="recently">
-              
+
             </ul>
           </div>
         </div>
-        <h2 class="title--home">Category..</h2>  
+        <h2 class="title--home">Category..</h2>
         <div class="row" >
           <div class="col s12"   >
             <ul class="tabs-category background--mind__ice" id="category" >
+<<<<<<< HEAD
             
+=======
+>>>>>>> 577b8ebf8384c949e4d89c71c8acdb65123df82d
             </ul>
           </div>
         </div>

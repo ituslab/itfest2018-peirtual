@@ -15,7 +15,7 @@ class BookController {
   }
 
   public function showBook($id){
-    $book = $this->controller->checkId($id);
+    $book = $this->controller->showBookJoinCategory($id);
     if ($book) view('book', 'desktop', (Array) $book);
     else {
       http_response_code(404);
@@ -26,12 +26,12 @@ class BookController {
   public function upload(){
     $uuid = uuid();
     $id = $this->controller->checkId($uuid) ? uuid() : $uuid;
-    $judul = trim(Input::get('Judul'));
-    $penulis = trim(Input::get('Penulis'));
-    $penerbit = trim(Input::get('Penerbit'));
+    $judul = htmlentities(trim(Input::get('Judul')));
+    $penulis = htmlentities(trim(Input::get('Penulis')));
+    $penerbit = htmlentities(trim(Input::get('Penerbit')));
     $halaman = trim(Input::get('Halaman'));
     $kategori = trim(Input::get('Kategori'));
-    $deskripsi = trim(Input::get('Deskripsi'));
+    $deskripsi = htmlentities(trim(Input::get('Deskripsi')));
     $diupload = Session::get('username');
     if (csrfverify()) {
       $file = (new File(ROOT))->setPath("uploads/books/{$id}/");
@@ -96,6 +96,12 @@ class BookController {
 
   public function listAllBooks(){
     die($this->controller->listAll());
+  }
+
+  public function loadMoreBooks(){
+    $start = (int) Input::get('startdata');
+    $total = (int) Input::get('totaldata');
+    die($this->controller->listLimit($start, $total));
   }
 
 }

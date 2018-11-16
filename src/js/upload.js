@@ -23,11 +23,15 @@ function uploadBuku(event) {
   })
   .done(function(res) {
     formUploadReset();
-    M.toast({html: res});
+    res = JSON.parse(res)
+    console.log(res);
+    $('#feedback-msg').html(res.msg);
   })
   .fail(function(err, status, xhr) {
     formUploadReset();
-    M.toast({html: err});
+    err = JSON.parse(err);
+    console.log(err);
+    $('#feedback-msg').html(err.msg);
   });
 }
 

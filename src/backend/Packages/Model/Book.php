@@ -15,6 +15,11 @@ class Book {
     return $this->connection->insert(self::table, $datas);
   }
 
+  public function listLimit($start, $total){
+    $query = "SELECT * FROM Books LIMIT {$start},  {$total}";
+    return $this->connection->query($query)->fetchAll()->toJson()->get();
+  }
+
   public function listAll($table = self::table, $fields = '*'){
     return (
       $this->connection
@@ -28,6 +33,20 @@ class Book {
   public function checkId($id){
     return (
       $this->get(['Id' => ['=' => $id]])
+    );
+  }
+
+  public function showBookJoinCategory($id){
+    $query = "SELECT b.*, k.Deskripsi AS KategoriDesc FROM Categories k
+      INNER JOIN Books b
+      ON k.Id = b.Kategori
+      WHERE b.Id = :bookid";
+
+    return (
+      $this->connection
+      ->query($query, [':bookid' => $id])
+      ->fetch()
+      ->get()
     );
   }
 

@@ -83,10 +83,13 @@
   $app->post('/register', 'Package\Controller\UserController@register');
   $app->get('/logout', 'Package\Controller\UserController@logout');
   $app->get('/users/(\w+)', 'Package\Controller\UserController@showProfile');
+  $app->post('/users/load', 'Package\Controller\UserController@loadMoreUsers');
   $app->post('/users/edit', 'Package\Controller\UserController@edit');
+  $app->post('/users/changepass', 'Package\Controller\UserController@changePassword');
 
   // TEST BOOK
   $app->post('/books/upload', 'Package\Controller\BookController@upload');
+  $app->post('/books/load', 'Package\Controller\BookController@loadMoreBooks');
   $app->get('/books/(\w+)', 'Package\Controller\BookController@showBook');
 
   // TEST API

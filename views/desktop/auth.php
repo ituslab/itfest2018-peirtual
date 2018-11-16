@@ -16,14 +16,14 @@
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title"><h4>Konfirmasi akunmu.</h4></span>
-              <?php if (Session::get('flashmsg')): ?>
-                <p><?= Session::get('flashmsg') ?></p>
+              <?php if (Session::get('mailmsg')): ?>
+                <p><?= Session::get('mailmsg') ?></p>
               <?php else: ?>
                 <p>Kamu hampir selesai. Konfirmasi akunmu berikut ini untuk menyelesaikan membuat akun PerGi-mu.</p>
               <?php endif; ?>
             </div>
             <div class="card-action">
-              <?php if (Session::get('flashmsg')): ?>
+              <?php if (Session::get('mailmsg')): ?>
                 <a href="<?= baseurl() ?>/send_verification">Kirim Ulang Kode Verifikasi</a>
               <?php else: ?>
                 <a href="<?= baseurl() ?>/send_verification">Kirim Kode Verifikasi</a>

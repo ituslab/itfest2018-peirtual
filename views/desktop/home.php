@@ -10,7 +10,7 @@
     <div class="section">
       <div class="row">
         <ul id="home-tabs" class="tabs tab-demo z-depth-1">
-          <li class="tab"><a class="active" id="tab-beranda" href="#books">Beranda</a></li>
+          <li class="tab"><a class="active teal-text" id="tab-beranda" href="#books">Beranda</a></li>
           <li class="tab"><a class="active" id="tab-user" href="#users">Users</a></li>
           <li class="tab"><a id="tab-upload" class="active" href="#form-upload">Upload Buku</a></li>
         </ul>
@@ -18,16 +18,38 @@
     </div>
     <div class="content">
       <div id="books" class="col s12">
-        <div class="section" style="padding: 0 15px">
+        <div class="section container" style="padding: 0 15px">
           <div class="row" id="row-books">
             <!-- LIST BOOK HERE -->
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col s12">
+                <div class="row" id="loading-container"></div>
+                <p class="center-align" id="btn-load-book-container">
+                  <button type="button" id="btn-load-more-books" class="btn teal">LOAD MORE</button>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div id="users" class="col s12">
-        <div class="section" style="padding: 0 15px">
-          <div class="row" id="row-users">
-            <!-- LIST USER HERE -->
+        <div class="section container" style="padding: 0 15px">
+          <div class="row">
+            <ul id="row-users" class="collection">
+              <!-- LIST USER -->
+            </ul>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col s12">
+                <div class="row" id="loading-container-u"></div>
+                <p class="center-align" id="btn-load-user-container">
+                  <button type="button" id="btn-load-more-users" class="btn teal">LOAD MORE</button>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -41,10 +63,11 @@
                     <div class="card">
                       <div onclick="" class="card-image waves-effect waves-block waves-light">
                         <img id="cover-preview" onclick="$('#upload-cover').click()" class="activator" style="width:100%;margin:auto" src="<?= baseurl() ?>/assets/img/uploadplaceholder.png">
-                        <input style="display: none;" name="upload-cover" onclick="validateImage($(this), '#cover-preview', '')" id="upload-cover" type="file" accept="image/*" class="book-upload">
+                        <input name="upload-cover" onclick="validateImage($(this), '#cover-preview', '')" id="upload-cover" type="file" accept="image/*" class="book-upload">
                       </div>
                     </div>
                   </div>
+                  <div class="red-text" id="error-upload-cover"></div>
                 </div>
                 <div class="col s12 m1"></div>
                 <div class="col s12 m8 z-depth-3">
@@ -79,7 +102,7 @@
                       <div class="red-text" id="error-Kategori"></div>
                     </div>
                     <div class="input-field col s12">
-                      <textarea id="Deskripsi" name="Deskripsi" class="book-upload materialize-textarea" data-length="120"></textarea>
+                      <textarea id="Deskripsi" name="Deskripsi" class="book-upload materialize-textarea" data-length="200"></textarea>
                       <label for="Deskripsi">Deskripsi Buku</label>
                       <div class="red-text" id="error-Deskripsi"></div>
                     </div>
@@ -99,6 +122,9 @@
                       </div>
                     </div>
                     <div class="divider"></div>
+                    <div id="feedback-msg" class="teal-text container">
+                    </div>
+                    <br />
                     <div class="col s12">
                       <input type="hidden" id="csrftoken" value="<?= csrftoken(true) ?>">
                       <button disabled id="btn-upload" type="submit" class="btn right">
