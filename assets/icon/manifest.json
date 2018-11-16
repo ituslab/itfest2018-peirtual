@@ -1,5 +1,6 @@
 {
- "name": "App",
+ "name": "Perpustakaan Virtual",
+ "shortname" : "Peirtual",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
@@ -37,5 +38,9 @@
    "type": "image\/png",
    "density": "4.0"
   }
- ]
+ ],
+ "start_url": "https://it-b.mipolsri.com/",
+  "background_color": "#1600d8",
+  "Theme_color": "#0011ff",
+  "display": "standalone"
 }

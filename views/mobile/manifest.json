@@ -13,7 +13,7 @@
       "type":"image/png"
     }
   ],
-  "start_url": "http://192.168.43.51:8090/E-Perpus/m",
+  "start_url": "https://it-b.mipolsri.com/m",
   "background_color": "#1600d8",
   "Theme_color": "#0011ff",
   "display": "standalone"
