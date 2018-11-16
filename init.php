@@ -5,7 +5,7 @@ use Package\App\Session;
 use Package\App\Input;
 use Ramsey\Uuid\Uuid;
 
-define('ROOT', "{$_SERVER['DOCUMENT_ROOT']}/E-Perpus/");
+define('ROOT', "{$_SERVER['DOCUMENT_ROOT']}/Peirtual/");
 
 date_default_timezone_set("Asia/Jakarta");
 

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col l6 s12">
         <h5 class="white-text">About IT Polsri</h5>
-        <p class="grey-text text-lighten-4">We <code>Code</code> with <i class="tiny material-icons">favorite_border</i></p>
+        <p class="grey-text text-lighten-4">We Made < /> with <i class="tiny material-icons">favorite_border</i></p>
       </div>
       <div class="col l4 offset-l2 s12">
         <h5 class="white-text">Our Team</h5>
