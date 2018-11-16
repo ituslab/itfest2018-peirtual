@@ -22,7 +22,7 @@
                   <p>By : <a href="<?= baseurl()."/users/{$Diupload}" ?>"><?= $Diupload ?></a></p>
                 </div>
                 <div class="card-action">
-                  <a target="_blank" href="<?= baseurl()."/{$Buku}" ?>">Download Buku</a>
+                  <a class="teal-text" target="_blank" href="<?= baseurl()."/{$Buku}" ?>"><i class="material-icons">file_download</i>Download Buku</a>
                 </div>
               </div>
             </div>

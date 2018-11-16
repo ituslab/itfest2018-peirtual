@@ -14,8 +14,8 @@
                 <p>${e.Deskripsi}</p>
               </div>
               <div class="card-action">
-                <a href="${host+"/books/"+e.Id}">Info</a>
-                <a target="_blank" href="${host+e.Buku}">Download</a>
+                <a class="teal-text" href="${host+"/books/"+e.Id}"><i class="material-icons">description</i>Info</a>
+                <a class="teal-text" target="_blank" href="${host+e.Buku}"><i class="material-icons">file_download</i>Download</a>
               </div>
             </div>
           </div>
@@ -38,8 +38,8 @@
               <p>${e.Deskripsi}</p>
             </div>
             <div class="card-action">
-              <a href="${host+"/books/"+e.Id}">Info</a>
-              <a target="_blank" href="${host+e.Buku}">Download</a>
+              <a class="teal-text" href="${host+"/books/"+e.Id}"><i class="material-icons">description</i>Info</a>
+              <a class="teal-text" target="_blank" href="${host+e.Buku}"><i class="material-icons">file_download</i>Download</a>
             </div>
           </div>
         </div>
@@ -55,8 +55,8 @@
                 <p>${e.Deskripsi}</p>
               </div>
               <div class="card-action">
-                <a href="${host+"/books/"+e.Id}">Info</a>
-                <a target="_blank" href="${host+e.Buku}">Download</a>
+                <a class="teal-text" href="${host+"/books/"+e.Id}"><i class="material-icons">description</i>Info</a>
+                <a class="teal-text" target="_blank" href="${host+e.Buku}"><i class="material-icons">file_download</i>Download</a>
               </div>
             </div>
           </div>

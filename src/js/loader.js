@@ -33,8 +33,8 @@ $('#btn-load-more-books').on('click', function(event) {
                 <p>${data.Deskripsi}</p>
               </div>
               <div class="card-action">
-                <a href="${host+'/books/'+data.Id}">Info</a>
-                <a target="_blank" href="${host+data.Buku}">Download</a>
+                <a class="teal-text" href="${host+'/books/'+data.Id}"><i class="material-icons">description</i>Info</a>
+                <a class="teal-text" target="_blank" href="${host+data.Buku}"><i class="material-icons">file_download</i>Download</a>
               </div>
             </div>
           </div>

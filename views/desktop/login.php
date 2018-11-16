@@ -11,7 +11,7 @@
   <?php include_once 'includes/navbar.php' ?>
   <div class="section">
     <div class="row">
-      <div style="opacity:0.9" class="col s12 m6 offset-m3">
+      <div data-aos="zoom-in" data-aos-duration="800" style="opacity:0.9" class="col s12 m6 offset-m3">
         <div class="card shadow-box brown-text">
           <form action="<?= baseurl() ?>/login" method="POST">
             <div class="card-content">
@@ -43,7 +43,7 @@
               <?php endif; ?>
             </div>
             <div class="card-action">
-              <button type="submit" class="btn deep-purple darken-2 waves-effect waves-light">
+              <button type="submit" class="btn teal waves-effect waves-light">
                 Login
               </button>
             </div>
