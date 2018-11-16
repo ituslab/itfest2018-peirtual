@@ -131,16 +131,15 @@ $('#form-upload-buku').validate({
       idErrElement = '#error-'+input;
     $(idErrElement).html(errorText);
   },
-  success: function (label, validEl) {
-    uploadBuku(event);
-  },
+  success: function (label, validEl) {},
   submitHandler: uploadBuku
 });
 
 $('#register-user').validate({
   rules: {
     Nama: {
-      required: true
+      required: true,
+      maxlength: 40
     },
     Email: {
       required: true,
@@ -154,6 +153,7 @@ $('#register-user').validate({
   messages: {
     Nama: {
       required: 'Nama harus di isi !',
+      maxlength: 'Nama maksimal 40 karakter'
     },
     Email: {
       required: 'Email harus diisi',
