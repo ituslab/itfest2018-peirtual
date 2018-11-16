@@ -76,7 +76,7 @@ $(document).ready(function(){
       },
     }).done((res)=>{
       $('#category').html(``);
-<<<<<<< HEAD
+
       res.map(data => {
         
         $('#category').append(`
