@@ -69,7 +69,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 data-aos="zoom-in-up" data-aos-delay="500" class="header col s12 light">Jadilah Pribadi yang Kreatif dan Inovatif</h5>
+          <h5 data-aos="zoom-in-up" data-aos-delay="350" class="header col s12 light">Jadilah Pribadi yang Kreatif dan Inovatif</h5>
         </div>
       </div>
     </div>
@@ -104,7 +104,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light shadow-text" data-aos="zoom-in" data-aos-delay="600"><q> Semakin aku banyak membaca, semakin aku banyak berpikir,
+          <h5 class="header col s12 light shadow-text" data-aos="zoom-in" data-aos-delay="400"><q> Semakin aku banyak membaca, semakin aku banyak berpikir,
             semakin aku banyak belajar, semakin aku sadar bahwa aku tak mengetahui apa pun.</q> Voltaire.</h5>
         </div>
       </div>

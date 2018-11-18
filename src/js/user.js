@@ -59,3 +59,48 @@ function editUser() {
   });
 
 }
+
+function deleteBook(event) {
+  var
+    token = $('#token').val(),
+    bookid = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
+  swal({
+    title: "Apakah anda yakin ?",
+    text: "Buku akan dihapus selamanya !",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      $.ajax({
+        url: host+'/books/delete',
+        type: 'POST',
+        dataType: 'JSON',
+        data: {
+          id: bookid,
+          csrftoken: token
+        },
+        beforeSend: function(){
+          $('#delete-loading').show();
+        },
+      })
+      .done(function(res) {
+        swal(res.msg, {
+          icon: "success",
+        });
+        setTimeout(function(){
+          window.location.href = host+'/home'
+        }, 1000);
+      })
+      .fail(function(err, status, xhr){
+        console.log(err);
+        console.log(status);
+        console.log(xhr);
+        swal("Menghapus buku gagal Error: "+err.status);
+      });
+    } else {
+      swal("Anda membatalkan menghapus buku");
+    }
+  });
+}

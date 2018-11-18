@@ -16,7 +16,7 @@
 
   <script type="text/javascript">var host = "<?= baseurl()?>"</script>
   <script src="views/mobile/assets/js/materialize.min.js"></script>
-  <script src="views/mobile/assets/js/app.js"></script>
+  <script type="text/javascript" src="views/mobile/assets/js/app.js"></script>
 
 </body>
 <script>

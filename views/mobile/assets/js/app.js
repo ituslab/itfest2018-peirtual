@@ -77,7 +77,7 @@ $(document).ready(function(){
       $('#category').html(``);
 
       res.map(data => {
-        
+
         $('#category').append(`
       <li class="tab-category" >
         <div class=" card book-category">

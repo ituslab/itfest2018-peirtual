@@ -24,14 +24,19 @@ function uploadBuku() {
   .done(function(res) {
     formUploadReset();
     res = JSON.parse(res)
-    console.log(res);
-    $('#feedback-msg').html(res.msg);
+    swal({
+      text: res.msg,
+      icon: "success"
+    });
   })
   .fail(function(err, status, xhr) {
     formUploadReset();
     err = JSON.parse(err);
     console.log(err);
-    $('#feedback-msg').html(err.msg);
+    swal({
+      text: err.msg,
+      icon: "error"
+    });
   });
 }
 

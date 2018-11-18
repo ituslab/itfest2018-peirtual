@@ -40,5 +40,6 @@
       <li class="divider" tabindex="-1"></li>
     <?php endif; ?>
     <li><a class="white-text" href="<?= baseurl() ?>/logout"><i class="material-icons">power_settings_new</i><b>Logout</b></a></li>
+    <li id="a-mobile-view"><a href="https://peirtual.itpolsri.com/m"><i class="material-icons">phone_android</i>Mobile Interface</a></li>
   <?php endif; ?>
 </ul>

@@ -90,6 +90,7 @@
   // TEST BOOK
   $app->post('/books/upload', 'Package\Controller\BookController@upload');
   $app->post('/books/load', 'Package\Controller\BookController@loadMoreBooks');
+  $app->post('books/delete', 'Package\Controller\BookController@deleteBook');
   $app->get('/books/(\w+)', 'Package\Controller\BookController@showBook');
 
   // TEST API

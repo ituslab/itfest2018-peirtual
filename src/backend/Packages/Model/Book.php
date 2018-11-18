@@ -36,6 +36,12 @@ class Book {
     );
   }
 
+  public function delete($id){
+    return (
+      $this->connection->delete(self::table, 'Id', $id)
+    );
+  }
+
   public function showBookJoinCategory($id){
     $query = "SELECT b.*, k.Deskripsi AS KategoriDesc FROM Categories k
       INNER JOIN Books b

@@ -99,4 +99,14 @@ class File extends Image{
       }
       return $this;
     }
+
+    public function rmdir($dir){
+      $dir = $this->pathReplace.$dir;
+      if (is_dir($dir)) {
+        rmdir($dir);
+        return true;
+      }
+      return false;
+    }
+
   }

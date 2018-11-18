@@ -23,6 +23,31 @@ class BookController {
     }
   }
 
+  public function deleteBook(){
+    $file = new File(ROOT);
+    $bookid = Input::get('id');
+    if (csrfverify()) {
+      $book = $this->controller->checkId($bookid);
+      $delete = $file->delete([$book->Cover, $book->Buku])->rmdir("uploads/books/{$bookid}");
+      $deleteData = $this->controller->delete($bookid);
+      if ($deleteData) {
+        die(json_encode([
+          'msg' => 'Hapus buku berhasil !'
+        ]));
+      }else {
+        die(json_encode([
+          'msg' => 'Terjadi kesalahan. Hapus buku gagal !'
+        ]));
+      }
+    }else {
+      http_response_code(403);
+      die(json_encode([
+        'status' => http_response_code(),
+        'msg' => 'Autorisasi gagal. Invalid Token !'
+      ]));
+    }
+  }
+
   public function upload(){
     $uuid = uuid();
     $id = $this->controller->checkId($uuid) ? uuid() : $uuid;

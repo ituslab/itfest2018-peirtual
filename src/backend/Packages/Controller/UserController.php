@@ -212,7 +212,7 @@ class UserController {
 
   public function sendAccountVerification(){
     $mail = new PHPMailer(true);
-    $link = baseurl().'/verification?uname='.Session::get('username').'&authkey='.Session::get('usertoken');
+    $link = 'https://peirtual.itpolsri.com/verification?uname='.Session::get('username').'&authkey='.Session::get('usertoken');
     try{
       // $mail->SMTPDebug = 2 ;
       $mail->IsSMTP();

@@ -14,12 +14,12 @@
             <div class="row">
               <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" style="width:100%;margin:auto" src="<?= baseurl()."/{$Cover}" ?>">
+                  <img class="activator" style="width:100%;margin:auto" src="<?= $Cover ?>">
                 </div>
                 <div class="card-content">
                   <span><p class="grey-text text-darken-4"><b><?= $Judul ?></b></p></span>
                   <br />
-                  <p>By : <a href="<?= baseurl()."/users/{$Diupload}" ?>"><?= $Diupload ?></a></p>
+                  <p>By : <a id="username=uploader" href="<?= baseurl()."/users/{$Diupload}" ?>"><?= $Diupload ?></a></p>
                 </div>
                 <div class="card-action">
                   <a class="teal-text" target="_blank" href="<?= baseurl()."/{$Buku}" ?>"><i class="material-icons">file_download</i>Download Buku</a>
@@ -62,6 +62,20 @@
                       <textarea readonly id="Deskripsi" data-length="120" class="user-edit grey-text materialize-textarea"><?= nl2br($Deskripsi) ?></textarea>
                       <label for="Deskripsi">Deskripsi</label>
                     </div>
+                    <?php if (Session::get('username') == $Diupload): ?>
+                      <div id="delete-loading" style="display: none" class="col s12">
+                        <div class="progress">
+                          <div class="indeterminate"></div>
+                        </div>
+                      </div>
+                      <br />
+                      <div class="col s12">
+                        <input type="hidden" id="token" name="csrftoken" value="<?= csrftoken(true) ?>">
+                        <button onclick="deleteBook(event)" class="btn red waves-effect waves-light right" type="button" name="action">
+                          Hapus Buku
+                        </button>
+                      </div>
+                    <?php endif; ?>
                   </div>
                 </div>
               </div>

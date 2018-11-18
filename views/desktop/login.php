@@ -7,7 +7,7 @@
   <title>Login | Peirtual</title>
 </head>
 
-<body style="background-image: url('https://sutanlab.js.org/assets/img/bg/desk1.jpg');">
+<body style="background-image: url('https://sutanlab.js.org/assets/img/bg/desk5.jpg');">
   <?php include_once 'includes/navbar.php' ?>
   <div class="section">
     <div class="row">

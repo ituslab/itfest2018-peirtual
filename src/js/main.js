@@ -5,7 +5,6 @@ $('textarea').characterCounter();
 var instance = M.Tabs.init(document.getElementById('home-tabs'), {
   onShow: tabChange
 });
-
 AOS.init();
 
 function tabChange(){
